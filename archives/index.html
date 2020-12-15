@@ -288,9 +288,9 @@
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white" data-text="Sdntrotyl&#39;s Meadow" data-interval=""><span class="banner-title-inner">&nbsp;</span>
+			<div class="banner-title text-white" data-text="Sdntrotyl 的垃圾场" data-interval=""><span class="banner-title-inner">&nbsp;</span>
 		
-		</div>
+		<span class="banner-subtitle d-block">Fame and fortune indifferent, quiet and far-reaching</span></div>
 	</div>
 	
 		<style>
@@ -316,7 +316,7 @@
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
-			opacity: 1;
+			opacity: 0.6;
 			transition: opacity .5s ease;
 		}
 		html.darkmode #content:before{
@@ -340,7 +340,7 @@
 				transition: opacity .5s ease;
 			}
 			html.darkmode #content:after {
-				opacity: 1;
+				opacity: 0.6;
 			}
 			html.darkmode #content:before {
 				opacity: 0;
@@ -435,10 +435,19 @@
 <div id="sidebar_mask"></div>
 <aside id="leftbar" class="leftbar widget-area" role="complementary">
 		
+			<div id="leftbar_announcement" class="card bg-white shadow-sm border-0">
+				<div class="leftbar-announcement-body">
+					<div class="leftbar-announcement-title text-white">公告</div>
+					<div class="leftbar-announcement-content text-white">qaq</div>
+				</div>
+			</div>
+		
 		<div id="leftbar_part1" class="widget widget_search card bg-white shadow-sm border-0">
 			<div class="leftbar-banner card-body">
 				<span class="leftbar-banner-title text-white">Sdntrotyl&#39;s Meadow</span>
 				
+				
+					<span class="leftbar-banner-subtitle text-white"><span class='hitokoto'></span></span>
 				
 			</div>
 			
@@ -494,7 +503,7 @@
 									<div class="site-author-links">
 										
 											<div class='site-author-links-item'>
-												<a href="/" rel='noopener' target='_blank'>aaa</a>
+												<a href="/" rel='noopener' target='_blank'>github</a>
 											</div>
 										
 											<div class='site-author-links-item'>
@@ -610,8 +619,35 @@
 <script src="/argontheme.js"></script>
 
 		
+			<script>
+				window.MathJax = {
+					tex: {
+						inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+						displayMath: [['$$','$$']],
+						processEscapes: true,
+						packages: {'[+]': ['noerrors']}
+					},
+					options: {
+						skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+						ignoreHtmlClass: 'tex2jax_ignore',
+						processHtmlClass: 'tex2jax_process'
+					},
+					loader: {
+						load: ['[tex]/noerrors']
+					}
+				};
+			</script>
+			<script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" id="MathJax-script" async></script>
 		
 		
+		
+
+		
+			<script>
+				var argonEnableCodeHighlight = true;
+			</script>
+			
+<link rel="stylesheet" href="/assets/vendor/highlight/styles/vs2015.css">
 
 		
 
