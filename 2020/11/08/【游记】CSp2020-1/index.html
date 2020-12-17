@@ -3,18 +3,31 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>归档 - Sdntrotyl&#39;s Meadow</title>
+	<title>【游记】CSp2020 - Sdntrotyl&#39;s Meadow</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	
-	<meta property="og:type" content="website">
-<meta property="og:title" content="Sdntrotyl&#39;s Meadow">
-<meta property="og:url" content="https://www.tsd-blog.tk/archives/index.html">
+	<meta name="description" content="CSp2020退役记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【游记】CSp2020">
+<meta property="og:url" content="https://www.tsd-blog.tk/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/index.html">
 <meta property="og:site_name" content="Sdntrotyl&#39;s Meadow">
+<meta property="og:description" content="CSp2020退役记">
 <meta property="og:locale">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/11/0gU1nP.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/62250.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/62224.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png">
+<meta property="article:published_time" content="2020-11-08T06:39:39.000Z">
+<meta property="article:modified_time" content="2020-12-17T14:06:12.124Z">
 <meta property="article:author" content="Sdntrotyl">
+<meta property="article:tag" content="游记">
+<meta property="article:tag" content="2020">
+<meta property="article:tag" content="CSp">
+<meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/11/0gU1nP.png">
 
 	<meta name="theme-color" content="#5e72e4">
 	<meta name="theme-color-rgb" content="94,114,228">
@@ -453,7 +466,7 @@
 			
 			
 				<ul id='leftbar_part1_menu' class='leftbar-menu'>
-					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item current'><a href='/archives'>归档</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/'>首页</a></li></ul></li></ul></li></ul></li></ul></li>
+					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item'><a href='/archives'>归档</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/'>首页</a></li></ul></li></ul></li></ul></li></ul></li>
 				</ul>
 			
 			<div class="card-body text-center leftbar-search-button">
@@ -465,18 +478,49 @@
 		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
 			<div id="leftbar_part2_inner" class="card-body">
 				
-				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+				<div class="nav-wrapper" style="padding-top: 5px;">
 	                <ul class="nav nav-pills nav-fill" role="tablist">
 						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
 						<li class="nav-item sidebar-tab-switcher">
-							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
 						</li>
 	                </ul>
 				</div>
 				<div>
 					<div class="tab-content" style="padding: 10px 10px 0 10px;">
 						
-						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+									<style>
+										#leftbar_catalog ul {
+											counter-reset: blog_catalog_number;
+										}
+										#leftbar_catalog li.index-item > a:before {
+											content: counters(blog_catalog_number, '.') " ";
+											counter-increment: blog_catalog_number;
+										}
+									</style>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
 							<h6 id="leftbar_overview_author_name">Sdntrotyl&#39;s Meadow</h6>
 							<nav class="site-state">
@@ -573,58 +617,296 @@
 	<main id="main" class="site-main" role="main">
 		
 		
+			
+	<article class="post post-full card bg-white shadow-sm border-0 post-preview">
+	<header class="post-header text-center post-header-with-thumbnail">
 		
-				<article class="post post-full card bg-white shadow-sm border-0">
-	<header class="post-header text-center">
-		<a class="post-title" href="/archives/">归档</a>
+				<img class='post-thumbnail lazyload' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=' data-original='https://s1.ax1x.com/2020/10/11/0gU1nP.png' alt='thumbnail'></img>
+				<div class='post-header-text-container'>
+			
+		<a class="post-title" href="/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/">【游记】CSp2020</a>
+		<div class="post-meta">
+			
+						
+						<div class="post-meta-detail post-meta-detail-time">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<time title="发布于 2020-11-8 14:39:39 | 编辑于 2020-12-17 22:06:12">2020-11-8 14:39
+							</time>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-edittime">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<time title="发布于 2020-11-8 14:39:39 | 编辑于 2020-12-17 22:06:12">2020-12-17 22:06
+							</time>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-words">
+							<i class="fa fa fa-book" aria-hidden="true"></i>
+							<span id="busuanzi_container_page_pv">
+								阅读<span id="busuanzi_value_page_pv"></span>次
+							</span>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-words">
+							<i class="fa fa-file-word-o" aria-hidden="true"></i>
+							489 字
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-readingtime">
+							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
+							2 分钟
+						</div>
+					
+		</div>
+		
+				</div>
+			
 	</header>
 
 	<div class="post-content" id="post_content">
-		<div class='argon-timeline'>
-			
-						<div class='argon-timeline-node'>
-							<div class='argon-timeline-time archive-timeline-year'>2020</div>
-							<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'></div>
-						</div>
-						
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>11-15</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/11/15/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith/">【题解】[AT4303][ABC119D] Lazy Faith</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>11-12</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/">【笔记】Pick 定理</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>11-8</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/">【游记】CSp2020</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>10-30</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/10/30/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace/">【题解】[AT4266][ABC113B] Palace</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>6-30</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E4%BA%8C%E7%BB%B4%E5%87%B8%E5%8C%85/">【笔记】二维凸包</a>
-						</div>
-					</div>
-			
-		</div>
+		<h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day -2"></a>Day -2</h2><p>做了个模拟（非洛谷），只有<strong>一丁点</strong>分，显然过不了</p>
+<p><del>（盗张 i am ak f 的图）</del></p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://s1.ax1x.com/2020/10/11/0gU1nP.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="0gU1nP.png"></p>
+
+<h2 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h2><p>颓，颓，颓，又做了一套模拟，坚定了退役的信心。</p>
+<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>人好多啊，风好大啊，我好冷啊。</p>
+<p>走进去感觉心态挺好？</p>
+<h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 $\it 2.5pts$ 没了……</p>
+<p>总之，考的不是很好，但应该还是可以过？（我都不信……）</p>
+<h3 id="面基"><a href="#面基" class="headerlink" title="面基"></a>面基</h3><p>显然考试不重要，面基才重要，从 3 楼下来到了 102 结果没什么人，看见了书虫，结果我没认出来他他认出来我了<img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  src="https://cdn.luogu.com.cn/upload/pic/62250.png" alt="/fad"> 一定是我太 <del>可爱</del> 菜了，一眼就能认出来。感觉书虫好可爱啊<img data-original="https://cdn.luogu.com.cn/upload/pic/62224.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" alt="/qq"></p>
+
+<p><del>rui_er 人呢，ClCN 人呢，tarjin 人呢（</del></p>
+<h2 id="结束了。"><a href="#结束了。" class="headerlink" title="结束了。"></a>结束了。</h2><p>回来本来还想着可能烤得挺好，一堆答案，一切都结束了，该晋级的晋级了，该 AK 的 AK 了。我只能退役了……</p>
+<p>但毕竟还有时间，希望能继续努力，实现自己的梦想吧。</p>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day -(-3)"></a>Day -(-3)</h2><p>出成绩了，擦线过了（</p>
+<hr>
+<h1 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h1><h2 id="Day-5"><a href="#Day-5" class="headerlink" title="Day -5"></a>Day -5</h2><p>模拟赛垫底。</p>
+<p>100+100+30+10</p>
+<p>我直接退役好吧……</p>
+<h2 id="Day-4"><a href="#Day-4" class="headerlink" title="Day -4"></a>Day -4</h2><p>简单复习了复习图论。</p>
+<h2 id="Day-3-1"><a href="#Day-3-1" class="headerlink" title="Day -3"></a>Day -3</h2><p>期中考试祭，也算是进入初中后第一次大考。</p>
+<p>Day1：语文，地理，数学<br>Day2：英语，生物</p>
+<p>感觉地理数学都爆炸了/youl</p>
+<p>竟然感觉语文还行？？？（</p>
+<h2 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h2><h3 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h3><p>上午 pj。</p>
+<p>7:00 就到了考场，在车上吃了点东西。</p>
+<p>8:00 进去了</p>
+<p>找到了教室，做好了，竟然坐在墙角。</p>
+<p>做我前面的人来了，走近来的时候突然叫了一声：“是 TNT 吗？”</p>
+<p>我吓了一跳，没见过，不认识，他是怎么认识我的，就没管。</p>
+<p>8:20 把解压码发下来，输错了 5 次，不愧是我……</p>
+<p>8:35 </p>
+<p>监考员才说可以答题了……</p>
+<p>开了看 T1，不是一眼题了，爷清洁。</p>
+<p>两眼题好评，过了大样例就没管。</p>
+<p>看了眼 T2，两眼题好评，一开始 sb 直接打暴力，没过大样例。</p>
+<p>稍微改了改过了大样例也就没管了。</p>
+<p>看 T3，这啥啊，以为是个 ds，不会，就都输出个 1 骗点分，看 T4。</p>
+<p>这不就是个 dp 吗，可惜 dp 没学好，也懒得推方程，写了个贪心骗点分回来看 T3。</p>
+<p>想了想是否能暴力，打了个暴力，连 Sample1 都没过，也快结束了，就把输出 1 的交了上去。</p>
+<p>估分：100+100+20<del>30+20=240</del>250</p>
+<p>12:35 监考员收完答题纸把我们放了出来，我立刻去问了问我前面的那位，才知道是洛谷的@超级玛丽王子，吓死我了（</p>
+<p>回来洛谷测了一下，T1 挂了，T2 挂了，T3 挂了，T4 挂了</p>
+<p>T1 莫名成了 60，T2 85。</p>
+<p>草 nm 这个 T3 我就是傻逼好吧……</p>
+<p>我分明每个程序都又运行了一下没爆啊？</p>
+<p><img class="lazyload lazyload-style-1" src="data:image/svg+xml;base64,PCEtLUFyZ29uTG9hZGluZy0tPgo8c3ZnIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmMDAiPjxnPjwvZz4KPC9zdmc+"  data-original="https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"></p>
+
+<p>本来 30，CE 了，我退役罢……</p>
+<h3 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h3><p>中午去吃了个海底捞，真行。</p>
+<p>又跟同学讨论了一下题，一致认为，毒瘤。</p>
+<h3 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h3><p>吃的有点撑，进考场时有点难受，风又大，感觉我要凉。</p>
+<p>做到了座位，和 pj 一样的教室，没想到@超级玛丽王子 又来走近我。</p>
+<p>我：？？？<br>他：我 pj 做你前头，tg 做你后头（</p>
+<p>还挺有缘（</p>
+<p>开 T1，sb 题，想拜访出题人祖母的女儿，出题人你萌死了，萌死了。</p>
+<p>敲了个 20 分扔了没管看 T2。</p>
+<p>竟然没怎么读懂题，花了 20 分钟读题，写了个暴力看 T3</p>
+<p>天哪，不会做……（赛后得知：dp+拓扑）</p>
+<p>输了个样例</p>
+<p>T4 感觉可以做做试试。</p>
+<p>就瞎写了写。</p>
+<p>估分：20+10<del>30+0+10=40</del>60</p>
+<p>出来后，看很晚了，也根本没人愿意来找我面基，就走了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>自己还是基础太薄弱了，学再多的东西又有什么用呢？pj T1 都能挂。</p>
+<blockquote>
+<p>失败了一次，就要从跌倒的地方再爬起。</p>
+</blockquote>
+<p>既然已经知道自己的能力根本就不行了的话，努力吧。</p>
+<p>我们 CSp2021 再见！</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>有可能我永远不可能拿到自己心中的蓝勾了，</p>
+<p>从五年级就接触 OI，学了半年糊里糊涂去参加了 NOIp2018 pj，初赛那个十几分回来，当时觉得并没有什么，机会还多。</p>
+<p>2019 年是 NOIp 却没了，取而代之的是 CSp，一切准备妥当时，突然有一个情况发生了：</p>
+<p>CSp 与另一个比赛冲突了，</p>
+<p>那个比赛是一个全国的人工智能大赛，我和另一个搭档代表 BJ 队去 TJ 参赛。</p>
+<p>当时内心十分纠结，整天心态不好，去询问了教练，教练建议去参加那个比赛，可能我即使参加了 CSp 也没有能力拿奖吧。</p>
+<p>可惜，心态问题，那个比赛没搞好连一等奖都没拿到，二等奖第一名。</p>
+<p>又得知 pj 初赛机考水的要死，复赛 T1 一眼题，过了 T1 就二等。</p>
+<p>心态立即就爆炸了，懊悔当初没去参加 CSp。</p>
+<p>就又等了一年。</p>
+<p>CSp2020 了，擦线过了初赛，离复赛只有三天时，才发现自己什么也不会，无比迷茫，不知自己到底会前往何方。</p>
+<p>今年的比赛，暴露了我的真实水平。</p>
+<p>期中考也没考好，英语下了 90。</p>
+<p>明年，明年，明年。</p>
+<p>恐怕，我连明天都已经没有了罢……</p>
+
 	</div>
+
+	
+
+	
+			<div class='additional-content-after-post'>NOIp2021 加油！</div>
+		
+
+	
+		<div class="post-tags">
+			<i class="fa fa-tags" aria-hidden="true"></i>
+			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/2020/" rel="tag">2020</a><a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/CSp/" rel="tag">CSp</a><a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/NOIp/" rel="tag">NOIp</a><a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a>
+		</div>
+	
 </article>
+
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=https://www.tsd-blog.tk/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/&text=【游记】CSp2020" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
+	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : '【游记】CSp2020',
+	    description : '初赛Day -2做了个模拟（非洛谷），只有一丁点分，显然过不了
+（盗张 i am ak f 的图）
+...',
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'https://www.tsd-blog.tk/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
+
+
+<div id="post_comment" class="card shadow-sm">
+	<div id="gitalk-container"></div>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+		clientID: '89ae4d812e371516f4fb',
+		clientSecret: 'e69daff781a05b4d7282ccf38cfea2b8009dfb86',
+		repo: 'gitalk',
+		owner: 'TNTtian',
+		admin: ['TNTtian'],
+		id: location.pathname,
+		distractionFreeMode: false
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/" rel="prev"> 【笔记】Pick 定理</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2020/10/30/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace/" rel="next"> 【题解】[AT4266][ABC113B] Palace</a></div></div>
+
+
+
+		
 		
 		
 		

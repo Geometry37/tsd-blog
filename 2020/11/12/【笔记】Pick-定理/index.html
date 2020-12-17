@@ -3,17 +3,23 @@
 <html class="article-header-style-default">
 <head>
 	
-	<title>归档 - Sdntrotyl&#39;s Meadow</title>
+	<title>【笔记】Pick 定理 - Sdntrotyl&#39;s Meadow</title>
 	<meta charset="utf-8">
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	
-	<meta property="og:type" content="website">
-<meta property="og:title" content="Sdntrotyl&#39;s Meadow">
-<meta property="og:url" content="https://www.tsd-blog.tk/archives/index.html">
+	<meta name="description" content="Pick 定理[笔记][计算几何]基本概念给定顶点均为整点的简单多边形，该定理说明了其面积 $A$ 和内部个点数目 $i$、边上格点数目 $b$ 的关系：$$A&#x3D;i+\frac{b}{2}-1$$详细的证明可以看【这里】，在本文简述一下，反正不打算投日报 简略证明因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 $P$，及跟 $P$ 有一条共同边的三角形 $T$。若 $">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】Pick 定理">
+<meta property="og:url" content="https://www.tsd-blog.tk/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/index.html">
 <meta property="og:site_name" content="Sdntrotyl&#39;s Meadow">
+<meta property="og:description" content="Pick 定理[笔记][计算几何]基本概念给定顶点均为整点的简单多边形，该定理说明了其面积 $A$ 和内部个点数目 $i$、边上格点数目 $b$ 的关系：$$A&#x3D;i+\frac{b}{2}-1$$详细的证明可以看【这里】，在本文简述一下，反正不打算投日报 简略证明因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 $P$，及跟 $P$ 有一条共同边的三角形 $T$。若 $">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-11-12T13:02:24.000Z">
+<meta property="article:modified_time" content="2020-12-17T14:12:23.430Z">
 <meta property="article:author" content="Sdntrotyl">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="计算几何">
 <meta name="twitter:card" content="summary">
 
 	<meta name="theme-color" content="#5e72e4">
@@ -453,7 +459,7 @@
 			
 			
 				<ul id='leftbar_part1_menu' class='leftbar-menu'>
-					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item current'><a href='/archives'>归档</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/'>首页</a></li></ul></li></ul></li></ul></li></ul></li>
+					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item'><a href='/archives'>归档</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>套娃</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/'>首页</a></li></ul></li></ul></li></ul></li></ul></li>
 				</ul>
 			
 			<div class="card-body text-center leftbar-search-button">
@@ -465,18 +471,49 @@
 		<div id="leftbar_part2" class="widget widget_search card bg-white shadow-sm border-0">
 			<div id="leftbar_part2_inner" class="card-body">
 				
-				<div class="nav-wrapper" style="padding-top: 5px; display:none; ">
+				<div class="nav-wrapper" style="padding-top: 5px;">
 	                <ul class="nav nav-pills nav-fill" role="tablist">
 						
+							<li class="nav-item sidebar-tab-switcher">
+								<a class="active show" id="leftbar_tab_catalog_btn" data-toggle="tab" href="#leftbar_tab_catalog" role="tab" aria-controls="leftbar_tab_catalog" no-pjax>文章目录</a>
+							</li>
+						
 						<li class="nav-item sidebar-tab-switcher">
-							<a class="active show" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
+							<a class="" id="leftbar_tab_overview_btn" data-toggle="tab" href="#leftbar_tab_overview" role="tab" aria-controls="leftbar_tab_overview" no-pjax>站点概览</a>
 						</li>
 	                </ul>
 				</div>
 				<div>
 					<div class="tab-content" style="padding: 10px 10px 0 10px;">
 						
-						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
+							<div class="tab-pane fade active show" id="leftbar_tab_catalog" role="tabpanel" aria-labelledby="leftbar_tab_catalog_btn">
+								<div id="leftbar_catalog"></div>
+								<script type="text/javascript">
+									$(function () {
+										$(document).headIndex({
+											articleWrapSelector: '#post_content',
+											indexBoxSelector: '#leftbar_catalog',
+											subItemBoxClass: "index-subItem-box",
+											itemClass: "index-item",
+											linkClass: "index-link",
+											offset: 80,
+										});
+									})
+								</script>
+								
+									<style>
+										#leftbar_catalog ul {
+											counter-reset: blog_catalog_number;
+										}
+										#leftbar_catalog li.index-item > a:before {
+											content: counters(blog_catalog_number, '.') " ";
+											counter-increment: blog_catalog_number;
+										}
+									</style>
+								
+							</div>
+						
+						<div class="tab-pane fade text-center" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.jpg" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
 							<h6 id="leftbar_overview_author_name">Sdntrotyl&#39;s Meadow</h6>
 							<nav class="site-state">
@@ -573,58 +610,215 @@
 	<main id="main" class="site-main" role="main">
 		
 		
-		
-				<article class="post post-full card bg-white shadow-sm border-0">
+			
+	<article class="post post-full card bg-white shadow-sm border-0 post-preview">
 	<header class="post-header text-center">
-		<a class="post-title" href="/archives/">归档</a>
+		
+		<a class="post-title" href="/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/">【笔记】Pick 定理</a>
+		<div class="post-meta">
+			
+						
+						<div class="post-meta-detail post-meta-detail-time">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<time title="发布于 2020-11-12 21:02:24 | 编辑于 2020-12-17 22:12:23">2020-11-12 21:02
+							</time>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-edittime">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<time title="发布于 2020-11-12 21:02:24 | 编辑于 2020-12-17 22:12:23">2020-12-17 22:12
+							</time>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-words">
+							<i class="fa fa fa-book" aria-hidden="true"></i>
+							<span id="busuanzi_container_page_pv">
+								阅读<span id="busuanzi_value_page_pv"></span>次
+							</span>
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-words">
+							<i class="fa fa-file-word-o" aria-hidden="true"></i>
+							290 字
+						</div>
+					
+						
+							<div class="post-meta-devide">|</div>
+						
+						<div class="post-meta-detail post-meta-detail-readingtime">
+							<i class="fa fa-hourglass-end" aria-hidden="true"></i>
+							1 分钟
+						</div>
+					
+		</div>
+		
 	</header>
 
 	<div class="post-content" id="post_content">
-		<div class='argon-timeline'>
-			
-						<div class='argon-timeline-node'>
-							<div class='argon-timeline-time archive-timeline-year'>2020</div>
-							<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'></div>
-						</div>
-						
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>11-15</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/11/15/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith/">【题解】[AT4303][ABC119D] Lazy Faith</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>11-12</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/">【笔记】Pick 定理</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>11-8</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/">【游记】CSp2020</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>10-30</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/10/30/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace/">【题解】[AT4266][ABC113B] Palace</a>
-						</div>
-					</div>
-			
-					<div class='argon-timeline-node'>
-						<div class='argon-timeline-time'>6-30</div>
-						<div class='argon-timeline-card card bg-gradient-secondary archive-timeline-title'>
-							<a href="/2020/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E4%BA%8C%E7%BB%B4%E5%87%B8%E5%8C%85/">【笔记】二维凸包</a>
-						</div>
-					</div>
-			
-		</div>
+		<h1 id="Pick-定理-笔记-计算几何"><a href="#Pick-定理-笔记-计算几何" class="headerlink" title="Pick 定理[笔记][计算几何]"></a>Pick 定理[笔记][计算几何]</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>给定顶点均为整点的简单多边形，该定理说明了其面积 $A$ 和内部个点数目 $i$、边上格点数目 $b$ 的关系：<br>$$A=i+\frac{b}{2}-1$$<br>详细的证明可以看<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pick%27s_theorem">【这里】</a>，在本文简述一下，<del>反正不打算投日报</del></p>
+<h2 id="简略证明"><a href="#简略证明" class="headerlink" title="简略证明"></a>简略证明</h2><p>因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 $P$，及跟 $P$ 有一条共同边的三角形 $T$。若 $P$ 符合 Pick 公式，则只要证明 $P$ 加上 $T$ 的 $PT$ 亦符合皮克公式，以及三角形符合皮克公式，就可根据数学归纳法，对于所有简单多边形皮克公式都是成立的。</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/training/36443">[题单]【计算几何】Pick 定理</a></p>
+<h3 id="P2735-USACO3-4-网-Electric-Fences"><a href="#P2735-USACO3-4-网-Electric-Fences" class="headerlink" title="P2735 [USACO3.4]网 Electric Fences"></a>P2735 [USACO3.4]网 Electric Fences</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2735">Link</a></p>
+</blockquote>
+<p>这道题是我们模拟赛的一道题，当时不会做，就……</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> x_1 = <span class="number">0</span>, y_1 = <span class="number">0</span>, x_2, y_2, x_3, y_3 = <span class="number">0</span>;</span><br><span class="line">l l ans;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; x_2 &gt;&gt; y_2 &gt;&gt; x_3;</span><br><span class="line">	l l len_00_nm = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_1 - x_2) * (x_1 - x_2) + (y_1 - y_2) * (y_1 - y_2)));</span><br><span class="line">	l l len_nm_p0 = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_2 - x_3) * (x_2 - x_3) + (y_2 - y_3) * (y_2 - y_3)));</span><br><span class="line">	l l len_p0_00 = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_3 - x_1) * (x_3 - x_1) + (y_3 - y_1) * (y_3 - y_1)));</span><br><span class="line">	l l p = (len_00_nm + len_nm_p0 + len_p0_00) / <span class="number">2</span>;</span><br><span class="line">	ans = <span class="built_in">sqrt</span>(p * (p - len_00_nm) * (p - len_nm_p0) * (p - len_p0_00));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很好，$\rm 8pts$！</p>
+<p>然后等教练一讲和书虫告诉我的才知道这题要用 Pick（sto 书虫 otz）</p>
+<p>那么这题怎么用 Pick 呢…？</p>
+<p>咕咕咕，题单还没整好，暂不公开。</p>
+
 	</div>
+
+	
+
+	
+
+	
+		<div class="post-tags">
+			<i class="fa fa-tags" aria-hidden="true"></i>
+			<a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><a class="tag badge badge-secondary post-meta-detail-tag -none-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a>
+		</div>
+	
 </article>
+
+	<div id="share_container">
+	<div id="share" data-initialized="true">
+		<a class="no-pjax icon-wechat" tooltip="分享到微信">
+			<button class="btn btn-icon btn-success">
+				<span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-douban" tooltip="分享到豆瓣">
+			<button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+				豆
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qq" tooltip="分享到 QQ">
+			<button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-qzone" tooltip="分享到 QQ 空间">
+			<button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-weibo" tooltip="分享到微博">
+			<button class="btn btn-icon btn-warning">
+				<span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-facebook" tooltip="分享到 Facebook">
+			<button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-twitter" tooltip="分享到 Twitter">
+			<button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=https://www.tsd-blog.tk/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/&text=【笔记】Pick 定理" tooltip="分享到 Telegram">
+			<button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+				<span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+			</button>
+		</a>
+		<a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link" tooltip="复制链接">
+			<button class="btn btn-icon btn-default">
+				<span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+			</button>
+		</a>
+	</div>
+	<button id="share_show" class="btn btn-icon btn-primary" tooltip="分享">
+		<span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+	</button>
+</div>
+<script type="text/javascript">
+	socialShare("#share", {
+	    title : '【笔记】Pick 定理',
+	    description : 'Pick 定理[笔记][计算几何]基本概念给定顶点均为整点的简单多边形，该定理说明了其面积 $A$ ...',
+	    wechatQrcodeTitle : "分享到微信",
+	    wechatQrcodeHelper : '微信扫描二维码',
+	    source : 'https://www.tsd-blog.tk/2020/11/12/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86/'
+	});
+	$("#share_show")[0].onclick = function(){
+		$("#share_container").addClass("opened");
+	};
+	$("#share_copy_link")[0].onclick = function(){
+		let input = document.createElement('input');
+		document.body.appendChild(input);
+		input.setAttribute("value", window.location.href);
+		input.setAttribute("readonly", "readonly");
+		input.setAttribute("style", "opacity: 0;mouse-events:none;");
+		input.select();
+		if (document.execCommand('copy')){
+			iziToast.show({
+				title: '链接已复制',
+				message: "链接已复制到剪贴板",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#2dce89',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-check',
+				timeout: 5000
+			});
+		}else{
+			iziToast.show({
+				title: '复制失败',
+				message: "请手动复制链接",
+				class: 'shadow',
+				position: 'topRight',
+				backgroundColor: '#f5365c',
+				titleColor: '#ffffff',
+				messageColor: '#ffffff',
+				iconColor: '#ffffff',
+				progressBarColor: '#ffffff',
+				icon: 'fa fa-close',
+				timeout: 5000
+			});
+		}
+		document.body.removeChild(input);
+	};
+</script>
+
+
+<div id="post_comment" class="card shadow-sm">
+	<div id="gitalk-container"></div>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+		clientID: '89ae4d812e371516f4fb',
+		clientSecret: 'e69daff781a05b4d7282ccf38cfea2b8009dfb86',
+		repo: 'gitalk',
+		owner: 'TNTtian',
+		admin: ['TNTtian'],
+		id: location.pathname,
+		distractionFreeMode: false
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+
+<div class="post-navigation card shadow-sm"><div class="post-navigation-item post-navigation-pre"><span class="page-navigation-extra-text"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>上一篇</span><a href="/2020/11/15/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith/" rel="prev"> 【题解】[AT4303][ABC119D] Lazy Faith</a></div><div class="post-navigation-item post-navigation-next"><span class="page-navigation-extra-text">下一篇 <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span><a href="/2020/11/08/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1/" rel="next"> 【游记】CSp2020</a></div></div>
+
+
+
+		
 		
 		
 		
