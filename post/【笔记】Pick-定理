@@ -444,37 +444,22 @@
 			<script>
 				console.error("Error: [hexo-tag-aplayer] Meting support is disabled, cannot resolve the meting tags properly.");
 			</script>
-
-        <h1 id="pick-定理笔记计算几何"   >
-          <a href="#pick-定理笔记计算几何" class="heading-link"><i class="fas fa-link"></i></a># Pick 定理 [笔记][计算几何]</h1>
-      
-
-        <h2 id="基本概念"   >
-          <a href="#基本概念" class="heading-link"><i class="fas fa-link"></i></a># 基本概念</h2>
-      
+<h1 id="pick-定理笔记计算几何"><a class="markdownIt-Anchor" href="#pick-定理笔记计算几何">#</a> Pick 定理 [笔记][计算几何]</h1>
+<h2 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念">#</a> 基本概念</h2>
 <p>给定顶点均为整点的简单多边形，该定理说明了其面积 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> 和内部个点数目 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span>、边上格点数目 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> 的关系：</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>=</mo><mi>i</mi><mo>+</mo><mfrac><mi>b</mi><mn>2</mn></mfrac><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">A=i+\frac{b}{2}-1
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
-<p>详细的证明可以看<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pick%27s_theorem" >【这里】</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，在本文简述一下，<s>反正不打算投日报</s></p>
-
-        <h2 id="简略证明"   >
-          <a href="#简略证明" class="heading-link"><i class="fas fa-link"></i></a># 简略证明</h2>
-      
+<p>详细的证明可以看<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pick%27s_theorem">【这里】</a>，在本文简述一下，<s>反正不打算投日报</s></p>
+<h2 id="简略证明"><a class="markdownIt-Anchor" href="#简略证明">#</a> 简略证明</h2>
 <p>因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>，及跟 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 有一条共同边的三角形 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>。若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 符合 Pick 公式，则只要证明 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 加上 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">PT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 亦符合皮克公式，以及三角形符合皮克公式，就可根据数学归纳法，对于所有简单多边形皮克公式都是成立的。</p>
-
-        <h2 id="例题"   >
-          <a href="#例题" class="heading-link"><i class="fas fa-link"></i></a># 例题</h2>
-      
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.luogu.com.cn/training/36443" >[题单]【计算几何】Pick 定理</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h3 id="p2735-usaco34网-electric-fences"   >
-          <a href="#p2735-usaco34网-electric-fences" class="heading-link"><i class="fas fa-link"></i></a># P2735 [USACO3.4] 网 Electric Fences</h3>
-      
+<h2 id="例题"><a class="markdownIt-Anchor" href="#例题">#</a> 例题</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/training/36443">[题单]【计算几何】Pick 定理</a></p>
+<h3 id="p2735-usaco34网-electric-fences"><a class="markdownIt-Anchor" href="#p2735-usaco34网-electric-fences">#</a> P2735 [USACO3.4] 网 Electric Fences</h3>
 <blockquote>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2735" >Link</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2735">Link</a></p>
 </blockquote>
 <p>这道题是我们模拟赛的一道题，当时不会做，就……</p>
-<figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> x_1 = <span class="number">0</span>, y_1 = <span class="number">0</span>, x_2, y_2, x_3, y_3 = <span class="number">0</span>;</span><br><span class="line">l l ans;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; x_2 &gt;&gt; y_2 &gt;&gt; x_3;</span><br><span class="line">	l l len_00_nm = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_1 - x_2) * (x_1 - x_2) + (y_1 - y_2) * (y_1 - y_2)));</span><br><span class="line">	l l len_nm_p0 = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_2 - x_3) * (x_2 - x_3) + (y_2 - y_3) * (y_2 - y_3)));</span><br><span class="line">	l l len_p0_00 = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_3 - x_1) * (x_3 - x_1) + (y_3 - y_1) * (y_3 - y_1)));</span><br><span class="line">	l l p = (len_00_nm + len_nm_p0 + len_p0_00) / <span class="number">2</span>;</span><br><span class="line">	ans = <span class="built_in">sqrt</span>(p * (p - len_00_nm) * (p - len_nm_p0) * (p - len_p0_00));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> x_1 = <span class="number">0</span>, y_1 = <span class="number">0</span>, x_2, y_2, x_3, y_3 = <span class="number">0</span>;</span><br><span class="line">l l ans;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; x_2 &gt;&gt; y_2 &gt;&gt; x_3;</span><br><span class="line">	l l len_00_nm = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_1 - x_2) * (x_1 - x_2) + (y_1 - y_2) * (y_1 - y_2)));</span><br><span class="line">	l l len_nm_p0 = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_2 - x_3) * (x_2 - x_3) + (y_2 - y_3) * (y_2 - y_3)));</span><br><span class="line">	l l len_p0_00 = <span class="built_in">abs</span>(<span class="built_in">sqrt</span>((x_3 - x_1) * (x_3 - x_1) + (y_3 - y_1) * (y_3 - y_1)));</span><br><span class="line">	l l p = (len_00_nm + len_nm_p0 + len_p0_00) / <span class="number">2</span>;</span><br><span class="line">	ans = <span class="built_in">sqrt</span>(p * (p - len_00_nm) * (p - len_nm_p0) * (p - len_p0_00));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>很好，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mi mathvariant="normal">p</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\rm 8pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">8</span><span class="mord mathrm">p</span><span class="mord mathrm">t</span><span class="mord mathrm">s</span></span></span></span></span>！</p>
 <p>然后等教练一讲和书虫告诉我的才知道这题要用 Pick（sto 书虫 otz）</p>
 <p>那么这题怎么用 Pick 呢…？</p>
@@ -594,31 +579,26 @@
       
         <a class='prev' href='/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【题解】[AT4303][ABC119D] Lazy Faith</p>
-          <p class='content'>
-        
-          # AT4303 [ABC119D] Lazy Faith [题解][二分]
-      
+          <p class='content'># AT4303 [ABC119D] Lazy Faith [题解][二分]
 
 AT4303
 
-
-        
-          # ...</p>
+# translation
+有 aaa 个点 sss，有 bbb 个点 ttt，问从点 xxx 出...</p>
         </a>
       
       
         <a class='next' href='/post/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1'>
           <p class='title'>【游记】CSp2020<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-        
-          # 初赛
-      
-
-        
-          # Day -2
-      
+          <p class='content'># 初赛
+# Day -2
 做了个模拟（非洛谷），只有一丁点分，显然过不了
-（盗张 i...</p>
+（盗张 i am ak f 的图）
+
+# Day 0
+颓，颓，颓，又做了一套模拟，坚定了退役的信心。
+# Day 1
+...</p>
         </a>
       
     </div>
@@ -661,11 +641,7 @@ AT4303
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">
-          # 基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%95%A5%E8%AF%81%E6%98%8E"><span class="toc-text">
-          # 简略证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text">
-          # 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#p2735-usaco34%E7%BD%91-electric-fences"><span class="toc-text">
-          # P2735 [USACO3.4] 网 Electric Fences</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%95%A5%E8%AF%81%E6%98%8E"><span class="toc-text"> 简略证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text"> 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#p2735-usaco34%E7%BD%91-electric-fences"><span class="toc-text"> P2735 [USACO3.4] 网 Electric Fences</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -724,7 +700,7 @@ AT4303
       
     
       
-        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示 - 非商業性 - 相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
@@ -736,9 +712,9 @@ AT4303
       
     
       
-        本站使用
+        Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
-        作為主題
+        as theme
       
     
       
@@ -901,12 +877,12 @@ var loadCSS = function( href, before, media, attributes ){
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>複製文本</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
         <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>複製鏈接</a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新標籤頁打開</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
         <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>複製圖片地址</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
         <hr id='hr-src'>
       </li>
       
