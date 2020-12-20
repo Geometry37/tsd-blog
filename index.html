@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sdntrotyl's Meadow</title><meta name="author" content="Sdntrotyl"><meta name="copyright" content="Sdntrotyl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="Sdntrotyl&#39;s Meadow">
+<meta property="og:url" content="https://www.tsd-blog.tk/index.html">
+<meta property="og:site_name" content="Sdntrotyl&#39;s Meadow">
+<meta property="og:locale">
+<meta property="og:image" content="https://www.tsd-blog.tk/null">
+<meta property="article:author" content="Sdntrotyl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.tsd-blog.tk/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.tsd-blog.tk/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-12-20 18:27:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Sdntrotyl's Meadow</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Sdntrotyl's Meadow</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith" title="【题解】[AT4303][ABC119D] Lazy Faith">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【题解】[AT4303][ABC119D] Lazy Faith"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith" title="【题解】[AT4303][ABC119D] Lazy Faith">【题解】[AT4303][ABC119D] Lazy Faith</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-15T08:48:03.000Z" title="Created 2020-11-15 16:48:03">2020-11-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a></span></div><div class="content"># AT4303 [ABC119D] Lazy Faith [题解][二分]
+
+AT4303
+
+# translation
+有 aaa 个点 sss，有 bbb 个点 ttt，问从点 xxx 出发到达至少一个 aaa 和一个 bbb 的最短距离是多少。
+# solution
+我们先举一个简单的例子，假如我们有 222 个点 sss 分别在 3,63,63,6 和 222 个点 ttt 分别在 2,52,52,5，xxx 从 444 出发。
+先画一个图更好的理解
+
+那么我们现在有 444 种选择：
+
+选择 s1s_1s1​ 和 t1t_1t1​
+选择 s2s_2s2​ 和 t2t_2t2​
+选择 s1s_1s1​ 和 t2t_2t2​
+选择 s2s_2s2​ 和 t1t_1t1​
+
+那么可以想想，还有其他的选择吗？并没有！
+因为要选择最短的路线，如果在 t1t_1t1​ 左边或 s2s_2s2​ 右边还有点的话，若选择它肯定距离长，肯定要舍。
+所以总结，只有这四种选法：
+
+左 sss 左 ttt
+右 sss 右 ttt
+左 sss 右 ttt
+右 sss 左 ttt
+
+所以只要将这 44 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86" title="【笔记】Pick 定理">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【笔记】Pick 定理"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86" title="【笔记】Pick 定理">【笔记】Pick 定理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-12T13:02:24.000Z" title="Created 2020-11-12 21:02:24">2020-11-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">
+			
+				console.error("Error: [hexo-tag-aplayer] Meting support is disabled, cannot resolve the meting tags properly.");
+			
+# Pick 定理 [笔记][计算几何]
+# 基本概念
+给定顶点均为整点的简单多边形，该定理说明了其面积 AAA 和内部个点数目 iii、边上格点数目 bbb 的关系：
+A=i+b2−1A=i+\frac{b}{2}-1
+A=i+2b​−1
+详细的证明可以看【这里】，在本文简述一下，反正不打算投日报
+# 简略证明
+因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 PPP，及跟 PPP 有一条共同边的三角形 TTT。若 PPP 符合 Pick 公式，则只要证明 PPP 加上 TTT 的 PTPTPT 亦符合皮克公式，以及三角形符合皮克公式，就可根据数学归纳法，对于所有简单多边形皮克公式都是成立的。
+# 例题
+[题单]【计算几何】Pick 定理
+# P2735 [USACO3.4] 网 Electric Fence ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1" title="【游记】CSp2020">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【游记】CSp2020"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1" title="【游记】CSp2020">【游记】CSp2020</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-08T06:39:39.000Z" title="Created 2020-11-08 14:39:39">2020-11-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E8%AE%B0/">游记</a></span></div><div class="content"># 初赛
+# Day -2
+做了个模拟（非洛谷），只有一丁点分，显然过不了
+（盗张 i am ak f 的图）
+
+# Day 0
+颓，颓，颓，又做了一套模拟，坚定了退役的信心。
+# Day 1
+人好多啊，风好大啊，我好冷啊。
+走进去感觉心态挺好？
+# 考试
+无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 2.5pts\it 2.5pts2.5pts 没了……
+总之，考的不是很好，但应该还是可以过？（我都不信……）
+# 面基
+显然考试不重要，面基才重要，从 3 楼下来到了 102 结果没什么人，看见了书虫，结果我没认出来他他认出来我了 一定是我太 可爱 菜了，一眼就能认出来。感觉书虫好可爱啊
+rui_er 人呢，ClCN 人呢，tarjin 人呢（
+# 结束了。
+回来本来还想着可能烤得挺好，一堆答案，一切都结束了，该晋级的晋级了，该 AK 的 AK 了。我只能退役了……
+但毕竟还有时间，希望能继续努力，实现自己的梦想吧。
+# Day -(-3)
+出成绩了，擦线过了（
+
+# 复赛
+# Day -5
+模拟赛垫底。
+100+100+30+10
+我 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace" title="【题解】[AT4266][ABC113B] Palace">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【题解】[AT4266][ABC113B] Palace"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace" title="【题解】[AT4266][ABC113B] Palace">【题解】[AT4266][ABC113B] Palace</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-10-30T15:06:34.000Z" title="Created 2020-10-30 23:06:34">2020-10-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a></span></div><div class="content">
+AT4266 [ABC113B] Palace
+
+水题解 * n
+# translation
+有 nnn 个地方，第 iii 个地方的海拔为 HiH_iHi​，该地方的温度为 T−Hi×0.006T-H_i \times 0.006T−Hi​×0.006。
+求哪个地方的温度离 AAA 最近。
+# solution
+我们可以每次输入 HiH_iHi​ 后计算温度，并将温度值减 AAA 并取绝对值，与 ansansans 比较，若小于之前的 ansansans 则记录 iii 的值。
+# code
+12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;cmath&gt;#include &lt;string&gt;#include &lt;iomanip&gt;#define line cout &lt;&lt; endlusin ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E4%BA%8C%E7%BB%B4%E5%87%B8%E5%8C%85" title="【笔记】二维凸包">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【笔记】二维凸包"></a></div><div class="recent-post-info"><a class="article-title" href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E4%BA%8C%E7%BB%B4%E5%87%B8%E5%8C%85" title="【笔记】二维凸包">【笔记】二维凸包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-30T13:59:40.000Z" title="Created 2020-06-30 21:59:40">2020-06-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content"># Part -999 感谢列表
+（排名不分先后）
+
+计算几何「OI-Wiki」
+数论小白都能看懂的平面凸包详解 「ShineEternal 的博客」
+几何画图「GeoGebra」 离线版
+感谢 @rui_er 指出了一个错误
+
+# Part 1 前言
+首先说明一下，本人是刚学 OI\mathsf{OI}OI 的萌新，本学习笔记如有错误，并非有意，但仍然欢迎在讨论去狂 D\sf DD 她。
+关于图片：本文所有图片均为作者纯手画。
+祝读者有良好的阅读体验～
+# Part 2 何为计算几何
+学二维凸包，我们首先需要了解的就是计算几何。
+计算几何，就是利用计算机建立数学模型解决几何问题。
+要用电脑解几何题？数学好的同学们笑了。
+我们并不是用计算机算数学卷子上的几何题去了，而是解决一些更加复杂的几何相关问题。
+为了解决复杂且抽象的问题，我们一定要选择合适的研究方法。对于计算机来说，给它看几何图形……
+# Part 3 二维凸包
+# Part 3.1 凸多边形
+凸多边形是指所有内角大小都在 [0,π][0, \pi][0,π] 范围内的 简单多边形 。
+# Part 3.2 凸包
+「
+在平面上能 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Sdntrotyl</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith" title="【题解】[AT4303][ABC119D] Lazy Faith"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【题解】[AT4303][ABC119D] Lazy Faith"/></a><div class="content"><a class="title" href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4303-ABC119D-Lazy-Faith" title="【题解】[AT4303][ABC119D] Lazy Faith">【题解】[AT4303][ABC119D] Lazy Faith</a><time datetime="2020-11-15T08:48:03.000Z" title="Created 2020-11-15 16:48:03">2020-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86" title="【笔记】Pick 定理"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【笔记】Pick 定理"/></a><div class="content"><a class="title" href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Pick-%E5%AE%9A%E7%90%86" title="【笔记】Pick 定理">【笔记】Pick 定理</a><time datetime="2020-11-12T13:02:24.000Z" title="Created 2020-11-12 21:02:24">2020-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1" title="【游记】CSp2020"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【游记】CSp2020"/></a><div class="content"><a class="title" href="/post/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%91CSp2020-1" title="【游记】CSp2020">【游记】CSp2020</a><time datetime="2020-11-08T06:39:39.000Z" title="Created 2020-11-08 14:39:39">2020-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace" title="【题解】[AT4266][ABC113B] Palace"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【题解】[AT4266][ABC113B] Palace"/></a><div class="content"><a class="title" href="/post/%E3%80%90%E9%A2%98%E8%A7%A3%E3%80%91-AT4266-ABC113B-Palace" title="【题解】[AT4266][ABC113B] Palace">【题解】[AT4266][ABC113B] Palace</a><time datetime="2020-10-30T15:06:34.000Z" title="Created 2020-10-30 23:06:34">2020-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E4%BA%8C%E7%BB%B4%E5%87%B8%E5%8C%85" title="【笔记】二维凸包"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【笔记】二维凸包"/></a><div class="content"><a class="title" href="/post/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E4%BA%8C%E7%BB%B4%E5%87%B8%E5%8C%85" title="【笔记】二维凸包">【笔记】二维凸包</a><time datetime="2020-06-30T13:59:40.000Z" title="Created 2020-06-30 21:59:40">2020-06-30</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B8%B8%E8%AE%B0/"><span class="card-category-list-name">游记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">笔记</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/"><span class="card-category-list-name">题解</span><span class="card-category-list-count">2</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/2020/" style="font-size: 1.1em; color: #999">2020</a> <a href="/tags/ABC/" style="font-size: 1.5em; color: #99a9bf">ABC</a> <a href="/tags/AtCoder/" style="font-size: 1.5em; color: #99a9bf">AtCoder</a> <a href="/tags/CSp/" style="font-size: 1.1em; color: #999">CSp</a> <a href="/tags/NOIp/" style="font-size: 1.1em; color: #999">NOIp</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">二分搜索</a> <a href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 1.1em; color: #999">二分答案</a> <a href="/tags/%E5%87%B8%E5%8C%85/" style="font-size: 1.1em; color: #999">凸包</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 1.1em; color: #999">模拟</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 1.5em; color: #99a9bf">计算几何</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">June 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">5</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-12-20T10:27:09.043Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Sdntrotyl</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
