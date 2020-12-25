@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.tsd-blog.tk","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【游记】CSp2020">
+<meta property="og:url" content="https://www.tsd-blog.tk/post/CSp2020/index.html">
+<meta property="og:site_name" content="Sdntrotyl&#39;s Blog">
+<meta property="og:description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/11/0gU1nP.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/62250.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/62224.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png">
+<meta property="article:published_time" content="2020-11-08T06:39:39.000Z">
+<meta property="article:modified_time" content="2020-12-25T13:22:23.405Z">
+<meta property="article:author" content="Sdntrotyl">
+<meta property="article:tag" content="2020">
+<meta property="article:tag" content="CSp">
+<meta property="article:tag" content="NOIp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/11/0gU1nP.png">
+
+
+<link rel="canonical" href="https://www.tsd-blog.tk/post/CSp2020/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>【游记】CSp2020 | Sdntrotyl's Blog</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Sdntrotyl's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%B5%9B"><span class="nav-number">1.</span> <span class="nav-text"> 初赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#day-2"><span class="nav-number">1.1.</span> <span class="nav-text"> Day -2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-0"><span class="nav-number">1.2.</span> <span class="nav-text"> Day 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-1"><span class="nav-number">1.3.</span> <span class="nav-text"> Day 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E8%AF%95"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 考试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%9F%BA"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 面基</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E4%BA%86"><span class="nav-number">1.4.</span> <span class="nav-text"> 结束了。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-3"><span class="nav-number">1.5.</span> <span class="nav-text"> Day -(-3)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%8D%E8%B5%9B"><span class="nav-number">2.</span> <span class="nav-text"> 复赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#day-5"><span class="nav-number">2.1.</span> <span class="nav-text"> Day -5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-4"><span class="nav-number">2.2.</span> <span class="nav-text"> Day -4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-3-2"><span class="nav-number">2.3.</span> <span class="nav-text"> Day -3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-1-2"><span class="nav-number">2.4.</span> <span class="nav-text"> Day 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E5%8D%88"><span class="nav-number">2.4.1.</span> <span class="nav-text"> 上午</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%8D%88"><span class="nav-number">2.4.2.</span> <span class="nav-text"> 中午</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E5%8D%88"><span class="nav-number">2.4.3.</span> <span class="nav-text"> 下午</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.5.</span> <span class="nav-text"> 总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text"> 后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sdntrotyl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/TNTtian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;TNTtian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Trotyl47294464" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Trotyl47294464" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://news.ex101.tk/" title="https:&#x2F;&#x2F;news.ex101.tk" rel="noopener" target="_blank">101NEWS</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.tsd-blog.tk/post/CSp2020/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sdntrotyl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sdntrotyl's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【游记】CSp2020
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-08 14:39:39" itemprop="dateCreated datePublished" datetime="2020-11-08T14:39:39+08:00">2020-11-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-25 21:22:23" itemprop="dateModified" datetime="2020-12-25T21:22:23+08:00">2020-12-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/post/CSp2020/" class="post-meta-item leancloud_visitors" data-flag-title="【游记】CSp2020" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="初赛"><a class="markdownIt-Anchor" href="#初赛">#</a> 初赛</h1>
+<h2 id="day-2"><a class="markdownIt-Anchor" href="#day-2">#</a> Day -2</h2>
+<p>做了个模拟（非洛谷），只有<strong>一丁点</strong>分，显然过不了<a id="more"></a></p>
+<p><s>（盗张 i am ak f 的图）</s></p>
+<p><img data-src="https://s1.ax1x.com/2020/10/11/0gU1nP.png" alt="0gU1nP.png"></p>
+<h2 id="day-0"><a class="markdownIt-Anchor" href="#day-0">#</a> Day 0</h2>
+<p>颓，颓，颓，又做了一套模拟，坚定了退役的信心。</p>
+<h2 id="day-1"><a class="markdownIt-Anchor" href="#day-1">#</a> Day 1</h2>
+<p>人好多啊，风好大啊，我好冷啊。</p>
+<p>走进去感觉心态挺好？</p>
+<h3 id="考试"><a class="markdownIt-Anchor" href="#考试">#</a> 考试</h3>
+<p>无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="italic">2.5</mn><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\it 2.5pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathit">2</span><span class="mord mathit">.</span><span class="mord mathit">5</span><span class="mord mathit">p</span><span class="mord mathit">t</span><span class="mord mathit">s</span></span></span></span></span> 没了……</p>
+<p>总之，考的不是很好，但应该还是可以过？（我都不信……）</p>
+<h3 id="面基"><a class="markdownIt-Anchor" href="#面基">#</a> 面基</h3>
+<p>显然考试不重要，面基才重要，从 3 楼下来到了 102 结果没什么人，看见了书虫，结果我没认出来他他认出来我了<img data-src="https://cdn.luogu.com.cn/upload/pic/62250.png" alt="/fad"> 一定是我太 <s>可爱</s> 菜了，一眼就能认出来。感觉书虫好可爱啊<img data-src="https://cdn.luogu.com.cn/upload/pic/62224.png" alt="/qq"></p>
+<p><s>rui_er 人呢，ClCN 人呢，tarjin 人呢（</s></p>
+<h2 id="结束了"><a class="markdownIt-Anchor" href="#结束了">#</a> 结束了。</h2>
+<p>回来本来还想着可能烤得挺好，一堆答案，一切都结束了，该晋级的晋级了，该 AK 的 AK 了。我只能退役了……</p>
+<p>但毕竟还有时间，希望能继续努力，实现自己的梦想吧。</p>
+<h2 id="day-3"><a class="markdownIt-Anchor" href="#day-3">#</a> Day -(-3)</h2>
+<p>出成绩了，擦线过了（</p>
+<hr>
+<h1 id="复赛"><a class="markdownIt-Anchor" href="#复赛">#</a> 复赛</h1>
+<h2 id="day-5"><a class="markdownIt-Anchor" href="#day-5">#</a> Day -5</h2>
+<p>模拟赛垫底。</p>
+<p>100+100+30+10</p>
+<p>我直接退役好吧……</p>
+<h2 id="day-4"><a class="markdownIt-Anchor" href="#day-4">#</a> Day -4</h2>
+<p>简单复习了复习图论。</p>
+<h2 id="day-3-2"><a class="markdownIt-Anchor" href="#day-3-2">#</a> Day -3</h2>
+<p>期中考试祭，也算是进入初中后第一次大考。</p>
+<p>Day1：语文，地理，数学<br>
+ Day2：英语，生物</p>
+<p>感觉地理数学都爆炸了 /youl</p>
+<p>竟然感觉语文还行？？？（</p>
+<h2 id="day-1-2"><a class="markdownIt-Anchor" href="#day-1-2">#</a> Day 1</h2>
+<h3 id="上午"><a class="markdownIt-Anchor" href="#上午">#</a> 上午</h3>
+<p>上午 pj。</p>
+<p>7:00 就到了考场，在车上吃了点东西。</p>
+<p>8:00 进去了</p>
+<p>找到了教室，做好了，竟然坐在墙角。</p>
+<p>做我前面的人来了，走近来的时候突然叫了一声：“是 TNT 吗？”</p>
+<p>我吓了一跳，没见过，不认识，他是怎么认识我的，就没管。</p>
+<p>8:20 把解压码发下来，输错了 5 次，不愧是我……</p>
+<p>8:35</p>
+<p>监考员才说可以答题了……</p>
+<p>开了看 T1，不是一眼题了，爷清洁。</p>
+<p>两眼题好评，过了大样例就没管。</p>
+<p>看了眼 T2，两眼题好评，一开始 sb 直接打暴力，没过大样例。</p>
+<p>稍微改了改过了大样例也就没管了。</p>
+<p>看 T3，这啥啊，以为是个 ds，不会，就都输出个 1 骗点分，看 T4。</p>
+<p>这不就是个 dp 吗，可惜 dp 没学好，也懒得推方程，写了个贪心骗点分回来看 T3。</p>
+<p>想了想是否能暴力，打了个暴力，连 Sample1 都没过，也快结束了，就把输出 1 的交了上去。</p>
+<p>估分：100+100+20<sub>30+20=240</sub>250</p>
+<p>12:35 监考员收完答题纸把我们放了出来，我立刻去问了问我前面的那位，才知道是洛谷的 @超级玛丽王子，吓死我了（</p>
+<p>回来洛谷测了一下，T1 挂了，T2 挂了，T3 挂了，T4 挂了</p>
+<p>T1 莫名成了 60，T2 85。</p>
+<p>草 nm 这个 T3 我就是傻逼好吧……</p>
+<p>我分明每个程序都又运行了一下没爆啊？</p>
+<p><img data-src="https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png" alt=""></p>
+<p>本来 30，CE 了，我退役罢……</p>
+<h3 id="中午"><a class="markdownIt-Anchor" href="#中午">#</a> 中午</h3>
+<p>中午去吃了个海底捞，真行。</p>
+<p>又跟同学讨论了一下题，一致认为，毒瘤。</p>
+<h3 id="下午"><a class="markdownIt-Anchor" href="#下午">#</a> 下午</h3>
+<p>吃的有点撑，进考场时有点难受，风又大，感觉我要凉。</p>
+<p>做到了座位，和 pj 一样的教室，没想到 @超级玛丽王子 又来走近我。</p>
+<p>我：？？？<br>
+他：我 pj 做你前头，tg 做你后头（</p>
+<p>还挺有缘（</p>
+<p>开 T1，sb 题，想拜访出题人祖母的女儿，出题人你萌死了，萌死了。</p>
+<p>敲了个 20 分扔了没管看 T2。</p>
+<p>竟然没怎么读懂题，花了 20 分钟读题，写了个暴力看 T3</p>
+<p>天哪，不会做……（赛后得知：dp + 拓扑）</p>
+<p>输了个样例</p>
+<p>T4 感觉可以做做试试。</p>
+<p>就瞎写了写。</p>
+<p>估分：20+10<sub>30+0+10=40</sub>60</p>
+<p>出来后，看很晚了，也根本没人愿意来找我面基，就走了。</p>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h2>
+<p>自己还是基础太薄弱了，学再多的东西又有什么用呢？pj T1 都能挂。</p>
+<blockquote>
+<p>失败了一次，就要从跌倒的地方再爬起。</p>
+</blockquote>
+<p>既然已经知道自己的能力根本就不行了的话，努力吧。</p>
+<p>我们 CSp2021 再见！</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记">#</a> 后记</h1>
+<p>有可能我永远不可能拿到自己心中的蓝勾了，</p>
+<p>从五年级就接触 OI，学了半年糊里糊涂去参加了 NOIp2018 pj，初赛那个十几分回来，当时觉得并没有什么，机会还多。</p>
+<p>2019 年是 NOIp 却没了，取而代之的是 CSp，一切准备妥当时，突然有一个情况发生了：</p>
+<p>CSp 与另一个比赛冲突了，</p>
+<p>那个比赛是一个全国的人工智能大赛，我和另一个搭档代表 BJ 队去 TJ 参赛。</p>
+<p>当时内心十分纠结，整天心态不好，去询问了教练，教练建议去参加那个比赛，可能我即使参加了 CSp 也没有能力拿奖吧。</p>
+<p>可惜，心态问题，那个比赛没搞好连一等奖都没拿到，二等奖第一名。</p>
+<p>又得知 pj 初赛机考水的要死，复赛 T1 一眼题，过了 T1 就二等。</p>
+<p>心态立即就爆炸了，懊悔当初没去参加 CSp。</p>
+<p>就又等了一年。</p>
+<p>CSp2020 了，擦线过了初赛，离复赛只有三天时，才发现自己什么也不会，无比迷茫，不知自己到底会前往何方。</p>
+<p>今年的比赛，暴露了我的真实水平。</p>
+<p>期中考也没考好，英语下了 90。</p>
+<p>明年，明年，明年。</p>
+<p>恐怕，我连明天都已经没有了罢……</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Sdntrotyl
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.tsd-blog.tk/post/CSp2020/" title="【游记】CSp2020">https://www.tsd-blog.tk/post/CSp2020/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/2020/" rel="tag"># 2020</a>
+              <a href="/tags/CSp/" rel="tag"># CSp</a>
+              <a href="/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/at4266/" rel="prev" title="【题解】[AT4266][ABC113B] Palace">
+                  <i class="fa fa-chevron-left"></i> 【题解】[AT4266][ABC113B] Palace
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/pick-theorem/" rel="next" title="【笔记】Pick 定理">
+                  【笔记】Pick 定理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sdntrotyl</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"ybYKKt07qy7I1Re4W8Y7BFvA-MdYXbMMI","app_key":"lecFuOHKJzgm0IsVAjGK0Gh8","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.tsd-blog.tk/post/CSp2020/',]
+      });
+      });
+  </script>
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "TNTtian/tsd-blog");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>
