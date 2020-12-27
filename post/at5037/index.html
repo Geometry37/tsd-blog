@@ -24,22 +24,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"www.tsd-blog.tk","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="应该是纯模拟吧。">
+<meta name="description" content="# 题目大意 有从 111 到 nnn 共 nnn 个数，求连续整数长度为 kkk 的个数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】[CF1352A]Sum of Round Numbers">
-<meta property="og:url" content="https://www.tsd-blog.tk/post/cf1352a/index.html">
+<meta property="og:title" content="[AT5037]Consecutive Integers">
+<meta property="og:url" content="https://www.tsd-blog.tk/post/at5037/index.html">
 <meta property="og:site_name" content="Sdntrotyl&#39;s Blog">
-<meta property="og:description" content="应该是纯模拟吧。">
+<meta property="og:description" content="# 题目大意 有从 111 到 nnn 共 nnn 个数，求连续整数长度为 kkk 的个数。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-25T13:43:59.000Z">
-<meta property="article:modified_time" content="2020-12-26T07:52:39.048Z">
+<meta property="article:published_time" content="2020-12-27T01:40:51.000Z">
+<meta property="article:modified_time" content="2020-12-27T01:46:25.065Z">
 <meta property="article:author" content="Sdntrotyl">
-<meta property="article:tag" content="模拟">
-<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="数论,数学">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.tsd-blog.tk/post/cf1352a/">
+<link rel="canonical" href="https://www.tsd-blog.tk/post/at5037/">
 
 
 <script class="page-configurations">
@@ -51,7 +50,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>【题解】[CF1352A]Sum of Round Numbers | Sdntrotyl's Blog</title>
+<title>[AT5037]Consecutive Integers | Sdntrotyl's Blog</title>
   
 
 
@@ -177,7 +176,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -190,6 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">1.</span> <span class="nav-text"> 题目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-number">3.</span> <span class="nav-text"> code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#record"><span class="nav-number">4.</span> <span class="nav-text"> record</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -205,20 +205,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tsd-blog.tk/post/cf1352a/">
+    <link itemprop="mainEntityOfPage" href="https://www.tsd-blog.tk/post/at5037/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -319,7 +319,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【题解】[CF1352A]Sum of Round Numbers
+          [AT5037]Consecutive Integers
         </h1>
 
         <div class="post-meta-container">
@@ -329,16 +329,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-12-25 21:43:59" itemprop="dateCreated datePublished" datetime="2020-12-25T21:43:59+08:00">2020-12-25</time>
+      <time title="创建时间：2020-12-27 09:40:51 / 修改时间：09:46:25" itemprop="dateCreated datePublished" datetime="2020-12-27T09:40:51+08:00">2020-12-27</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-26 15:52:39" itemprop="dateModified" datetime="2020-12-26T15:52:39+08:00">2020-12-26</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -346,6 +340,10 @@
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/AtCoder/" itemprop="url" rel="index"><span itemprop="name">AtCoder</span></a>
         </span>
     </span>
 
@@ -366,11 +364,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>应该是纯模拟吧。</p>
+        <h3 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意">#</a> 题目大意</h3>
+<p>有从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 共 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个数，求连续整数长度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 的个数。</p>
 <a id="more"></a>
-<p>直接输入一个字符串，然后一位一位看，如果不是 0，就  <code>k++</code> ，并计算这个数的真实的值，最后输出就行了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> <span class="meta-keyword">line</span> cout &lt;&lt; endl</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t, k, sum = <span class="number">1</span><span class="comment">/*位数*/</span>, a[<span class="number">10</span>], cnt;</span><br><span class="line"><span class="keyword">char</span> n[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;<span class="comment">//T组数据</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> T = <span class="number">1</span>; T &lt;= t; T++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		<span class="keyword">int</span> len = <span class="built_in">strlen</span>(n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">			<span class="keyword">if</span> (n[i] != <span class="string">&#x27;0&#x27;</span>) &#123;<span class="comment">//如果这一位不是0</span></span><br><span class="line">				k++;<span class="comment">//总数++</span></span><br><span class="line">				a[++cnt] = (n[i] - <span class="string">&#x27;0&#x27;</span>) * sum;<span class="comment">//算一下这一位真实的值</span></span><br><span class="line">			&#125;</span><br><span class="line">			sum *= <span class="number">10</span>;<span class="comment">//位数++</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; k;</span><br><span class="line">		line;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		line;</span><br><span class="line">		k = <span class="number">0</span>;<span class="comment">//初始化</span></span><br><span class="line">		sum = <span class="number">1</span>;<span class="comment">//初始化</span></span><br><span class="line">		<span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));<span class="comment">//初始化</span></span><br><span class="line">		cnt = <span class="number">0</span>;<span class="comment">//初始化</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1352/submission/79712407">CF 记录</a></p>
+<h3 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路">#</a> 解题思路</h3>
+<p><s>让我们来认认真真推下柿子</s></p>
+<p>假设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>3</mn><mo separator="true">,</mo><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n = 3, k = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>，那么很容易求出值为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>，但这是怎么求出的？</p>
+<p>不妨列一下：</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="1em"/><mn>2</mn><mspace width="1em"/><mn>3</mn></mrow><annotation encoding="application/x-tex">1\quad2\quad3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:1em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:1em;"></span><span class="mord">3</span></span></span></span></p>
+<p>那么我们可以选取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder accentunder="true"><mn>1</mn><mo stretchy="true">‾</mo></munder><mspace width="1em"/><munder accentunder="true"><mn>2</mn><mo stretchy="true">‾</mo></munder><mspace width="1em"/><mn>3</mn></mrow><annotation encoding="application/x-tex">\underline{1}\quad\underline2\quad3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444400000000001em;vertical-align:-0.20000000000000007em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6444399999999999em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.20000000000000007em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6444399999999999em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">2</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.20000000000000007em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord">3</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="1em"/><munder accentunder="true"><mn>2</mn><mo stretchy="true">‾</mo></munder><mspace width="1em"/><munder accentunder="true"><mn>3</mn><mo stretchy="true">‾</mo></munder></mrow><annotation encoding="application/x-tex">1\quad\underline2\quad\underline3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444400000000001em;vertical-align:-0.20000000000000007em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:1em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6444399999999999em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">2</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.20000000000000007em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6444399999999999em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">3</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.20000000000000007em;"><span></span></span></span></span></span></span></span></span></p>
+<p>我们发现可以通过枚举开头的可行位置，然后往后推 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 位则必然符合，开头的可行位置个数即所求，但是因为需往后推 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 位，所以开头可行位置就要 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">-k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>，且我们发现，从开头 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 已占一位，故此时可行数又要 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>。</p>
+<p>综上，我们推出了此题的式子：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n - k - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，那么这题就迎刃而解了。</p>
+<h3 id="code"><a class="markdownIt-Anchor" href="#code">#</a> code</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; n - k + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="record"><a class="markdownIt-Anchor" href="#record">#</a> record</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/44279468">Link</a></p>
 
     </div>
 
@@ -388,7 +396,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.tsd-blog.tk/post/cf1352a/" title="【题解】[CF1352A]Sum of Round Numbers">https://www.tsd-blog.tk/post/cf1352a/</a>
+      <a href="https://www.tsd-blog.tk/post/at5037/" title="[AT5037]Consecutive Integers">https://www.tsd-blog.tk/post/at5037/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -424,22 +432,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
-              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"># 字符串</a>
+              <a href="/tags/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" rel="tag"># 数论,数学</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/post/cf675a/" rel="prev" title="【题解】[CF675A]Infinite Sequence">
-                  <i class="fa fa-chevron-left"></i> 【题解】[CF675A]Infinite Sequence
+                <a href="/post/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/" rel="prev" title="NOI 系列题解总集">
+                  <i class="fa fa-chevron-left"></i> NOI 系列题解总集
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/post/uva681/" rel="next" title="【题解】[UVA681]Convex Hull Finding">
-                  【题解】[UVA681]Convex Hull Finding <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -547,7 +551,7 @@
       quicklink.listen({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.tsd-blog.tk/post/cf1352a/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.tsd-blog.tk/post/at5037/',]
       });
       });
   </script>
