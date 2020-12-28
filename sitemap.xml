@@ -214,13 +214,6 @@
   </url>
   
   <url>
-    <loc>https://www.tsd-blog.tk/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/</loc>
-    <lastmod>2020-12-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.tsd-blog.tk/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/</loc>
     <lastmod>2020-12-28</lastmod>
     <changefreq>daily</changefreq>
@@ -236,6 +229,13 @@
   
   <url>
     <loc>https://www.tsd-blog.tk/tags/NOI/</loc>
+    <lastmod>2020-12-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tsd-blog.tk/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/</loc>
     <lastmod>2020-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -426,14 +426,14 @@
   </url>
   
   <url>
-    <loc>https://www.tsd-blog.tk/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.tsd-blog.tk/categories/%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2020-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.tsd-blog.tk/categories/%E9%A2%98%E8%A7%A3/</loc>
+    <loc>https://www.tsd-blog.tk/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -447,7 +447,7 @@
   </url>
   
   <url>
-    <loc>https://www.tsd-blog.tk/categories/%E9%A2%98%E8%A7%A3/CodeForces/</loc>
+    <loc>https://www.tsd-blog.tk/categories/%E9%A2%98%E8%A7%A3/AtCoder/</loc>
     <lastmod>2020-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://www.tsd-blog.tk/categories/%E9%A2%98%E8%A7%A3/AtCoder/</loc>
+    <loc>https://www.tsd-blog.tk/categories/%E9%A2%98%E8%A7%A3/CodeForces/</loc>
     <lastmod>2020-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
