@@ -1,401 +1,447 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>归档：2020 | Geometry37&#39;s Blog</title>
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
-  <meta name="author" content="Sdntrotyl">
-  <meta name="keywords" content="">
-  <title>归档 - Sdntrotyl&#39;s Blog</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+    <!-- OpenGraph -->
+ 
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Geometry37&#39;s Blog">
+<meta property="og:url" content="https://blog.geometry37.tk/archives/2020/index.html">
+<meta property="og:site_name" content="Geometry37&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Geometry37">
+<meta name="twitter:card" content="summary_large_image">
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+    
+    
+    
 
+     
 
-<link  rel="stylesheet" href="/css/main.css" />
+    <!-- custom head -->
 
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.tsd-blog.tk","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-
-<body>
-  <header style="height: 60vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Demo</span>
+        </a>
     </div>
-  </div>
-</nav>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/page/" class="navbar-menu button">Page</a>
+                
+            </div>
+        
+        
+        
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
-              
-            </span>
+        
+        
+
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/page/" class="dropdown-menu button">Page</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+    <div class="cover">
+        <div class="cover__logo">
+            
+                <h1>Demo</h1>
+            
+        </div>
+        
+        
+            <div class="cover__intro">
+                <p>Hi, nice to meet you!</p>
+ 
+            </div>
+        
+    </div>
 
             
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
+<main class='main'>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+		
+    <div class="post-list">
+        
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [AT5037]Consecutive Integers
+    </h2>
+    
+        <h3 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意">#</a> 题目大意</h3>
+<p>有从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 共 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个数，求连续整数长度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 的个数。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-27</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/AtCoder/" class="button">AtCoder</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" class="post-tags__link button"># 数论,数学</a></div> 
+<a href="/post/at5037/" class="post-entry__link">[AT5037]Consecutive Integers</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        NOI 系列题解总集
+    </h2>
+    
+        <p>每次做一道 NOI 系列的估计都很激动吧，对于我这种萌新来说（</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/" class="button">总集</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" class="post-tags__link button"># 深度优先搜索,DFS</a><a href="/tags/%E5%89%AA%E6%9E%9D/" class="post-tags__link button"># 剪枝</a><a href="/tags/NOI/" class="post-tags__link button"># NOI</a></div> 
+<a href="/post/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/" class="post-entry__link">NOI 系列题解总集</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [SP867] CUBES - Perfect Cubes
+    </h2>
+    
+        <p>这道题明显是一道暴力。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/SPOJ/" class="button">SPOJ</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/" class="post-tags__link button"># 枚举,暴力</a></div> 
+<a href="/post/sp867/" class="post-entry__link">[SP867] CUBES - Perfect Cubes</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [SP34013]SEUG - Seetha’s Unique Game
+    </h2>
+    
+        <p>这道题一看就是 <strong>贪心</strong> 。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/SPOJ/" class="button">SPOJ</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%A8%A1%E6%8B%9F/" class="post-tags__link button"># 模拟</a><a href="/tags/%E8%B4%AA%E5%BF%83/" class="post-tags__link button"># 贪心</a></div> 
+<a href="/post/sp34013/" class="post-entry__link">[SP34013]SEUG - Seetha’s Unique Game</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [UVA1149]装箱 Bin Packing
+    </h2>
+    
+        <p>做法显然：贪心，但是怎么贪？</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/UVA/" class="button">UVA</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%A8%A1%E6%8B%9F/" class="post-tags__link button"># 模拟</a><a href="/tags/%E8%B4%AA%E5%BF%83/" class="post-tags__link button"># 贪心</a></div> 
+<a href="/post/uva1149/" class="post-entry__link">[UVA1149]装箱 Bin Packing</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [CF1182B]Plus from Picture
+    </h2>
+    
+        <p>这是一道超级水的模拟 + 简单搜索。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/CodeForces/" class="button">CodeForces</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%A8%A1%E6%8B%9F/" class="post-tags__link button"># 模拟</a><a href="/tags/%E6%90%9C%E7%B4%A2/" class="post-tags__link button"># 搜索</a></div> 
+<a href="/post/cf1182b/" class="post-entry__link">[CF1182B]Plus from Picture</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        深搜——简单剪枝
+    </h2>
+    
+        <h2 id="深搜简单剪枝"><a class="markdownIt-Anchor" href="#深搜简单剪枝">#</a> 深搜 —— 简单剪枝</h2>
+<h3 id="说在最前面"><a class="markdownIt-Anchor" href="#说在最前面">#</a> 说在最前面：</h3>
+<p>因为马上要 NOIP2020 了，所以菜鸡开始了复习 qwq。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="post-tags__link button"># 深度优先搜索</a><a href="/tags/DFS/" class="post-tags__link button"># DFS</a></div> 
+<a href="/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/" class="post-entry__link">深搜——简单剪枝</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        深搜——拿部分分
+    </h2>
+    
+        <h2 id="说在最前面"><a class="markdownIt-Anchor" href="#说在最前面">#</a> 说在最前面</h2>
+<p>众所周知， NOIP pj 的第三题大部分都是 dp ，但是有可能在考场上想不到动态转移方程，所以我们就可以拿深搜骗分。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" class="post-tags__link button"># 深度优先搜索,DFS</a></div> 
+<a href="/post/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/" class="post-entry__link">深搜——拿部分分</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [CF1373B]01 Game
+    </h2>
+    
+        <p>这题好水，就是简单的模拟 + 字符串。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/CodeForces/" class="button">CodeForces</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%A8%A1%E6%8B%9F/" class="post-tags__link button"># 模拟</a><a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-tags__link button"># 字符串</a></div> 
+<a href="/post/cf1373b/" class="post-entry__link">[CF1373B]01 Game</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        [UVA10116]Robot Motion
+    </h2>
+    
+        <h3 id="simple-translation"><a class="markdownIt-Anchor" href="#simple-translation">#</a> Simple Translation</h3>
+<p>让你模拟一个机器人行走的过程，如果机器人走入了一个循环，输出不是循环的长度和是循环的长度，如果最终走出来了，输出走的步数。</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2020/12/" class="post-meta__date button">2020-12-25</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/" class="button">题解</a>
+
+    <span class="separate-dot"></span><a href="/categories/%E9%A2%98%E8%A7%A3/UVA/" class="button">UVA</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/%E6%A8%A1%E6%8B%9F/" class="post-tags__link button"># 模拟</a></div> 
+<a href="/post/uva10116/" class="post-entry__link">[UVA10116]Robot Motion</a>
+                </div>
+            
+        
+    </div>
+    
+        <div class="nav">
+            <div class="nav__prev">
                 
-
-<div class="list-group">
-  <p class="h4">共计 24 篇文章</p>
-  <hr>
-  
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/post/at5037/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[AT5037]Consecutive Integers</span>
-      <time style="float: right;">12-27</time>
-    </a>
-  
-    
-    <a href="/post/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">NOI 系列题解总集</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/sp867/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[SP867] CUBES - Perfect Cubes</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/sp34013/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[SP34013]SEUG - Seetha’s Unique Game</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/uva1149/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[UVA1149]装箱 Bin Packing</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/cf1182b/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[CF1182B]Plus from Picture</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">深搜——简单剪枝</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">深搜——拿部分分</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/cf1373b/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[CF1373B]01 Game</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-    
-    <a href="/post/uva10116/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[UVA10116]Robot Motion</span>
-      <time style="float: right;">12-25</time>
-    </a>
-  
-</div>
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/2/"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <div class="nav__next">
+                
+                    <a href="/archives/2020/page/2/" class="nav__link">
+                        <div>
+                            <div class="nav__label">
+                                Next
+                            </div>
+                            <div class="nav__title">
+                                第 2 页
+                            </div>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                        </div>
+                    </a>
+                
+            </div>
         </div>
-      </div>
     
 
-    
-      <a id="scroll-top-button" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
+	
+</main>
+
+            <footer class="footer">
     
 
+
     
-  </main>
+     
+ 
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-
-  
-
-  
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2021 <a href="/">Geometry37&#39;s Blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
 </footer>
 
-<!-- SCRIPTS -->
+        </div>
+         
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+ 
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+ 
 
-
-<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  
-    <script  src="/js/lazyload.js" ></script>
-  
-
-
+ 
 
   
 
 
 
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
 
 
 
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-
-</body>
+    </body>
 </html>

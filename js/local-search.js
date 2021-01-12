@@ -1,132 +1,187 @@
-// A local search script with the help of [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
-// Copyright (C) 2017
-// Liam Huang <https://github.com/Liam0205>
-// This library is free software; you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as
-// published by the Free Software Foundation; either version 2.1 of the
-// License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library; if not, write to the Free Software
-// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-// 02110-1301 USA
-//
-// Updated by Rook1e <https://github.com/0x2E>
+function searchEscape(keyword) {
+    const htmlEntityMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;',
+    };
 
-// eslint-disable-next-line no-unused-vars
-var searchFunc = function(path, search_id, content_id) {
-  // 0x00. environment initialization
-  'use strict';
-  var $input = document.getElementById(search_id);
-  var $resultContent = document.getElementById(content_id);
-  $resultContent.innerHTML = '<div class="m-auto text-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br/>Loading...</div>';
-  $.ajax({
-    // 0x01. load xml file
-    url     : path,
-    dataType: 'xml',
-    success : function(xmlResponse) {
-      // 0x02. parse xml file
-      var dataList = $('entry', xmlResponse).map(function() {
-        return {
-          title  : $('title', this).text(),
-          content: $('content', this).text(),
-          url    : $('url', this).text()
-        };
-      }).get();
-      $resultContent.innerHTML = '';
+    return keyword.replace(/[&<>"'/]/g, function (i) {
+        return htmlEntityMap[i];
+    });
+}
 
-      $input.addEventListener('input', function() {
-        // 0x03. parse query to keywords list
-        var str = '';
-        var keywords = this.value.trim().toLowerCase().split(/[\s-]+/);
-        $resultContent.innerHTML = '';
-        if (this.value.trim().length <= 0) {
-          return;
-        }
-        // 0x04. perform local searching
-        dataList.forEach(function(data) {
-          var isMatch = true;
-          if (!data.title || data.title.trim() === '') {
-            data.title = 'Untitled';
-          }
-          var orig_data_title = data.title.trim();
-          var data_title = orig_data_title.toLowerCase();
-          var orig_data_content = data.content.trim().replace(/<[^>]+>/g, '');
-          var data_content = orig_data_content.toLowerCase();
-          var data_url = data.url;
-          var index_title = -1;
-          var index_content = -1;
-          var first_occur = -1;
-          // only match articles with not empty contents
-          if (data_content !== '') {
-            keywords.forEach(function(keyword, i) {
-              index_title = data_title.indexOf(keyword);
-              index_content = data_content.indexOf(keyword);
+function regEscape(keyword) {
+    const regEntityMap = {
+        '{': '\\{',
+        '}': '\\}',
+        '[': '\\[',
+        ']': '\\]',
+        '(': '\\(',
+        ')': '\\)',
+        '?': '\\?',
+        '*': '\\*',
+        '.': '\\.',
+        '+': '\\+',
+        '^': '\\^',
+        $: '\\$',
+    };
 
-              if (index_title < 0 && index_content < 0) {
-                isMatch = false;
-              } else {
-                if (index_content < 0) {
-                  index_content = 0;
+    return keyword.replace(/[\{\}\[\]\(\)\?\*\.\+\^\$]/g, function (i) {
+        return regEntityMap[i];
+    });
+}
+
+function getParam(reqParam) {
+    reqParam = reqParam.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    const paraReg = new RegExp('[\\?&]' + reqParam + '=([^&#]*)');
+    const results = paraReg.exec(window.location);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+function clearPosts() {
+    const resultSectionElement = document.getElementById('search-result');
+    resultSectionElement.innerHTML = '';
+}
+
+function createPosts(resArr) {
+    const resultSectionElement = document.getElementById('search-result');
+    let resultString = '';
+
+    resArr.forEach((resInfo) => {
+        resultString += '<hr />';
+
+        const pageInfo = resInfo[0];
+        const postTemplate = `
+        <a href="${pageInfo.link}" class="search-result__link">
+            <div class='search-result__item'>
+                <strong>
+                    ${pageInfo.title}
+                </strong>
+                <div class="search-result__content">
+                    ${pageInfo.content}
+                </div>
+            </div>
+        </a>
+        `;
+
+        resultString += postTemplate;
+    });
+
+    resultSectionElement.innerHTML = resultString;
+}
+
+function loadDataSearch(searchDataFile, skeys) {
+    fetch(searchDataFile)
+        .then((res) => {
+            return res.json();
+        })
+        .then((datas) => {
+            let resultArray = [];
+            let resultCount = 0;
+            let keywords = skeys.trim().toLowerCase().split(/\s/);
+
+            datas.forEach((data) => {
+                if (typeof data.title === 'undefined' || typeof data.content === 'undefined') {
+                    return;
                 }
-                if (i === 0) {
-                  first_occur = index_content;
+
+                let matched = false;
+
+                const dataTitle = data.title.trim().toLowerCase();
+                const dataContent = data.content
+                    ? data.content
+                          .trim()
+                          .replace(/<[^>]+>/g, '')
+                          .toLowerCase()
+                    : '';
+                let dataWeight = 0;
+
+                let indexs = {};
+                indexs.title = -1;
+                indexs.content = -1;
+                indexs.firstOccur = -1;
+                indexs.lastOccur = -1;
+
+                if (dataTitle) {
+                    keywords.forEach((keyword) => {
+                        indexs.title = dataTitle.indexOf(keyword);
+                        indexs.content = dataContent.indexOf(keyword);
+                        if (indexs.title !== -1 || indexs.content !== -1) {
+                            matched = true;
+                            if (indexs.content !== -1) {
+                                if (indexs.firstOccur > indexs.content || indexs.firstOccur === -1) {
+                                    indexs.firstOccur = indexs.content;
+                                }
+                                if (indexs.lastOccur < indexs.content) {
+                                    indexs.lastOccur = indexs.content;
+                                }
+                            }
+                            dataWeight += indexs.title !== -1 ? 2 : 0;
+                            dataWeight += indexs.content !== -1 ? 1 : 0;
+                            resultCount++;
+                        }
+                    });
                 }
-                //content_index.push({index_content:index_content, keyword_len:keyword_len});
-              }
+
+                if (matched) {
+                    let tPage = {};
+                    tPage.title = data.title;
+                    tPage.link = data.url;
+                    keywords.forEach((keyword) => {
+                        const regS = new RegExp(regEscape(keyword) + '(?!>)', 'gi');
+                        tPage.title = tPage.title.replace(regS, '<m>$&</m>');
+                    });
+                    if (indexs.firstOccur >= 0) {
+                        const halfLenth = 100;
+                        let start = indexs.firstOccur - halfLenth;
+                        let end = indexs.lastOccur + halfLenth;
+                        if (start < 0) {
+                            start = 0;
+                        }
+                        if (start === 0) {
+                            end = halfLenth * 2;
+                        }
+                        if (end > dataContent.length) {
+                            end = dataContent.length;
+                        }
+                        tPage.content = dataContent.substr(start, end - start);
+                        keywords.forEach((keyword) => {
+                            const regS = new RegExp(regEscape(keyword) + '(?!>)', 'gi');
+                            tPage.content = tPage.content.replace(regS, '<m>$&</m>');
+                        });
+                    }
+                    resultArray.push([tPage, dataWeight]);
+                }
             });
-          } else {
-            isMatch = false;
-          }
-          // 0x05. show search results
-          if (isMatch) {
-            str += '<a href=\'' + data_url + '\' class=\'list-group-item list-group-item-action font-weight-bolder search-list-title\'>' + orig_data_title + '</a>';
-            var content = orig_data_content;
-            if (first_occur >= 0) {
-              // cut out 100 characters
-              var start = first_occur - 20;
-              var end = first_occur + 80;
-
-              if (start < 0) {
-                start = 0;
-              }
-
-              if (start === 0) {
-                end = 100;
-              }
-
-              if (end > content.length) {
-                end = content.length;
-              }
-
-              var match_content = content.substring(start, end);
-
-              // highlight all keywords
-              keywords.forEach(function(keyword) {
-                var regS = new RegExp(keyword, 'gi');
-                match_content = match_content.replace(regS, '<span class="search-word">' + keyword + '</span>');
-              });
-
-              str += '<p class=\'search-list-content\'>' + match_content + '...</p>';
+            if (resultCount !== 0) {
+                resultArray.sort((a, b) => {
+                    return b[1] - a[1];
+                });
+                createPosts(resultArray);
+            } else {
+                clearPosts();
             }
-          }
         });
-        const input = $('#local-search-input');
-        if (str.indexOf('list-group-item') === -1) {
-          return input.addClass('invalid').removeClass('valid');
-        }
-        input.addClass('valid').removeClass('invalid');
-        $resultContent.innerHTML = str;
-      });
+}
+
+function keySearch(skeys) {
+    loadDataSearch(searchDataFile, searchEscape(skeys));
+}
+
+function inpSearch() {
+    const skeys = document.getElementById('search-input').value;
+    window.history.pushState({}, 0, window.location.href.split('?')[0] + '?s=' + skeys.replace(/\s/g, '+'));
+    keySearch(skeys);
+    return false;
+}
+
+(() => {
+    const skeys = getParam('s');
+    if (skeys !== '') {
+        document.getElementById('search-input').value = skeys;
+        keySearch(skeys);
     }
-  });
-  $(document).on('click', '#local-search-close', function() {
-    $('#local-search-input').val('').removeClass('invalid').removeClass('valid');
-    $('#local-search-result').html('');
-  });
-};
+})();
