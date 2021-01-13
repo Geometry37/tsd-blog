@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.geometry37.tk/post/at4266/</loc>
+    <loc>https://blog.geometry37.tk/post/at3621/</loc>
     
     <lastmod>2021-01-13</lastmod>
     
@@ -418,6 +418,27 @@
   
   <url>
     <loc>https://blog.geometry37.tk/tags/DFS/</loc>
+    <lastmod>2021-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/tags/ARC/</loc>
+    <lastmod>2021-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/</loc>
+    <lastmod>2021-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/tags/%E5%9B%BE%E8%AE%BA/</loc>
     <lastmod>2021-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
