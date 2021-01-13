@@ -35,19 +35,19 @@
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了">
+    <meta name="description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了 （盗张 i am ak f 的图）  # Day 0 颓，颓，颓，又做了一套模拟，坚定了退役的信心。 # Day 1 人好多啊，风好大啊，我好冷啊。 走进去感觉心态挺好？ # 考试 无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 2.5pts\it 2.5pts2.5pts">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSp2020游记">
 <meta property="og:url" content="https://blog.geometry37.tk/post/CSp2020/index.html">
 <meta property="og:site_name" content="Geometry37&#39;s Blog">
-<meta property="og:description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了">
+<meta property="og:description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了 （盗张 i am ak f 的图）  # Day 0 颓，颓，颓，又做了一套模拟，坚定了退役的信心。 # Day 1 人好多啊，风好大啊，我好冷啊。 走进去感觉心态挺好？ # 考试 无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 2.5pts\it 2.5pts2.5pts">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/11/0gU1nP.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/62250.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/62224.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png">
 <meta property="article:published_time" content="2020-11-08T06:39:39.000Z">
-<meta property="article:modified_time" content="2020-12-27T02:14:30.714Z">
+<meta property="article:modified_time" content="2021-01-12T14:17:02.081Z">
 <meta property="article:author" content="Geometry37">
 <meta property="article:tag" content="CSp">
 <meta property="article:tag" content="NOIp">
@@ -60,10 +60,19 @@
  
 
 
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
 
     
     
         <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
         
     
 
@@ -81,7 +90,7 @@
             <header class="header">
     <div class="header__left">
         <a href="/" class="button">
-            <span class="logo__text">Demo</span>
+            <span class="logo__text">Geometry37</span>
         </a>
     </div>
     <div class="header__right">
@@ -105,8 +114,18 @@
 
         
         
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
 
-        
+
+         
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
 
         
             <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
@@ -136,7 +155,7 @@
         CSp2020游记
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2020/11/" class="post-meta__date button">2020-11-08</a>
+        <a href="/archives/2020/11/" class="post-meta__date button">写于2020-11-08</a>
         
     <span class="separate-dot"></span><a href="/categories/%E6%B8%B8%E8%AE%B0/" class="button">游记</a>
 
@@ -155,13 +174,47 @@
 </div>
 
 
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-2"><span class="toc-number">1.</span> <span class="toc-text"> Day -2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0"><span class="toc-number">2.</span> <span class="toc-text"> Day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1"><span class="toc-number">3.</span> <span class="toc-text"> Day 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%83%E8%AF%95"><span class="toc-number">3.1.</span> <span class="toc-text"> 考试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%9F%BA"><span class="toc-number">3.2.</span> <span class="toc-text"> 面基</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text"> 结束了。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-3"><span class="toc-number">5.</span> <span class="toc-text"> Day -(-3)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-5"><span class="toc-number">6.</span> <span class="toc-text"> Day -5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-4"><span class="toc-number">7.</span> <span class="toc-text"> Day -4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-3-2"><span class="toc-number">8.</span> <span class="toc-text"> Day -3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-2"><span class="toc-number">9.</span> <span class="toc-text"> Day 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E5%8D%88"><span class="toc-number">9.1.</span> <span class="toc-text"> 上午</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%8D%88"><span class="toc-number">9.2.</span> <span class="toc-text"> 中午</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E5%8D%88"><span class="toc-number">9.3.</span> <span class="toc-text"> 下午</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text"> 总结</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-2"><span class="toc-number">1.</span> <span class="toc-text"> Day -2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0"><span class="toc-number">2.</span> <span class="toc-text"> Day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1"><span class="toc-number">3.</span> <span class="toc-text"> Day 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%83%E8%AF%95"><span class="toc-number">3.1.</span> <span class="toc-text"> 考试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%9F%BA"><span class="toc-number">3.2.</span> <span class="toc-text"> 面基</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text"> 结束了。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-3"><span class="toc-number">5.</span> <span class="toc-text"> Day -(-3)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-5"><span class="toc-number">6.</span> <span class="toc-text"> Day -5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-4"><span class="toc-number">7.</span> <span class="toc-text"> Day -4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-3-2"><span class="toc-number">8.</span> <span class="toc-text"> Day -3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-2"><span class="toc-number">9.</span> <span class="toc-text"> Day 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E5%8D%88"><span class="toc-number">9.1.</span> <span class="toc-text"> 上午</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%8D%88"><span class="toc-number">9.2.</span> <span class="toc-text"> 中午</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E5%8D%88"><span class="toc-number">9.3.</span> <span class="toc-text"> 下午</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text"> 总结</span></a></li></ol>
+    </div>
+
 
 <article class="post content-card">
-    <div class="post__header"></div>
+    <div class="post__header">
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2021-01-12"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 200) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+</div>
     <div class="post__content">
         <h1 id="初赛"><a class="markdownIt-Anchor" href="#初赛">#</a> 初赛</h1>
 <h2 id="day-2"><a class="markdownIt-Anchor" href="#day-2">#</a> Day -2</h2>
-<p>做了个模拟（非洛谷），只有<strong>一丁点</strong>分，显然过不了<a id="more"></a></p>
+<p>做了个模拟（非洛谷），只有<strong>一丁点</strong>分，显然过不了</p>
 <p><s>（盗张 i am ak f 的图）</s></p>
 <p><img src="https://s1.ax1x.com/2020/10/11/0gU1nP.png" alt="0gU1nP.png"></p>
 <h2 id="day-0"><a class="markdownIt-Anchor" href="#day-0">#</a> Day 0</h2>
@@ -264,7 +317,7 @@
 
     </div>
      
-    <div class="post-footer__meta"><p>更新于 2020-12-27</p></div> 
+    <div class="post-footer__meta"><p>更新于2021-01-12</p></div> 
     <div class="post-meta__cats"><a href="/categories/%E6%B8%B8%E8%AE%B0/" class="post-cats__link button">游记</a><a href="/categories/%E6%B8%B8%E8%AE%B0/2020/" class="post-cats__link button">2020</a><a href="/tags/CSp/" class="post-tags__link button"># CSp</a><a href="/tags/NOIp/" class="post-tags__link button"># NOIp</a></div> 
 </article>
 
@@ -308,6 +361,25 @@
 
 
 
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
 
 
 </main>
@@ -324,7 +396,7 @@
     
         
         <p class="footer-copyright">
-            Copyright © 2021 <a href="/">Geometry37&#39;s Blog</a>
+            Copyright © 2018&nbsp;-&nbsp;2021 <a href="/">Geometry37&#39;s Blog</a>
         </p>
     
     
@@ -350,6 +422,41 @@
     
  
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  
@@ -358,6 +465,60 @@
 
  
 
+
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"ybYKKt07qy7I1Re4W8Y7BFvA-MdYXbMMI","appKey":"lecFuOHKJzgm0IsVAjGK0Gh8","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":null,"visitor":null,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
 
 
 

@@ -35,15 +35,15 @@
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="console.error(&quot;Error: [hexo-tag-aplayer] Meting support is disabled, cannot resolve the meting tags properly.&quot;); 			 # Pick 定理 [笔记][计算几何] # 基本概念 给定顶点均为整点的简单多边形，该定理说明了其面积 AAA 和内部个点数目 iii、边上格点数目 bb">
+    <meta name="description" content="# Pick 定理 [笔记][计算几何] # 基本概念 给定顶点均为整点的简单多边形，该定理说明了其面积 AAA 和内部个点数目 iii、边上格点数目 bbb 的关系： A&#x3D;i+b2−1A&#x3D;i+\frac{b}{2}-1 A&#x3D;i+2b​−1 详细的证明可以看【这里】，在本文简述一下，反正不打算投日报 # 简略证明 因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 PPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pick 定理">
 <meta property="og:url" content="https://blog.geometry37.tk/post/pick-theorem/index.html">
 <meta property="og:site_name" content="Geometry37&#39;s Blog">
-<meta property="og:description" content="console.error(&quot;Error: [hexo-tag-aplayer] Meting support is disabled, cannot resolve the meting tags properly.&quot;); 			 # Pick 定理 [笔记][计算几何] # 基本概念 给定顶点均为整点的简单多边形，该定理说明了其面积 AAA 和内部个点数目 iii、边上格点数目 bb">
+<meta property="og:description" content="# Pick 定理 [笔记][计算几何] # 基本概念 给定顶点均为整点的简单多边形，该定理说明了其面积 AAA 和内部个点数目 iii、边上格点数目 bbb 的关系： A&#x3D;i+b2−1A&#x3D;i+\frac{b}{2}-1 A&#x3D;i+2b​−1 详细的证明可以看【这里】，在本文简述一下，反正不打算投日报 # 简略证明 因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 PPP">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-12T13:02:24.000Z">
-<meta property="article:modified_time" content="2020-12-27T02:14:37.904Z">
+<meta property="article:modified_time" content="2021-01-12T14:17:14.055Z">
 <meta property="article:author" content="Geometry37">
 <meta property="article:tag" content="计算几何">
 <meta name="twitter:card" content="summary_large_image">
@@ -54,10 +54,19 @@
  
 
 
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
 
     
     
         <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
         
     
 
@@ -75,7 +84,7 @@
             <header class="header">
     <div class="header__left">
         <a href="/" class="button">
-            <span class="logo__text">Demo</span>
+            <span class="logo__text">Geometry37</span>
         </a>
     </div>
     <div class="header__right">
@@ -99,8 +108,18 @@
 
         
         
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
 
-        
+
+         
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
 
         
             <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
@@ -130,7 +149,7 @@
         Pick 定理
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2020/11/" class="post-meta__date button">2020-11-12</a>
+        <a href="/archives/2020/11/" class="post-meta__date button">写于2020-11-12</a>
         
     <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
 
@@ -147,20 +166,50 @@
 </div>
 
 
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%95%A5%E8%AF%81%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text"> 简略证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text"> 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#p2735-usaco34%E7%BD%91-electric-fences"><span class="toc-number">3.1.</span> <span class="toc-text"> P2735 [USACO3.4] 网 Electric Fences</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%95%A5%E8%AF%81%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text"> 简略证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text"> 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#p2735-usaco34%E7%BD%91-electric-fences"><span class="toc-number">3.1.</span> <span class="toc-text"> P2735 [USACO3.4] 网 Electric Fences</span></a></li></ol></li></ol>
+    </div>
+
 
 <article class="post content-card">
-    <div class="post__header"></div>
+    <div class="post__header">
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2021-01-12"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 200) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+</div>
     <div class="post__content">
-        
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Meting support is disabled, cannot resolve the meting tags properly.");
-			</script>
-<h1 id="pick-定理笔记计算几何"><a class="markdownIt-Anchor" href="#pick-定理笔记计算几何">#</a> Pick 定理 [笔记][计算几何]</h1>
+        <h1 id="pick-定理笔记计算几何"><a class="markdownIt-Anchor" href="#pick-定理笔记计算几何">#</a> Pick 定理 [笔记][计算几何]</h1>
 <h2 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念">#</a> 基本概念</h2>
 <p>给定顶点均为整点的简单多边形，该定理说明了其面积 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> 和内部个点数目 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span>、边上格点数目 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> 的关系：</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>=</mo><mi>i</mi><mo>+</mo><mfrac><mi>b</mi><mn>2</mn></mfrac><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">A=i+\frac{b}{2}-1
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
-<p>详细的证明可以看<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pick%27s_theorem">【这里】</a>，在本文简述一下<a id="more"></a>，<s>反正不打算投日报</s></p>
+<p>详细的证明可以看<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pick%27s_theorem">【这里】</a>，在本文简述一下，<s>反正不打算投日报</s></p>
 <h2 id="简略证明"><a class="markdownIt-Anchor" href="#简略证明">#</a> 简略证明</h2>
 <p>因为所有简单多边形都可切割为一个三角形和另一个简单多边形。考虑一个简单多边形 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>，及跟 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 有一条共同边的三角形 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>。若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 符合 Pick 公式，则只要证明 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 加上 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">PT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 亦符合皮克公式，以及三角形符合皮克公式，就可根据数学归纳法，对于所有简单多边形皮克公式都是成立的。</p>
 <h2 id="例题"><a class="markdownIt-Anchor" href="#例题">#</a> 例题</h2>
@@ -178,7 +227,7 @@
 
     </div>
      
-    <div class="post-footer__meta"><p>更新于 2020-12-27</p></div> 
+    <div class="post-footer__meta"><p>更新于2021-01-12</p></div> 
     <div class="post-meta__cats"><a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-cats__link button">笔记</a><a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" class="post-tags__link button"># 计算几何</a></div> 
 </article>
 
@@ -222,6 +271,25 @@
 
 
 
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
 
 
 </main>
@@ -238,7 +306,7 @@
     
         
         <p class="footer-copyright">
-            Copyright © 2021 <a href="/">Geometry37&#39;s Blog</a>
+            Copyright © 2018&nbsp;-&nbsp;2021 <a href="/">Geometry37&#39;s Blog</a>
         </p>
     
     
@@ -264,6 +332,41 @@
     
  
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('false')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  
@@ -272,6 +375,60 @@
 
  
 
+
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"ybYKKt07qy7I1Re4W8Y7BFvA-MdYXbMMI","appKey":"lecFuOHKJzgm0IsVAjGK0Gh8","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":null,"visitor":null,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
 
 
 
