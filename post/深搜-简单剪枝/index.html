@@ -1,41 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-    <meta charset="utf-8">
-
-    
-
-    <!-- 渲染优化 -->
-    <meta name="renderer" content="webkit">
-    <meta name="force-rendering" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="HandheldFriendly" content="True" >
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!--icon-->
-
-    
-    
-    
-    
-    
-
-
-    <!-- meta -->
-
-
-<title>深搜——简单剪枝 | Geometry37&#39;s Blog</title>
-
-
-    <meta name="keywords" content="深度优先搜索, DFS">
-
-
-
-
-    <!-- OpenGraph -->
- 
-    <meta name="description" content="# 深搜 —— 简单剪枝 # 说在最前面： 因为马上要 NOIP2020 了，所以菜鸡开始了复习 qwq。 pj 组 T1 ，T2 肯定要拿到满分的，然后 T3 ， T4 拿部分分， T3 拿部分分最常见的做法就是暴搜，但是暴搜容易 T ，为了拿到更多的分数，应该合理剪枝。 # 各种剪枝方法  优化搜索顺序  （随缘）随缘剪枝。  可行性剪枝  对当前状态进行检查，发现分支无法到达递归边界，回溯。">
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>深搜——简单剪枝 | Hexo</title>
+  <meta name="description" content="# 深搜 —— 简单剪枝 # 说在最前面： 因为马上要 NOIP2020 了，所以菜鸡开始了复习 qwq。 pj 组 T1 ，T2 肯定要拿到满分的，然后 T3 ， T4 拿部分分， T3 拿部分分最常见的做法就是暴搜，但是暴搜容易 T ，为了拿到更多的分数，应该合理剪枝。 # 各种剪枝方法  优化搜索顺序  （随缘）随缘剪枝。  可行性剪枝  对当前状态进行检查，发现分支无法到达递归边界，回溯。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深搜——简单剪枝">
 <meta property="og:url" content="https://blog.geometry37.tk/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/index.html">
@@ -44,169 +27,370 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/nlrj3yzi.png">
 <meta property="article:published_time" content="2020-12-25T13:52:31.000Z">
-<meta property="article:modified_time" content="2021-01-12T14:16:54.216Z">
+<meta property="article:modified_time" content="2021-01-13T12:59:35.723Z">
 <meta property="article:author" content="Geometry37">
 <meta property="article:tag" content="深度优先搜索">
 <meta property="article:tag" content="DFS">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/nlrj3yzi.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.geometry37.tk/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Geometry37&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-
-    
-<link rel="stylesheet" href="/css/style/main.css">
- 
-
-
-    
-<link rel="stylesheet" href="/css/style/dark.css">
-
-    
-<script src="/js/darkmode.js"></script>
-
-
-
-    
-    
-        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
-        
-            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
-        
-    
-
-    
-    
-
-     
-
-    <!-- custom head -->
-
+  
+  
+  
+  
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-    <body>
-        <div id="app">
-            <header class="header">
-    <div class="header__left">
-        <a href="/" class="button">
-            <span class="logo__text">Geometry37</span>
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-    <div class="header__right">
-        
-            <div class="navbar__menus">
-                
-                    <a href="/" class="navbar-menu button">首页</a>
-                
-                    <a href="/tags/" class="navbar-menu button">标签</a>
-                
-                    <a href="/archives/" class="navbar-menu button">归档</a>
-                
-                    <a href="/friends/" class="navbar-menu button">友链</a>
-                
-                    <a href="/page/" class="navbar-menu button">Page</a>
-                
-            </div>
-        
-        
-        
-
-        
-        
-    <a href="javaScript:void(0);" id="btn-toggle-dark">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    </a>
-
-
-         
-    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
-            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
-        </svg>
-    </a>
-
-
-        
-            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
-            <div class="dropdown-menus" id="dropdown-menus">
-                
-                    <a href="/" class="dropdown-menu button">首页</a>
-                
-                    <a href="/tags/" class="dropdown-menu button">标签</a>
-                
-                    <a href="/archives/" class="dropdown-menu button">归档</a>
-                
-                    <a href="/friends/" class="dropdown-menu button">友链</a>
-                
-                    <a href="/page/" class="dropdown-menu button">Page</a>
-                
-            </div>
-        
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
     </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
 </header>
 
-
-            <main class="main">
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
     
-
-<div class="post-title">
-    <h1 class="post-title__text">
-        深搜——简单剪枝
-    </h1>
-    <div class="post-title__meta">
-        <a href="/archives/2020/12/" class="post-meta__date button">写于2020-12-25</a>
-        
-    <span class="separate-dot"></span><a href="/categories/%E7%AC%94%E8%AE%B0/" class="button">笔记</a>
-
- 
-        
-    
-    
-
-
- 
-
- 
-    </div>
-</div>
-
-
-    <aside class="post-side">
-        <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%90%9C%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D"><span class="toc-number">1.</span> <span class="toc-text"> 深搜 —— 简单剪枝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">1.1.</span> <span class="toc-text"> 说在最前面：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%89%AA%E6%9E%9D%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text"> 各种剪枝方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text"> 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E4%B8%80%E6%B4%9B%E8%B0%B7-p1135-%E5%A5%87%E6%80%AA%E7%9A%84%E7%94%B5%E6%A2%AF"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 例一：洛谷 P1135 奇怪的电梯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E4%BA%8C%E6%B4%9B%E8%B0%B7-p1731-noi1999%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text"> 例二：洛谷 P1731 [NOI1999] 生日蛋糕</span></a></li></ol></li></ol>
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
         </div>
-    </aside>
-    <a class="btn-toc button" id="btn-toc" tabindex="0">
-        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
-        </svg>
-    </a>
-    <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">文章目录</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%90%9C%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D"><span class="toc-number">1.</span> <span class="toc-text"> 深搜 —— 简单剪枝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">1.1.</span> <span class="toc-text"> 说在最前面：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%89%AA%E6%9E%9D%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text"> 各种剪枝方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text"> 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E4%B8%80%E6%B4%9B%E8%B0%B7-p1135-%E5%A5%87%E6%80%AA%E7%9A%84%E7%94%B5%E6%A2%AF"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 例一：洛谷 P1135 奇怪的电梯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E4%BA%8C%E6%B4%9B%E8%B0%B7-p1731-noi1999%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text"> 例二：洛谷 P1731 [NOI1999] 生日蛋糕</span></a></li></ol></li></ol>
     </div>
-
-
-<article class="post content-card">
-    <div class="post__header">
-    <div class="post__expire" id="post-expired-notify">
-        <p>
-            本文最后更新于 &lt;span id=&#34;expire-date&#34;&gt;&lt;/span&gt; 天前，文中部分描述可能已经过时。
-        </p>
-    </div>
-    <script>
-        (() => {
-            var update = Date.parse("2021-01-12"),
-                date = new Date(),
-                now = date.getTime(),
-                expire = now - update,
-                expire_days = Math.floor(expire/(24*3600*1000));
-            if (expire_days >= 200) {
-                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
-                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
-            }
-        })();
-    </script>
 </div>
-    <div class="post__content">
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E8%AE%B0/">游记</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E8%AE%B0/2020/">2020</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/CodeForces/">CodeForces</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/Luogu/">Luogu</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/UVA/">UVA</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/">总集</a><span class="category-list-count">2</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ABC/" rel="tag">ABC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARC/" rel="tag">ARC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AtCoder/" rel="tag">AtCoder</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSp/" rel="tag">CSp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOI/" rel="tag">NOI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIp/" rel="tag">NOIp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/" rel="tag">二分搜索</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" rel="tag">二分答案</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%B8%E5%8C%85/" rel="tag">凸包</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AA%E6%9E%9D/" rel="tag">剪枝</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%8A%A8%E8%A7%84-dp/" rel="tag">动态规划,动规,dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%88%E9%9B%86/" rel="tag">合集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%9A%84%E5%BB%BA%E7%AB%8B-%E5%BB%BA%E5%9B%BE/" rel="tag">图的建立,建图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag">图论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E6%96%A5/" rel="tag">容斥</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/" rel="tag">广度优先搜索,BFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag">搜索</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" rel="tag">数论,数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/" rel="tag">最大流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E5%89%B2/" rel="tag">最小割</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/" rel="tag">枚举,暴力</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag">深度优先搜索</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" rel="tag">深度优先搜索,DFS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9C%81%E9%80%89/" rel="tag">省选</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/" rel="tag">素数判断,质数,筛法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" rel="tag">组合数学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%83%8C%E5%8C%85/" rel="tag">背包</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0/" rel="tag">随机函数</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ABC/" style="font-size: 13.2px;">ABC</a> <a href="/tags/ARC/" style="font-size: 13px;">ARC</a> <a href="/tags/AtCoder/" style="font-size: 13.4px;">AtCoder</a> <a href="/tags/CSp/" style="font-size: 13px;">CSp</a> <a href="/tags/DFS/" style="font-size: 13px;">DFS</a> <a href="/tags/NOI/" style="font-size: 13px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 13px;">NOIp</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">二分搜索</a> <a href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 13px;">二分答案</a> <a href="/tags/%E5%87%B8%E5%8C%85/" style="font-size: 13.6px;">凸包</a> <a href="/tags/%E5%89%AA%E6%9E%9D/" style="font-size: 13px;">剪枝</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%8A%A8%E8%A7%84-dp/" style="font-size: 13.4px;">动态规划,动规,dp</a> <a href="/tags/%E5%90%88%E9%9B%86/" style="font-size: 13px;">合集</a> <a href="/tags/%E5%9B%BE%E7%9A%84%E5%BB%BA%E7%AB%8B-%E5%BB%BA%E5%9B%BE/" style="font-size: 13px;">图的建立,建图</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 13px;">图论</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.6px;">字符串</a> <a href="/tags/%E5%AE%B9%E6%96%A5/" style="font-size: 13px;">容斥</a> <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/" style="font-size: 13px;">广度优先搜索,BFS</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 13.2px;">搜索</a> <a href="/tags/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" style="font-size: 13.2px;">数论,数学</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/" style="font-size: 13px;">最大流</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E5%89%B2/" style="font-size: 13px;">最小割</a> <a href="/tags/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/" style="font-size: 13.6px;">枚举,暴力</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px;">模拟</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">深度优先搜索</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" style="font-size: 13.4px;">深度优先搜索,DFS</a> <a href="/tags/%E7%9C%81%E9%80%89/" style="font-size: 13px;">省选</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/" style="font-size: 13px;">素数判断,质数,筛法</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" style="font-size: 13px;">组合数学</a> <a href="/tags/%E8%83%8C%E5%8C%85/" style="font-size: 13.4px;">背包</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 13.8px;">计算几何</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 13.4px;">贪心</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0/" style="font-size: 13px;">随机函数</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/at3621/" class="title">[AT3621][ARC084B] Small Multiple</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-13T12:47:30.000Z" itemprop="datePublished">2021-01-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/at5037/" class="title">[AT5037]Consecutive Integers</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-27T01:40:51.000Z" itemprop="datePublished">2020-12-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/">总集</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/" class="title">NOI 系列题解总集</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T13:58:43.000Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/sp867/" class="title">[SP867] CUBES - Perfect Cubes</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T13:57:32.000Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a>
+              </p>
+              <p class="item-title">
+                <a href="/post/sp34013/" class="title">[SP34013]SEUG - Seetha’s Unique Game</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T13:55:58.000Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-深搜——简单剪枝" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深搜——简单剪枝
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/" class="article-date">
+	  <time datetime="2020-12-25T13:52:31.000Z" itemprop="datePublished">2020-12-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/DFS/" rel="tag">DFS</a>, <a class="article-tag-link-link" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag">深度优先搜索</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
         <h2 id="深搜简单剪枝"><a class="markdownIt-Anchor" href="#深搜简单剪枝">#</a> 深搜 —— 简单剪枝</h2>
 <h3 id="说在最前面"><a class="markdownIt-Anchor" href="#说在最前面">#</a> 说在最前面：</h3>
 <p>因为马上要 NOIP2020 了，所以菜鸡开始了复习 qwq。</p>
@@ -287,212 +471,229 @@ S &amp;= \frac{2N}{r}
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> ceng, <span class="keyword">int</span> restv, <span class="keyword">int</span> r, <span class="keyword">int</span> h, <span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line"><span class="comment">//ceng为已用层数，restv为剩余体积，r为当前最高层蛋糕半径，h为当前最高层蛋糕高度，s为已有表面积/π</span></span><br><span class="line">    <span class="keyword">if</span>(ceng == m &amp;&amp; restv == <span class="number">0</span>) <span class="comment">//蛋糕已完成，即层数ceng==m且体积用完 &#123;</span></span><br><span class="line">        ans = min(ans, s); <span class="comment">//更新答案为最优解</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(restv &lt; <span class="number">0</span>) <span class="keyword">return</span>; <span class="comment">//剩余体积小于0表示体积超过了预定的值</span></span><br><span class="line">    <span class="keyword">if</span>(s + <span class="number">2</span> * restv / r &gt;= ans) <span class="keyword">return</span>; <span class="comment">//若当前总表面积+该层往上所有表面积的最小和&gt;=目前最优解</span></span><br><span class="line">    <span class="comment">//简单一点可以把每一层的侧面积看做最小的1，那么后续剩下部分的侧面积就等于剩余层数m-ceng</span></span><br><span class="line">    <span class="comment">//数据严格一点就可以从剩余体积去计算出剩余最小侧面积2 * restv / r,可改为if(s + 2 * restv / r &gt;= ans)</span></span><br><span class="line">    <span class="keyword">if</span>(r * r * h * (m - ceng) &lt; restv) <span class="keyword">return</span>; <span class="comment">//后续能做出蛋糕的最大体积&lt;当前剩余体积</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = r - <span class="number">1</span>; i &gt;= m - ceng; i--) <span class="comment">//枚举下一层所有可能的半径</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = h - <span class="number">1</span>; j &gt;= m - ceng; j--) <span class="comment">//枚举下一层所有可能的高度</span></span><br><span class="line">            <span class="keyword">if</span>(ceng != <span class="number">0</span>) dfs(ceng + <span class="number">1</span>, restv - i * i * j, i, j, s + <span class="number">2</span> * i * j);</span><br><span class="line">            <span class="keyword">else</span> dfs(ceng + <span class="number">1</span>, restv - i * i * j, i, j, s + <span class="number">2</span> * i * j + i * i);</span><br><span class="line">            <span class="comment">//第一层需要计算上表面积，其他层只需计算侧面积即可，故需分类讨论</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>好啦！窝拿到 NOI 铜牌啦啊！（雾</p>
 
+      
     </div>
-     
-    <div class="post-footer__meta"><p>更新于2021-01-12</p></div> 
-    <div class="post-meta__cats"><a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-cats__link button">笔记</a><a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="post-tags__link button"># 深度优先搜索</a><a href="/tags/DFS/" class="post-tags__link button"># DFS</a></div> 
-</article>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.geometry37.tk/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/" title="深搜——简单剪枝" target="_blank" rel="external">https://blog.geometry37.tk/post/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
 
 
-    <div class="nav">
-        <div class="nav__prev">
-            
-                <a href="/post/cf1182b/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            [CF1182B]Plus from Picture
-                        </div>
-                    </div>
-                </a>
-            
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/post/cf1182b/" title="[CF1182B]Plus from Picture"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/post/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/" title="深搜——拿部分分"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="nav__next">
-            
-                <a href="/post/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/" class="nav__link">
-                    <div>
-                        <div class="nav__label">
-                            Next Post
-                        </div>
-                        <div class="nav__title">
-                            深搜——拿部分分
-                        </div>
-                    </div>
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
-                    </div>
-                </a>
-            
-        </div>
+      </div>
     </div>
-
-
-
-    <div class="post__comments content-card" id="comment">
-        
-    <h4>评论</h4>
-    
-    
-    
-    <div id="valine_container" class="valine_thread"></div>
-
-    
-    
-    
-    
-    
-    
-    
-
-
-    </div>
+  </div>
+</div>
 
 
 
 </main>
 
-            <footer class="footer">
-    
-
-
-    
-     
- 
-
- 
-    
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <p class="footer-copyright">
-            Copyright © 2018&nbsp;-&nbsp;2021 <a href="/">Geometry37&#39;s Blog</a>
-        </p>
-    
-    
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
-</footer>
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
 
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
         </div>
-         
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
 
- 
-
- 
-
- 
-
-  
-
+<script src="/js/plugin.min.js"></script>
 
 
- 
+<script src="/js/application.js"></script>
 
-
-    
- 
-
-
-    
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
-
-    
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
 
     <script>
-        let lazyloadT = Boolean('false'),
-            auto_fancybox = Boolean('false')
-        if (auto_fancybox) {
-            $(".post__content").find('img').each(function () {
-                var element = document.createElement("a");
-                $(element).attr("data-fancybox", "gallery");
-                $(element).attr("href", $(this).attr("src"));
-                if (lazyloadT) {
-                    $(element).attr("href", $(this).attr("data-srcset"));
-                }
-                $(this).wrap(element);
-            });
-        } else {
-            $(".post__content").find("fancybox").find('img').each(function () {
-                var element = document.createElement("a");
-                $(element).attr("data-fancybox", "gallery");
-                $(element).attr("href", $(this).attr("src"));
-                if (lazyloadT) {
-                    $(element).attr("href", $(this).attr("data-srcset"));
-                }
-                $(this).wrap(element);
-            });
-        }
-    </script>
- 
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
 
- 
-
- 
-
- 
-
-
-    
-
-    
-    
-    
-    <script>
-        function loadComment() {
-            let e;
-            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
-            document.body.appendChild(e);
-            e.onload = () => {
-                var valineConfig = {"appId":"ybYKKt07qy7I1Re4W8Y7BFvA-MdYXbMMI","appKey":"lecFuOHKJzgm0IsVAjGK0Gh8","placeholder":null,"path":null,"avatar":null,"meta":["nick","mail","link"],"pageSize":null,"lang":null,"visitor":null,"highlight":null,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":["nick","mail"],"emojiCDN":null,"emojiMaps":null};
-                valineConfig.el = '#valine_container';
-                for (var i in valineConfig) {
-                    if (valineConfig[i] === null) delete valineConfig[i];
-                }
-                new Valine(valineConfig);
-            };
-        }
-    
-        var runningOnBrowser = typeof window !== "undefined";
-        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-    
-        setTimeout(function () {
-            if (!isBot && supportsIntersectionObserver) {
-                var comment_observer = new IntersectionObserver(function(entries) {
-                    if (entries[0].isIntersecting) {
-                        loadComment();
-                        comment_observer.disconnect();
-                    }
-                }, { threshold: [0] });
-                comment_observer.observe(document.getElementById('comment'));
-            } else {
-                loadComment();
-            }
-        }, 1);
-    </script>
-
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
+<script src="/js/insight.js"></script>
 
 
 
-    </body>
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
 </html>
