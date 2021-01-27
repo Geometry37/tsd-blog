@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <link href="//cdn.staticfile.org/KaTeX/0.7.1/katex.min.css"rel="stylesheet">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>CSp2020游记 | Geometry37</title>
+  <meta name="description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了 （盗张 i am ak f 的图）  # Day 0 颓，颓，颓，又做了一套模拟，坚定了退役的信心。 # Day 1 人好多啊，风好大啊，我好冷啊。 走进去感觉心态挺好？ # 考试 无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 2.5pts\it 2.5pts2.5pts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSp2020游记">
+<meta property="og:url" content="https://blog.geometry37.tk/p/CSp2020/index.html">
+<meta property="og:site_name" content="Geometry37">
+<meta property="og:description" content="# 初赛 # Day -2 做了个模拟（非洛谷），只有一丁点分，显然过不了 （盗张 i am ak f 的图）  # Day 0 颓，颓，颓，又做了一套模拟，坚定了退役的信心。 # Day 1 人好多啊，风好大啊，我好冷啊。 走进去感觉心态挺好？ # 考试 无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 2.5pts\it 2.5pts2.5pts">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://you img base url/https://s1.ax1x.com/2020/10/11/0gU1nP.png?e=1611739466&token=your qiniu access key:rnHsUG3nRsxoQZltjDw6ocP_dg8=">
+<meta property="og:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/pic/62250.png?e=1611739466&token=your qiniu access key:TtX1XGHlcnfMN-anIn7bIvxhflI=">
+<meta property="og:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/pic/62224.png?e=1611739466&token=your qiniu access key:Fa1OzCZOPXf5QJbps0cjFNcmMqs=">
+<meta property="og:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png?e=1611739466&token=your qiniu access key:qBPXpJ8CY606janEue3ffGDav_Y=">
+<meta property="article:published_time" content="2020-11-08T06:39:39.000Z">
+<meta property="article:modified_time" content="2021-01-13T12:59:40.753Z">
+<meta property="article:author" content="Geometry37">
+<meta property="article:tag" content="CSp">
+<meta property="article:tag" content="NOIp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://you img base url/https://s1.ax1x.com/2020/10/11/0gU1nP.png?e=1611739466&token=your qiniu access key:rnHsUG3nRsxoQZltjDw6ocP_dg8=">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.geometry37.tk/p/CSp2020/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Geometry37" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon/2/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/tnttian" target="_blank">
+          <img class="img-circle img-rotate" src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Geometry37</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">菜鸡 OIer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a target="_blank" rel="noopener" href="//wiki.geometry37.tk">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/tnttian" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del><br>Email:Trotyl-tnt@yandex.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/t/ABC/" style="font-size: 13.2px;">ABC</a> <a href="/t/ARC/" style="font-size: 13px;">ARC</a> <a href="/t/AtCoder/" style="font-size: 13.4px;">AtCoder</a> <a href="/t/CSp/" style="font-size: 13px;">CSp</a> <a href="/t/DFS/" style="font-size: 13px;">DFS</a> <a href="/t/NOI/" style="font-size: 13px;">NOI</a> <a href="/t/NOIp/" style="font-size: 13px;">NOIp</a> <a href="/t/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">二分搜索</a> <a href="/t/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 13px;">二分答案</a> <a href="/t/%E5%87%B8%E5%8C%85/" style="font-size: 13.6px;">凸包</a> <a href="/t/%E5%89%AA%E6%9E%9D/" style="font-size: 13px;">剪枝</a> <a href="/t/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%8A%A8%E8%A7%84-dp/" style="font-size: 13.4px;">动态规划,动规,dp</a> <a href="/t/%E5%90%88%E9%9B%86/" style="font-size: 13px;">合集</a> <a href="/t/%E5%9B%BE%E7%9A%84%E5%BB%BA%E7%AB%8B-%E5%BB%BA%E5%9B%BE/" style="font-size: 13px;">图的建立,建图</a> <a href="/t/%E5%9B%BE%E8%AE%BA/" style="font-size: 13px;">图论</a> <a href="/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.6px;">字符串</a> <a href="/t/%E5%AE%B9%E6%96%A5/" style="font-size: 13px;">容斥</a> <a href="/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/" style="font-size: 13px;">广度优先搜索,BFS</a> <a href="/t/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/t/%E6%90%9C%E7%B4%A2/" style="font-size: 13.2px;">搜索</a> <a href="/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" style="font-size: 13.2px;">数论,数学</a> <a href="/t/%E6%9C%80%E5%A4%A7%E6%B5%81/" style="font-size: 13px;">最大流</a> <a href="/t/%E6%9C%80%E5%B0%8F%E5%89%B2/" style="font-size: 13px;">最小割</a> <a href="/t/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/" style="font-size: 13.6px;">枚举,暴力</a> <a href="/t/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px;">模拟</a> <a href="/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">深度优先搜索</a> <a href="/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" style="font-size: 13.4px;">深度优先搜索,DFS</a> <a href="/t/%E7%9C%81%E9%80%89/" style="font-size: 13px;">省选</a> <a href="/t/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/" style="font-size: 13px;">素数判断,质数,筛法</a> <a href="/t/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" style="font-size: 13px;">组合数学</a> <a href="/t/%E8%83%8C%E5%8C%85/" style="font-size: 13.4px;">背包</a> <a href="/t/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 13.8px;">计算几何</a> <a href="/t/%E8%B4%AA%E5%BF%83/" style="font-size: 13.4px;">贪心</a> <a href="/t/%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0/" style="font-size: 13px;">随机函数</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/c/%E6%B8%B8%E8%AE%B0/">游记</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/%E6%B8%B8%E8%AE%B0/2020/">2020</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/c/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/CodeForces/">CodeForces</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/Luogu/">Luogu</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/UVA/">UVA</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/">总集</a><span class="category-list-count">2</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a>
+              </p>
+              <p class="item-title">
+                <a href="/p/undefined/" class="title">[AT3621][ARC084B] Small Multiple</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-13T12:47:30.000Z" itemprop="datePublished">2021-01-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a>
+              </p>
+              <p class="item-title">
+                <a href="/p/at5037/" class="title">[AT5037]Consecutive Integers</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-27T01:40:51.000Z" itemprop="datePublished">2020-12-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/">总集</a>
+              </p>
+              <p class="item-title">
+                <a href="/p/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/" class="title">NOI 系列题解总集</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T13:58:43.000Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a>
+              </p>
+              <p class="item-title">
+                <a href="/p/sp867/" class="title">[SP867] CUBES - Perfect Cubes</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T13:57:32.000Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><i class="icon icon-angle-right"></i><a class="category-link" href="/c/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a>
+              </p>
+              <p class="item-title">
+                <a href="/p/sp34013/" class="title">[SP34013]SEUG - Seetha’s Unique Game</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T13:55:58.000Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-CSp2020游记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSp2020游记
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/p/CSp2020/" class="article-date">
+	  <time datetime="2020-11-08T06:39:39.000Z" itemprop="datePublished">2020-11-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/c/%E6%B8%B8%E8%AE%B0/">游记</a>►<a class="article-category-link" href="/c/%E6%B8%B8%E8%AE%B0/2020/">2020</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/t/CSp/" rel="tag">CSp</a>, <a class="article-tag-link-link" href="/t/NOIp/" rel="tag">NOIp</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/p/CSp2020/" class="leancloud_visitors"  data-flag-title="CSp2020游记">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/p/CSp2020/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="初赛"><a class="markdownIt-Anchor" href="#初赛">#</a> 初赛</h1>
+<h2 id="day-2"><a class="markdownIt-Anchor" href="#day-2">#</a> Day -2</h2>
+<p>做了个模拟（非洛谷），只有<strong>一丁点</strong>分，显然过不了</p>
+<p><s>（盗张 i am ak f 的图）</s></p>
+<p><img src="http://you img base url/https://s1.ax1x.com/2020/10/11/0gU1nP.png?e=1611739466&token=your qiniu access key:rnHsUG3nRsxoQZltjDw6ocP_dg8=" alt="0gU1nP.png"></p>
+<h2 id="day-0"><a class="markdownIt-Anchor" href="#day-0">#</a> Day 0</h2>
+<p>颓，颓，颓，又做了一套模拟，坚定了退役的信心。</p>
+<h2 id="day-1"><a class="markdownIt-Anchor" href="#day-1">#</a> Day 1</h2>
+<p>人好多啊，风好大啊，我好冷啊。</p>
+<p>走进去感觉心态挺好？</p>
+<h3 id="考试"><a class="markdownIt-Anchor" href="#考试">#</a> 考试</h3>
+<p>无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="italic">2.5</mn><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\it 2.5pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathit">2</span><span class="mord mathit">.</span><span class="mord mathit">5</span><span class="mord mathit">p</span><span class="mord mathit">t</span><span class="mord mathit">s</span></span></span></span></span> 没了……</p>
+<p>总之，考的不是很好，但应该还是可以过？（我都不信……）</p>
+<h3 id="面基"><a class="markdownIt-Anchor" href="#面基">#</a> 面基</h3>
+<p>显然考试不重要，面基才重要，从 3 楼下来到了 102 结果没什么人，看见了书虫，结果我没认出来他他认出来我了<img src="http://you img base url/https://cdn.luogu.com.cn/upload/pic/62250.png?e=1611739466&token=your qiniu access key:TtX1XGHlcnfMN-anIn7bIvxhflI=" alt="/fad"> 一定是我太 <s>可爱</s> 菜了，一眼就能认出来。感觉书虫好可爱啊<img src="http://you img base url/https://cdn.luogu.com.cn/upload/pic/62224.png?e=1611739466&token=your qiniu access key:Fa1OzCZOPXf5QJbps0cjFNcmMqs=" alt="/qq"></p>
+<p><s>rui_er 人呢，ClCN 人呢，tarjin 人呢（</s></p>
+<h2 id="结束了"><a class="markdownIt-Anchor" href="#结束了">#</a> 结束了。</h2>
+<p>回来本来还想着可能烤得挺好，一堆答案，一切都结束了，该晋级的晋级了，该 AK 的 AK 了。我只能退役了……</p>
+<p>但毕竟还有时间，希望能继续努力，实现自己的梦想吧。</p>
+<h2 id="day-3"><a class="markdownIt-Anchor" href="#day-3">#</a> Day -(-3)</h2>
+<p>出成绩了，擦线过了（</p>
+<hr>
+<h1 id="复赛"><a class="markdownIt-Anchor" href="#复赛">#</a> 复赛</h1>
+<h2 id="day-5"><a class="markdownIt-Anchor" href="#day-5">#</a> Day -5</h2>
+<p>模拟赛垫底。</p>
+<p>100+100+30+10</p>
+<p>我直接退役好吧……</p>
+<h2 id="day-4"><a class="markdownIt-Anchor" href="#day-4">#</a> Day -4</h2>
+<p>简单复习了复习图论。</p>
+<h2 id="day-3-2"><a class="markdownIt-Anchor" href="#day-3-2">#</a> Day -3</h2>
+<p>期中考试祭，也算是进入初中后第一次大考。</p>
+<p>Day1：语文，地理，数学<br>
+ Day2：英语，生物</p>
+<p>感觉地理数学都爆炸了 /youl</p>
+<p>竟然感觉语文还行？？？（</p>
+<h2 id="day-1-2"><a class="markdownIt-Anchor" href="#day-1-2">#</a> Day 1</h2>
+<h3 id="上午"><a class="markdownIt-Anchor" href="#上午">#</a> 上午</h3>
+<p>上午 pj。</p>
+<p>7:00 就到了考场，在车上吃了点东西。</p>
+<p>8:00 进去了</p>
+<p>找到了教室，做好了，竟然坐在墙角。</p>
+<p>做我前面的人来了，走近来的时候突然叫了一声：“是 TNT 吗？”</p>
+<p>我吓了一跳，没见过，不认识，他是怎么认识我的，就没管。</p>
+<p>8:20 把解压码发下来，输错了 5 次，不愧是我……</p>
+<p>8:35</p>
+<p>监考员才说可以答题了……</p>
+<p>开了看 T1，不是一眼题了，爷清洁。</p>
+<p>两眼题好评，过了大样例就没管。</p>
+<p>看了眼 T2，两眼题好评，一开始 sb 直接打暴力，没过大样例。</p>
+<p>稍微改了改过了大样例也就没管了。</p>
+<p>看 T3，这啥啊，以为是个 ds，不会，就都输出个 1 骗点分，看 T4。</p>
+<p>这不就是个 dp 吗，可惜 dp 没学好，也懒得推方程，写了个贪心骗点分回来看 T3。</p>
+<p>想了想是否能暴力，打了个暴力，连 Sample1 都没过，也快结束了，就把输出 1 的交了上去。</p>
+<p>估分：100+100+20<sub>30+20=240</sub>250</p>
+<p>12:35 监考员收完答题纸把我们放了出来，我立刻去问了问我前面的那位，才知道是洛谷的 @超级玛丽王子，吓死我了（</p>
+<p>回来洛谷测了一下，T1 挂了，T2 挂了，T3 挂了，T4 挂了</p>
+<p>T1 莫名成了 60，T2 85。</p>
+<p>草 nm 这个 T3 我就是傻逼好吧……</p>
+<p>我分明每个程序都又运行了一下没爆啊？</p>
+<p><img src="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png?e=1611739466&token=your qiniu access key:qBPXpJ8CY606janEue3ffGDav_Y=" alt=""></p>
+<p>本来 30，CE 了，我退役罢……</p>
+<h3 id="中午"><a class="markdownIt-Anchor" href="#中午">#</a> 中午</h3>
+<p>中午去吃了个海底捞，真行。</p>
+<p>又跟同学讨论了一下题，一致认为，毒瘤。</p>
+<h3 id="下午"><a class="markdownIt-Anchor" href="#下午">#</a> 下午</h3>
+<p>吃的有点撑，进考场时有点难受，风又大，感觉我要凉。</p>
+<p>做到了座位，和 pj 一样的教室，没想到 @超级玛丽王子 又来走近我。</p>
+<p>我：？？？<br>
+他：我 pj 做你前头，tg 做你后头（</p>
+<p>还挺有缘（</p>
+<p>开 T1，sb 题，想拜访出题人祖母的女儿，出题人你萌死了，萌死了。</p>
+<p>敲了个 20 分扔了没管看 T2。</p>
+<p>竟然没怎么读懂题，花了 20 分钟读题，写了个暴力看 T3</p>
+<p>天哪，不会做……（赛后得知：dp + 拓扑）</p>
+<p>输了个样例</p>
+<p>T4 感觉可以做做试试。</p>
+<p>就瞎写了写。</p>
+<p>估分：20+10<sub>30+0+10=40</sub>60</p>
+<p>出来后，看很晚了，也根本没人愿意来找我面基，就走了。</p>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h2>
+<p>自己还是基础太薄弱了，学再多的东西又有什么用呢？pj T1 都能挂。</p>
+<blockquote>
+<p>失败了一次，就要从跌倒的地方再爬起。</p>
+</blockquote>
+<p>既然已经知道自己的能力根本就不行了的话，努力吧。</p>
+<p>我们 CSp2021 再见！</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记">#</a> 后记</h1>
+<p>有可能我永远不可能拿到自己心中的蓝勾了，</p>
+<p>从五年级就接触 OI，学了半年糊里糊涂去参加了 NOIp2018 pj，初赛那个十几分回来，当时觉得并没有什么，机会还多。</p>
+<p>2019 年是 NOIp 却没了，取而代之的是 CSp，一切准备妥当时，突然有一个情况发生了：</p>
+<p>CSp 与另一个比赛冲突了，</p>
+<p>那个比赛是一个全国的人工智能大赛，我和另一个搭档代表 BJ 队去 TJ 参赛。</p>
+<p>当时内心十分纠结，整天心态不好，去询问了教练，教练建议去参加那个比赛，可能我即使参加了 CSp 也没有能力拿奖吧。</p>
+<p>可惜，心态问题，那个比赛没搞好连一等奖都没拿到，二等奖第一名。</p>
+<p>又得知 pj 初赛机考水的要死，复赛 T1 一眼题，过了 T1 就二等。</p>
+<p>心态立即就爆炸了，懊悔当初没去参加 CSp。</p>
+<p>就又等了一年。</p>
+<p>CSp2020 了，擦线过了初赛，离复赛只有三天时，才发现自己什么也不会，无比迷茫，不知自己到底会前往何方。</p>
+<p>今年的比赛，暴露了我的真实水平。</p>
+<p>期中考也没考好，英语下了 90。</p>
+<p>明年，明年，明年。</p>
+<p>恐怕，我连明天都已经没有了罢……</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.geometry37.tk/p/CSp2020/" title="CSp2020游记" target="_blank" rel="external">https://blog.geometry37.tk/p/CSp2020/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/tnttian" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/tnttian" target="_blank"><span class="text-dark">Geometry37</span><small class="ml-1x">菜鸡 OIer</small></a></h3>
+        <div>蒟蒻 BJ OIer</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/p/pick-theorem/" title="Pick 定理"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/p/at4266/" title="[AT4266][ABC113B] Palace"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/tnttian" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 Geometry37
+        
+        <!-- <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div> -->
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'ybYKKt07qy7I1Re4W8Y7BFvA-MdYXbMMI',
+    appKey: 'lecFuOHKJzgm0IsVAjGK0Gh8',
+    placeholder: '来啊，快活啊qaqaq',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
