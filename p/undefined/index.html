@@ -26,16 +26,16 @@
 <meta property="og:site_name" content="Geometry37">
 <meta property="og:description" content="# solution 我们先考虑暴力，把 KKK 的倍数枚举，每枚举一个取每位求和。 这肯定超时，关键是循环取每位爆炸，那么我们不妨想，一个数的各个位数和是如何求出的。 先看个位，111 的位和为 111，222 就在 111 的前提下 +1+1+1 以此类推，就能求出个位位和。 再看其他位，无非就是 nnn 个 101010 加上若干 111，思考 101010，我们可以用 1×101 \tim">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png?e=1611739466&token=your qiniu access key:UfrnROEmXN7Tg-1rzP94_VlG8Go=">
+<meta property="og:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png?e=1611760257&token=your qiniu access key:PqKQ913c-ZhUUPWboxa34Pbox_4=">
 <meta property="article:published_time" content="2021-01-13T12:47:30.000Z">
-<meta property="article:modified_time" content="2021-01-16T10:18:12.512Z">
+<meta property="article:modified_time" content="2021-01-27T14:06:59.966Z">
 <meta property="article:author" content="Geometry37">
 <meta property="article:tag" content="AtCoder">
 <meta property="article:tag" content="ARC">
 <meta property="article:tag" content="广度优先搜索,BFS">
 <meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png?e=1611739466&token=your qiniu access key:UfrnROEmXN7Tg-1rzP94_VlG8Go=">
+<meta name="twitter:image" content="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png?e=1611760257&token=your qiniu access key:PqKQ913c-ZhUUPWboxa34Pbox_4=">
   <!-- Canonical links -->
   <link rel="canonical" href="https://blog.geometry37.tk/p/undefined/index.html">
   
@@ -63,11 +63,11 @@
       
       
       <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/tnttian" target="_blank">
+        <a id="avatar" href="https://github.com/geometry37" target="_blank">
           <img class="img-circle img-rotate" src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">Geometry37</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">菜鸡 OIer</h3>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">菜鸡 OIer | jk | and more</h3>
         <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
       </div>
       
@@ -151,11 +151,15 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/tnttian" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
         <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
         
         <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
         
@@ -168,6 +172,18 @@
   
     <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">格言</h3>
+    <div class="widget-body">
+        <div id="motto">
+            <div class="content">
+                人总有一天都会死的，但正因为生命是有限的，才能够欢喜和悲伤。
+            </div>
+        </div>
+    </div>
+</div>
+
     
       <div class="widget">
     <h3 class="widget-title">公告</h3>
@@ -267,7 +283,7 @@
 <p>先看个位，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的位和为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 就在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的前提下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 以此类推，就能求出个位位和。</p>
 <p>再看其他位，无非就是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 加上若干 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，思考 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>，我们可以用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">1 \times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 来表示，那各位和仍为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
 <p>综上，我们可以整理出两种状态：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>，那么 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 是各位和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>，可 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span> 各位和却不便，故可以转换为 <strong>01 bfs</strong>，如图</p>
-<p><img src="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png?e=1611739466&token=your qiniu access key:UfrnROEmXN7Tg-1rzP94_VlG8Go=" alt=""></p>
+<p><img src="http://you img base url/https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png?e=1611760257&token=your qiniu access key:PqKQ913c-ZhUUPWboxa34Pbox_4=" alt=""></p>
 <p>但是我们发现还有一个问题，那就是这种方法是会超 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="sans-serif">l</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">n</mi><mi mathvariant="sans-serif">g</mi><mtext> </mtext><mi mathvariant="sans-serif">l</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">n</mi><mi mathvariant="sans-serif">g</mi></mrow><annotation encoding="application/x-tex">\sf long~long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathsf">l</span><span class="mord mathsf">o</span><span class="mord mathsf">n</span><span class="mord mathsf" style="margin-right:0.01389em;">g</span><span class="mspace nobreak"> </span><span class="mord mathsf">l</span><span class="mord mathsf">o</span><span class="mord mathsf">n</span><span class="mord mathsf" style="margin-right:0.01389em;">g</span></span></span></span></span> 的，难道我们还要用高精吗？</p>
 <p>当然不，我们发现我们欲求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 的倍数，那么我们在每次 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">%</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\% K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">%</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 就行了，因为这样余数不变，不影响结果。</p>
 <p>讲完基本思路，讲一下如何实现。</p>
@@ -298,12 +314,12 @@
   <div class="panel-body">
     <figure class="media">
       <div class="media-left">
-        <a href="https://github.com/tnttian" target="_blank" class="img-burn thumb-sm visible-lg">
+        <a href="https://github.com/geometry37" target="_blank" class="img-burn thumb-sm visible-lg">
           <img src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/tnttian" target="_blank"><span class="text-dark">Geometry37</span><small class="ml-1x">菜鸡 OIer</small></a></h3>
+        <h3 class="media-heading"><a href="https://github.com/geometry37" target="_blank"><span class="text-dark">Geometry37</span><small class="ml-1x">菜鸡 OIer | jk | and more</small></a></h3>
         <div>蒟蒻 BJ OIer</div>
       </div>
     </figure>
@@ -357,11 +373,15 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/tnttian" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
         <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
         
         <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
         
