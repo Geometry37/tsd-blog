@@ -1,0 +1,10 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>body {
+	background: url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2876623392,2931014876&fm=26&gp=0.jpg);
+    background-attachment:fixed;
+}
+#name {
+	font-family: 'Courier New', Courier, monospace, cursive;
+}
+.header {
+	background: url(https://files.dbnuo.com/wallpaper/menu_bg.gif) no-repeat scroll center center / 100%;
+}
