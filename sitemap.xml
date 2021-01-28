@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.geometry37.tk/c/index.html</loc>
+    
+    <lastmod>2021-01-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/t/index.html</loc>
+    
+    <lastmod>2021-01-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.geometry37.tk/test/index.html</loc>
     
     <lastmod>2021-01-28</lastmod>
@@ -194,6 +208,13 @@
     <loc>https://blog.geometry37.tk/p/at4303/</loc>
     
     <lastmod>2021-01-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/404.html</loc>
+    
+    <lastmod>2020-12-09</lastmod>
     
   </url>
   
