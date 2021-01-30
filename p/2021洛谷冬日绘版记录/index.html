@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+  <link href="main.css" rel="stylesheet">
+<html lang=zh>
+<head>
+  <link href="main.css" rel="stylesheet">
+  <link href="//cdn.staticfile.org/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>2021洛谷冬日绘版记录 | Geometry37</title>
+  <meta name="description" content="# 贡献 Cookie 在此向各位征集 cookie，感谢各位的支持 qaqaq 可以将 cookie 私信 发给我，您需要发两个东西： _uid  及  __client_id  声明：获取了 cookie 即可用该账号使用洛谷上一些其他功能。我承诺不会利用他人账号的 cookie 用作除冬日绘版外的任何用途。并且，这些 cookie 将在活动结束后彻底删除，不会留有记录。 如果您提供了 coo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021洛谷冬日绘版记录">
+<meta property="og:url" content="https://blog.geometry37.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Geometry37">
+<meta property="og:description" content="# 贡献 Cookie 在此向各位征集 cookie，感谢各位的支持 qaqaq 可以将 cookie 私信 发给我，您需要发两个东西： _uid  及  __client_id  声明：获取了 cookie 即可用该账号使用洛谷上一些其他功能。我承诺不会利用他人账号的 cookie 用作除冬日绘版外的任何用途。并且，这些 cookie 将在活动结束后彻底删除，不会留有记录。 如果您提供了 coo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://you img base url/https://i.loli.net/2021/01/02/rKWkFScMzbHx5Te.png?e=1611995621&token=your qiniu access key:Xc9FS7pZFog17lYAgz_KUxu6bqQ=">
+<meta property="og:image" content="http://you img base url/https://i.loli.net/2021/01/02/wpmayU2sSuP6qfx.png?e=1611995621&token=your qiniu access key:_SEV028_SXbg9ENb22EmA7B-36Y=">
+<meta property="og:image" content="http://you img base url//img/2021-01-20-1.PNG?e=1611995621&token=your qiniu access key:zrnFC4l1EgjrqiA4nECiaB3TKlo=">
+<meta property="og:image" content="http://you img base url/https://i.loli.net/2021/01/30/CDwG3apUTSBzrXb.png?e=1611995621&token=your qiniu access key:uxZj0wR0P8jtSgxzVXbZ4WcRLY4=">
+<meta property="article:published_time" content="2021-01-13T12:47:30.000Z">
+<meta property="article:modified_time" content="2021-01-30T07:32:25.963Z">
+<meta property="article:author" content="Geometry37">
+<meta property="article:tag" content="洛谷">
+<meta property="article:tag" content="水">
+<meta property="article:tag" content="冬日绘版">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://you img base url/https://i.loli.net/2021/01/02/rKWkFScMzbHx5Te.png?e=1611995621&token=your qiniu access key:Xc9FS7pZFog17lYAgz_KUxu6bqQ=">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.geometry37.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Geometry37" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon/2/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    <link href="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" rel="stylesheet">
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/geometry37" target="_blank">
+          <img class="img-circle img-rotate" src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Geometry37</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">菜鸡 OIer | jk | and more</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a target="_blank" rel="noopener" href="//wiki.geometry37.tk">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">格言</h3>
+    <div class="widget-body">
+        <div id="motto">
+            <div class="content">
+                人总有一天都会死的，但正因为生命是有限的，才能够欢喜和悲伤。
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del><br>Email:Trotyl-tnt@yandex.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/t/ABC/" style="font-size: 13.67px;">ABC</a> <a href="/t/ARC/" style="font-size: 13px;">ARC</a> <a href="/t/AtCoder/" style="font-size: 13.83px;">AtCoder</a> <a href="/t/CSp/" style="font-size: 13px;">CSp</a> <a href="/t/DFS/" style="font-size: 13px;">DFS</a> <a href="/t/NOI/" style="font-size: 13px;">NOI</a> <a href="/t/NOIp/" style="font-size: 13px;">NOIp</a> <a href="/t/python/" style="font-size: 13px;">python</a> <a href="/t/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">二分搜索</a> <a href="/t/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 13px;">二分答案</a> <a href="/t/%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88/" style="font-size: 13px;">冬日绘版</a> <a href="/t/%E5%87%B8%E5%8C%85/" style="font-size: 13.5px;">凸包</a> <a href="/t/%E5%89%AA%E6%9E%9D/" style="font-size: 13px;">剪枝</a> <a href="/t/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%8A%A8%E8%A7%84-dp/" style="font-size: 13.33px;">动态规划,动规,dp</a> <a href="/t/%E5%90%88%E9%9B%86/" style="font-size: 13px;">合集</a> <a href="/t/%E5%9B%BE%E7%9A%84%E5%BB%BA%E7%AB%8B-%E5%BB%BA%E5%9B%BE/" style="font-size: 13px;">图的建立,建图</a> <a href="/t/%E5%9B%BE%E8%AE%BA/" style="font-size: 13px;">图论</a> <a href="/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.67px;">字符串</a> <a href="/t/%E5%AE%B9%E6%96%A5/" style="font-size: 13px;">容斥</a> <a href="/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/" style="font-size: 13px;">广度优先搜索,BFS</a> <a href="/t/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/t/%E6%90%9C%E7%B4%A2/" style="font-size: 13.17px;">搜索</a> <a href="/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" style="font-size: 13.17px;">数论,数学</a> <a href="/t/%E6%9C%80%E5%A4%A7%E6%B5%81/" style="font-size: 13px;">最大流</a> <a href="/t/%E6%9C%80%E5%B0%8F%E5%89%B2/" style="font-size: 13px;">最小割</a> <a href="/t/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/" style="font-size: 13.5px;">枚举,暴力</a> <a href="/t/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px;">模拟</a> <a href="/t/%E6%B0%B4/" style="font-size: 13px;">水</a> <a href="/t/%E6%B4%9B%E8%B0%B7/" style="font-size: 13px;">洛谷</a> <a href="/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">深度优先搜索</a> <a href="/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" style="font-size: 13.33px;">深度优先搜索,DFS</a> <a href="/t/%E7%9C%81%E9%80%89/" style="font-size: 13px;">省选</a> <a href="/t/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/" style="font-size: 13px;">素数判断,质数,筛法</a> <a href="/t/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" style="font-size: 13px;">组合数学</a> <a href="/t/%E8%83%8C%E5%8C%85/" style="font-size: 13.33px;">背包</a> <a href="/t/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 13.67px;">计算几何</a> <a href="/t/%E8%B4%AA%E5%BF%83/" style="font-size: 13.33px;">贪心</a> <a href="/t/%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0/" style="font-size: 13px;">随机函数</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/c/2020/">2020</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/2020/%E6%B8%B8%E8%AE%B0/">游记</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/c/%E6%B8%B8%E8%AE%B0/">游记</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/%E6%B8%B8%E8%AE%B0/2020/">2020</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/c/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/CodeForces/">CodeForces</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/Luogu/">Luogu</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/UVA/">UVA</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/">总集</a><span class="category-list-count">2</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%A1%E7%8C%AE-cookie"><span class="toc-number">1.</span> <span class="toc-text"> 贡献 Cookie</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%AC%E6%97%A5%E7%BB%98%E6%9D%BF%E5%AE%9E%E5%86%B5"><span class="toc-number">2.</span> <span class="toc-text"> 冬日绘板实况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text"> 前序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-12-30"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 2020-12-30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-12-31"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 2020-12-31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2021-01-01"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 2021-01-01</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E5%86%B5"><span class="toc-number">2.2.</span> <span class="toc-text"> 实况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">2.3.</span> <span class="toc-text"> 最后</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%96%B0%E7%9A%84%E6%88%91-2021%E4%BD%A0%E5%A5%BD"><span class="toc-number">3.</span> <span class="toc-text"> 新的一年，新的我。2021，你好！</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2021洛谷冬日绘版记录" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2021洛谷冬日绘版记录
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/" class="article-date">
+	  <time datetime="2021-01-13T12:47:30.000Z" itemprop="datePublished">2021-01-13</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/c/2020/">2020</a>►<a class="article-category-link" href="/c/2020/%E6%B8%B8%E8%AE%B0/">游记</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/t/python/" rel="tag">python</a>, <a class="article-tag-link-link" href="/t/%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88/" rel="tag">冬日绘版</a>, <a class="article-tag-link-link" href="/t/%E6%B0%B4/" rel="tag">水</a>, <a class="article-tag-link-link" href="/t/%E6%B4%9B%E8%B0%B7/" rel="tag">洛谷</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="贡献-cookie"><a class="markdownIt-Anchor" href="#贡献-cookie">#</a> 贡献 Cookie</h1>
+<p>在此向各位征集 cookie，感谢各位的支持 qaqaq</p>
+<p><strong>可以将 cookie <em>私信</em> 发给我，您需要发两个东西： <code>_uid</code>  及  <code>__client_id</code> </strong></p>
+<p>声明：获取了 cookie 即可用该账号使用洛谷上一些其他功能。<strong>我承诺不会利用他人账号的 cookie 用作除冬日绘版外的任何用途。并且，这些 cookie 将在活动结束后彻底删除，不会留有记录。</strong> 如果您提供了 cookie 即自动默认为已经知晓此声明。</p>
+<p>活动过程中如果不幸和谁出现了战争（bushi 可以和我协商</p>
+<h1 id="冬日绘板实况"><a class="markdownIt-Anchor" href="#冬日绘板实况">#</a> 冬日绘板实况</h1>
+<h2 id="前序"><a class="markdownIt-Anchor" href="#前序">#</a> 前序</h2>
+<h3 id="2020-12-30"><a class="markdownIt-Anchor" href="#2020-12-30">#</a> 2020-12-30</h3>
+<p>找到了 ouuan 神仙的 <a target="_blank" rel="noopener" href="https://github.com/ouuan/LuoguPaintBoard">LuoguPaintBoard</a> 并计划画点什么，但又没想好，结果脚本大失败，根本不会弄。</p>
+<h3 id="2020-12-31"><a class="markdownIt-Anchor" href="#2020-12-31">#</a> 2020-12-31</h3>
+<p>看各位神仙都在征集 cookie，又想着自己啥也不会弄，还不如贡献个 cookie，就把一个 cookie 贡献给了铃酱。</p>
+<h3 id="2021-01-01"><a class="markdownIt-Anchor" href="#2021-01-01">#</a> 2021-01-01</h3>
+<p>Happy New Year！</p>
+<p>看大家都热火朝天的画，在看到铃酱画好后，自己十分心急，想搞好脚本。</p>
+<p>因为没脚本，只能手画，竟然也画了个  <code>Trotyl</code> ，还说要是没被吞 rui_er 就 nz（</p>
+<p><s>结果没 20m 就没了</s></p>
+<p>下午下定决心，一步一步按照 README 竟然搞好了脚本，用脚本画出了第一个点！</p>
+<p>但是没找到好素材，手上也只有两个 cookie，啥也没画成</p>
+<p>晚上，终于决定搞个图片，发了个贴寻求 Cookie，没想到 SSerxhs 神仙想跟我合作弄一个珂朵莉，就决定搞这个，又收集到 8 个 cookie，感觉充满了希望（</p>
+<p>进度很快啊，啪几个点就画好了！可惜还是没有大玩家画的快。</p>
+<p>祝愿能保住（</p>
+<h2 id="实况"><a class="markdownIt-Anchor" href="#实况">#</a> 实况</h2>
+<p>[2021-01-01 21:15] 在  <code>(51,201)</code>  开工，大小  <code>80*80</code> ，希望程序无 bug，不会被人攻击</p>
+<p>[2021-01-02 07:00] 早上起来发现已经画好啦！一晚上竟然没遭受攻击，看来选址不错，接下来进入维护期，右边有个 cookie 超多的占了亿点，决定放弃了 /kk</p>
+<p>实况：（左 - 红圈处）<img src="http://you img base url/https://i.loli.net/2021/01/02/rKWkFScMzbHx5Te.png?e=1611995621&token=your qiniu access key:Xc9FS7pZFog17lYAgz_KUxu6bqQ=" alt="捕获.PNG"></p>
+<p>[2021-01-02 11:47] 看到大家都在画校徽，打算画一个 “北京一零一中” 字样，定在了最下面。</p>
+<p>[2021-01-02 13:22] 突然有个帖，说要在那个位置画一个老 K 语录，一看是大玩家，固守阵地肯定打不过，决定换位置，换到了 “北大附中” 上面，整好 @tarjin 提供了 3 个 cookie。</p>
+<p>[2021-01-02 14:30] 实况：<img src="http://you img base url/https://i.loli.net/2021/01/02/wpmayU2sSuP6qfx.png?e=1611995621&token=your qiniu access key:_SEV028_SXbg9ENb22EmA7B-36Y=" alt="捕获.PNG"></p>
+<p>[2021-01-02 14:55] 跟另一个人发生了冲突，稍微协商了一下，决定将那个珂朵莉的位置让给他，专心画一零一 /kk</p>
+<p>[2021-01-02 16:08] 字样被 karry 的头像攻击了 /dk/dk 实在比不过，挪到了右边改画校徽</p>
+<p>[2021-01-03 上午] 校徽已经画好，我又想整点别的，于是就在 “全世界无产者” 下面画了一只可爱的羊驼，又不甘心校名被吃，于是在雀魂左下画了校名，画好了以后不知道是谁一直随机撒点，于是又一次征集 cookies 反抗，最终压了下去 qaq</p>
+<p>[2021-01-03 下午] 基本上改画的都画完了，地方也没多少了，<s>于是野心膨胀</s> ，发现 EA 头像左边的小宇宙被残食了，感觉是块宝地，于是打算在上面画个头像，说干就干，因为此时我的 cookie 数达到了 20+，于是马上画好。</p>
+<p>[2021-01-03 17:30] 实况，红圈处为头像 qaq <img src="http://you img base url//img/2021-01-20-1.PNG?e=1611995621&token=your qiniu access key:zrnFC4l1EgjrqiA4nECiaB3TKlo=" alt=""></p>
+<p>但是好景不长…… 在仅仅十几分钟后，又被小宇宙吃了回去呜呜呜（</p>
+<p>我又换了好几个地包括下面的小树，东方天空璋等等，但是因为 cookie 数没人加多，都被打了回去呜呜（</p>
+<p>于是开始维护期，再也不瞎画了（</p>
+<p>[2021-01-03 22:15] 看着即将远去的 2020，内心感慨万千，在这最后两小时里，打算在留下那么一点东西，于是打算，在舟游下面画上这么一句话，激励自己</p>
+<blockquote>
+<p>我们的征程，是星辰大海！</p>
+</blockquote>
+<p>在最后半小时，画完了，圆满结束了这次冬日绘版活动。</p>
+<h2 id="最后"><a class="markdownIt-Anchor" href="#最后">#</a> 最后</h2>
+<p>冬日绘版圆满结束，2020 圆满（？） 走去，2021，已经走来，想着距离自己 AFO 的日子越来越近，心中无比的悔恨与伤心。</p>
+<p>我能在 OI 界留下些什么呢？</p>
+<p>最后的最后，看一下冬日绘版我所画的最后留下来的所有东西吧</p>
+<p><img src="http://you img base url/https://i.loli.net/2021/01/30/CDwG3apUTSBzrXb.png?e=1611995621&token=your qiniu access key:uxZj0wR0P8jtSgxzVXbZ4WcRLY4=" alt=""></p>
+<h1 id="新的一年新的我-2021你好"><a class="markdownIt-Anchor" href="#新的一年新的我-2021你好">#</a> 新的一年，新的我。2021，你好！</h1>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://blog.geometry37.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/" title="2021洛谷冬日绘版记录" target="_blank" rel="external">https://blog.geometry37.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/geometry37" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/geometry37" target="_blank"><span class="text-dark">Geometry37</span><small class="ml-1x">菜鸡 OIer | jk | and more</small></a></h3>
+        <div>蒟蒻 BJ OIer</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/p/at3621/" title="[AT3621][ARC084B] Small Multiple"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/p/at3931/" title="[AT3931][ABC089B] Hina Arare"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright" id="copy">
+    	
+        &copy; 2018-2021 Geometry37
+        
+        <!-- <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div> -->
+    </div>
+	<div class="copyright" id="moebei">
+		<a href="https://icp.gov.moe" target="_blank">萌ICP备 </a><a href="https://icp.gov.moe/?keyword=20211126" target="_blank"> 20211126号</a>
+	</div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'ybYKKt07qy7I1Re4W8Y7BFvA-MdYXbMMI',
+    appKey: 'lecFuOHKJzgm0IsVAjGK0Gh8',
+    placeholder: '来啊，快活啊qaqaq',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
