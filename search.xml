@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>Dijkstra</title>
+      <link href="p/Dijkstra/"/>
+      <url>p/Dijkstra/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>条件：<strong>所有边权均大于 0</strong></p><p><img src="https://i.loli.net/2021/03/12/5Pew9bDLquXly8h.png" alt="img1"></p><p><img src="https://i.loli.net/2021/03/12/fMgVISekDFNZGlT.png" alt="img2"></p><p>松弛操作：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dis[v] &gt; dis[u] + e[u][v])</span><br><span class="line">    dis[v] = dis[u] + e[u][v];</span><br></pre></td></tr></table></figure><p>优点：算法中用贪心，效率较高</p><p>缺点：只能用于正权边图</p><h3 id="步骤"><a class="markdownIt-Anchor" href="#步骤">#</a> 步骤</h3><ol><li>将所有顶点分成两部分：已求出最短路径的顶点和未求出最短路径的顶点 *（vis 数组）*</li><li>dis 数组初始化： <code>dis[s] = 0, dis[i] = (i ≠ s)</code></li><li></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 树形结构 </tag>
+            
+            <tag> Dijkstra </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>最短路</title>
+      <link href="p/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+      <url>p/%E6%9C%80%E7%9F%AD%E8%B7%AF/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="bellmaoon"><a class="markdownIt-Anchor" href="#bellmaoon">#</a> Bellmaoon</h2><h3 id="1-画图"><a class="markdownIt-Anchor" href="#1-画图">#</a> 1. 画图</h3><h3 id="2-建立-rm-dis-数组"><a class="markdownIt-Anchor" href="#2-建立-rm-dis-数组">#</a> 2. 建立 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\rm dis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">d</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span></span></span></span></span> 数组</h3><h3 id="3-对所有边进行-n-1-轮松弛"><a class="markdownIt-Anchor" href="#3-对所有边进行-n-1-轮松弛">#</a> 3. 对所有边进行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 轮松弛</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dis[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">dis[<span class="number">2</span>] = <span class="number">-3</span></span><br><span class="line">dis[<span class="number">3</span>] = ∞</span><br><span class="line">dis[<span class="number">2</span>] + e[<span class="number">2</span>][<span class="number">3</span>] = ∞ + <span class="number">2</span></span><br><span class="line"><span class="keyword">if</span> (dis[<span class="number">3</span>] &gt; dis[<span class="number">2</span>] + e[<span class="number">2</span>][<span class="number">3</span>])</span><br><span class="line">    dis[<span class="number">3</span>] = dis[<span class="number">2</span>] + e[<span class="number">2</span>][<span class="number">3</span>]<span class="comment">//松弛</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 广度优先搜索,BFS </tag>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 最短路 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>邻接表</title>
       <link href="p/%E9%82%BB%E6%8E%A5%E8%A1%A8/"/>
       <url>p/%E9%82%BB%E6%8E%A5%E8%A1%A8/</url>
@@ -411,9 +469,7 @@
       
         <tags>
             
-            <tag> 深度优先搜索 </tag>
-            
-            <tag> DFS </tag>
+            <tag> 深度优先搜索,DFS </tag>
             
         </tags>
       
