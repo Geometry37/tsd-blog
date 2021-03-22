@@ -4,6 +4,136 @@
 <html lang=zh>
 <head>
   <link href="main.css" rel="stylesheet">
+  <style>
+	
+	#cursor {
+	    position: fixed;
+	    width: 16px;
+	    height: 16px;
+	    background: #000;
+	    border-radius: 8px;
+	    opacity: 0.25;
+	    z-index: 10086;
+	    pointer-events: none;
+	    transition: 0.2s ease-in-out;
+	    transition-property: background, opacity, transform;
+	}
+	
+	#cursor.hidden {
+	    opacity: 0;
+	}
+	
+	#cursor.hover {
+	    opacity: 0.1;
+	    transform: scale(2.5);
+	}
+	
+	#cursor.active {
+	    opacity: 0.5;
+	    transform: scale(0.5);
+	}
+  </style>
+  <script>
+  alert("qaq");
+  
+  var CURSOR;
+  
+  Math.lerp = (a, b, n) => (1 - n) * a + n * b;
+  
+  const getStyle = (el, attr) => {
+  	try {
+  		return window.getComputedStyle ?
+  			window.getComputedStyle(el)[attr] :
+  			el.currentStyle[attr];
+  	} catch (e) {}
+  	return "";
+  };
+  
+  class Cursor {
+  	constructor() {
+  		this.pos = {
+  			curr: null,
+  			prev: null
+  		};
+  		this.pt = [];
+  		this.create();
+  		this.init();
+  		this.render();
+  	}
+  
+  	move(left, top) {
+  		this.cursor.style["left"] = `${left}px`;
+  		this.cursor.style["top"] = `${top}px`;
+  	}
+  
+  	create() {
+  		if (!this.cursor) {
+  			this.cursor = document.createElement("div");
+  			this.cursor.id = "cursor";
+  			this.cursor.classList.add("hidden");
+  			document.body.append(this.cursor);
+  		}
+  
+  		var el = document.getElementsByTagName('*');
+  		for (let i = 0; i < el.length; i++)
+  			if (getStyle(el[i], "cursor") == "pointer")
+  				this.pt.push(el[i].outerHTML);
+  
+  		document.body.appendChild((this.scr = document.createElement("style")));
+  		this.scr.innerHTML =
+  			`* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='.5'/></svg>") 4 4, auto}`;
+  	}
+  
+  	refresh() {
+  		this.scr.remove();
+  		this.cursor.classList.remove("hover");
+  		this.cursor.classList.remove("active");
+  		this.pos = {
+  			curr: null,
+  			prev: null
+  		};
+  		this.pt = [];
+  
+  		this.create();
+  		this.init();
+  		this.render();
+  	}
+  
+  	init() {
+  		document.onmouseover = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
+  		document.onmouseout = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
+  		document.onmousemove = e => {
+  			(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8);
+  			this.pos.curr = {
+  				x: e.clientX - 8,
+  				y: e.clientY - 8
+  			};
+  			this.cursor.classList.remove("hidden");
+  		};
+  		document.onmouseenter = e => this.cursor.classList.remove("hidden");
+  		document.onmouseleave = e => this.cursor.classList.add("hidden");
+  		document.onmousedown = e => this.cursor.classList.add("active");
+  		document.onmouseup = e => this.cursor.classList.remove("active");
+  	}
+  
+  	render() {
+  		if (this.pos.prev) {
+  			this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);
+  			this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);
+  			this.move(this.pos.prev.x, this.pos.prev.y);
+  		} else {
+  			this.pos.prev = this.pos.curr;
+  		}
+  		requestAnimationFrame(() => this.render());
+  	}
+  }
+  
+  (() => {
+  	CURSOR = new Cursor();
+  	// 需要重新获取列表时，使用 CURSOR.refresh()
+  })();
+  
+  </script>
   <link href="//cdn.staticfile.org/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
   <meta charset="utf-8">
   
@@ -21,11 +151,11 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>树与二叉树 | Geometry37</title>
+  <title>树与二叉树 | Aksadfjh</title>
   <meta name="description" content="# 树   定义：由 n(n≥30)n(n \ge 30)n(n≥30) 个节点的有限级。（n&#x3D;0n&#x3D;0n&#x3D;0 时成为空树）    结点的度：子节点的度   结点关系： A 是 BC 的父结点 BC 是 A 的子结点 DEF 是兄弟结点   结点层次：    树的深度：结点的最大层次数   树的宽度：每一层结点个数最大值    # 二叉树 # 特点  每个结点最多 2 个子结点，所以二叉树中结点的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树与二叉树">
-<meta property="og:url" content="https://blog.aksadfjh.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:url" content="https://blog.geometry37.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="Aksadfjh">
 <meta property="og:description" content="# 树   定义：由 n(n≥30)n(n \ge 30)n(n≥30) 个节点的有限级。（n&#x3D;0n&#x3D;0n&#x3D;0 时成为空树）    结点的度：子节点的度   结点关系： A 是 BC 的父结点 BC 是 A 的子结点 DEF 是兄弟结点   结点层次：    树的深度：结点的最大层次数   树的宽度：每一层结点个数最大值    # 二叉树 # 特点  每个结点最多 2 个子结点，所以二叉树中结点的">
 <meta property="og:locale" content="zh_CN">
@@ -36,12 +166,12 @@
 <meta property="article:modified_time" content="2021-02-02T10:48:22.594Z">
 <meta property="article:author" content="Aksadfjh">
 <meta property="article:tag" content="图论">
-<meta property="article:tag" content="二叉树">
 <meta property="article:tag" content="树形结构">
+<meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/01/31/JhXa4dvsEpimIN2.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.aksadfjh.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+  <link rel="canonical" href="https://blog.geometry37.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Aksadfjh" type="application/atom+xml">
   
@@ -65,7 +195,7 @@
       
       
       <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/geometry37" target="_blank">
+        <a id="avatar" href="https://github.com/Aksadfjh" target="_blank">
           <img class="img-circle img-rotate" src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">Geometry37</h2>
@@ -173,11 +303,11 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/Aksadfjh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
-        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        <li><a href="https://twitter.com/Aksadfjh" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
         
@@ -200,7 +330,7 @@
     <div class="widget-body">
         <div id="motto">
             <div class="content">
-                人总有一天都会死的，但正因为生命是有限的，才能够欢喜和悲伤。
+                宁鸣而死，不默而生。
             </div>
         </div>
     </div>
@@ -212,7 +342,7 @@
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del><br>Email:Trotyl-tnt@yandex.com</p>
+                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del></p>
             </div>
         </div>
     </div>
@@ -463,7 +593,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://blog.aksadfjh.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" title="树与二叉树" target="_blank" rel="external">https://blog.aksadfjh.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/</a>
+      <a href="https://blog.geometry37.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" title="树与二叉树" target="_blank" rel="external">https://blog.geometry37.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -477,12 +607,12 @@
   <div class="panel-body">
     <figure class="media">
       <div class="media-left">
-        <a href="https://github.com/geometry37" target="_blank" class="img-burn thumb-sm visible-lg">
+        <a href="https://github.com/Aksadfjh" target="_blank" class="img-burn thumb-sm visible-lg">
           <img src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/geometry37" target="_blank"><span class="text-dark">Geometry37</span><small class="ml-1x">菜鸡 OIer | jk | and more</small></a></h3>
+        <h3 class="media-heading"><a href="https://github.com/Aksadfjh" target="_blank"><span class="text-dark">Geometry37</span><small class="ml-1x">菜鸡 OIer | jk | and more</small></a></h3>
         <div>蒟蒻 BJ OIer</div>
       </div>
     </figure>
@@ -549,11 +679,11 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/Aksadfjh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
-        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        <li><a href="https://twitter.com/Aksadfjh" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
         

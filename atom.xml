@@ -3,11 +3,11 @@
   <title>Aksadfjh</title>
   
   
-  <link href="https://blog.aksadfjh.tk/atom.xml" rel="self"/>
+  <link href="https://blog.geometry37.tk/atom.xml" rel="self"/>
   
-  <link href="https://blog.aksadfjh.tk/"/>
-  <updated>2021-03-12T12:11:28.750Z</updated>
-  <id>https://blog.aksadfjh.tk/</id>
+  <link href="https://blog.geometry37.tk/"/>
+  <updated>2021-03-12T12:16:45.498Z</updated>
+  <id>https://blog.geometry37.tk/</id>
   
   <author>
     <name>Aksadfjh</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>Dijkstra</title>
-    <link href="https://blog.aksadfjh.tk/p/Dijkstra/"/>
-    <id>https://blog.aksadfjh.tk/p/Dijkstra/</id>
+    <link href="https://blog.geometry37.tk/p/Dijkstra/"/>
+    <id>https://blog.geometry37.tk/p/Dijkstra/</id>
     <published>2021-03-12T11:25:42.000Z</published>
-    <updated>2021-03-12T12:11:28.750Z</updated>
+    <updated>2021-03-12T12:16:45.498Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>条件：<strong>所有边权均大于 0</strong></p><p><img src="https://i.loli.net/2021/03/12/5Pew9bDLquXly8h.png" alt="img1"></p><p><img src="https://i.loli.net/2021/03/12/fMgVISekDFNZGlT.png" alt="img2"></p><p>松弛操作：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dis[v] &gt; dis[u] + e[u][v])</span><br><span class="line">    dis[v] = dis[u] + e[u][v];</span><br></pre></td></tr></table></figure><p>优点：算法中用贪心，效率较高</p><p>缺点：只能用于正权边图</p><h3 id="步骤"><a class="markdownIt-Anchor" href="#步骤">#</a> 步骤</h3><ol><li>将所有顶点分成两部分：已求出最短路径的顶点和未求出最短路径的顶点 *（vis 数组）*</li><li>dis 数组初始化： <code>dis[s] = 0, dis[i] = (i ≠ s)</code></li><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>条件：<strong>所有边权均大于 0</strong></p><p><img src="https://i.loli.net/2021/03/12/5Pew9bDLquXly8h.png" alt="img1"></p><p><img src="https://i.loli.net/2021/03/12/fMgVISekDFNZGlT.png" alt="img2"></p><p>松弛操作：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dis[v] &gt; dis[u] + e[u][v])</span><br><span class="line">    dis[v] = dis[u] + e[u][v];</span><br></pre></td></tr></table></figure><p>优点：算法中用贪心，效率较高</p><p>缺点：只能用于正权边图</p><h3 id="步骤"><a class="markdownIt-Anchor" href="#步骤">#</a> 步骤</h3><ol><li>将所有顶点分成两部分：已求出最短路径的顶点和未求出最短路径的顶点 *（vis 数组）*</li><li>dis 数组初始化： <code>dis[s] = 0, dis[i] = (i ≠ s)</code></li><li></li></ol><h3 id="代码"><a class="markdownIt-Anchor" href="#代码">#</a> 代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line"><span class="keyword">int</span> pos, dis;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span> &gt; (node x, node y) &#123;</span><br><span class="line"><span class="keyword">return</span> x.dis &gt; y.dis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">priority_queue</span> &lt;node, <span class="built_in">vector</span> &lt;node&gt;, greater &lt;node&gt;&gt; q; <span class="comment">//队首最小</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line"><span class="built_in">memset</span>(dis, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">dis[s] = <span class="number">0</span>;</span><br><span class="line">q.push(node&#123;s, <span class="number">0</span>&#125;);</span><br><span class="line"><span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line"><span class="keyword">int</span> u = q.top().pos; <span class="comment">//未被访问的点中dis值最小的点的编号</span></span><br><span class="line">q.pop();</span><br><span class="line"><span class="keyword">if</span> (vis[u]) <span class="keyword">continue</span>;</span><br><span class="line">vis[u] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g[u].size(); j++) &#123; <span class="comment">//枚举顶点u的所有邻接顶点</span></span><br><span class="line"><span class="keyword">int</span> v = g[u][j]; <span class="comment">//对于节点u的所有出边u-&gt;v</span></span><br><span class="line"><span class="keyword">if</span> (dis[v] &gt; dis[u] + e[u][j]) &#123;</span><br><span class="line">dis[v] = dis[u] + e[u][j];</span><br><span class="line"><span class="keyword">if</span> (!vis[v]) q.push(node&#123;v, dis[v]&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -33,21 +33,21 @@
     
     
     
-    <category term="笔记" scheme="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="图论" scheme="https://blog.aksadfjh.tk/t/%E5%9B%BE%E8%AE%BA/"/>
+    <category term="图论" scheme="https://blog.geometry37.tk/t/%E5%9B%BE%E8%AE%BA/"/>
     
-    <category term="树形结构" scheme="https://blog.aksadfjh.tk/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
+    <category term="Dijkstra" scheme="https://blog.geometry37.tk/t/Dijkstra/"/>
     
-    <category term="Dijkstra" scheme="https://blog.aksadfjh.tk/t/Dijkstra/"/>
+    <category term="树形结构" scheme="https://blog.geometry37.tk/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>最短路</title>
-    <link href="https://blog.aksadfjh.tk/p/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    <id>https://blog.aksadfjh.tk/p/%E6%9C%80%E7%9F%AD%E8%B7%AF/</id>
+    <link href="https://blog.geometry37.tk/p/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    <id>https://blog.geometry37.tk/p/%E6%9C%80%E7%9F%AD%E8%B7%AF/</id>
     <published>2021-03-05T10:02:00.000Z</published>
     <updated>2021-03-10T14:54:36.786Z</updated>
     
@@ -61,21 +61,21 @@
     
     
     
-    <category term="笔记" scheme="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="广度优先搜索,BFS" scheme="https://blog.aksadfjh.tk/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/"/>
+    <category term="图论" scheme="https://blog.geometry37.tk/t/%E5%9B%BE%E8%AE%BA/"/>
     
-    <category term="图论" scheme="https://blog.aksadfjh.tk/t/%E5%9B%BE%E8%AE%BA/"/>
+    <category term="广度优先搜索,BFS" scheme="https://blog.geometry37.tk/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/"/>
     
-    <category term="最短路" scheme="https://blog.aksadfjh.tk/t/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    <category term="最短路" scheme="https://blog.geometry37.tk/t/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title>邻接表</title>
-    <link href="https://blog.aksadfjh.tk/p/%E9%82%BB%E6%8E%A5%E8%A1%A8/"/>
-    <id>https://blog.aksadfjh.tk/p/%E9%82%BB%E6%8E%A5%E8%A1%A8/</id>
+    <link href="https://blog.geometry37.tk/p/%E9%82%BB%E6%8E%A5%E8%A1%A8/"/>
+    <id>https://blog.geometry37.tk/p/%E9%82%BB%E6%8E%A5%E8%A1%A8/</id>
     <published>2021-02-02T05:43:33.000Z</published>
     <updated>2021-02-02T14:53:17.895Z</updated>
     
@@ -89,21 +89,21 @@
     
     
     
-    <category term="笔记" scheme="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="图论" scheme="https://blog.aksadfjh.tk/t/%E5%9B%BE%E8%AE%BA/"/>
+    <category term="图论" scheme="https://blog.geometry37.tk/t/%E5%9B%BE%E8%AE%BA/"/>
     
-    <category term="树形结构" scheme="https://blog.aksadfjh.tk/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
+    <category term="树形结构" scheme="https://blog.geometry37.tk/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
     
-    <category term="邻接表" scheme="https://blog.aksadfjh.tk/t/%E9%82%BB%E6%8E%A5%E8%A1%A8/"/>
+    <category term="邻接表" scheme="https://blog.geometry37.tk/t/%E9%82%BB%E6%8E%A5%E8%A1%A8/"/>
     
   </entry>
   
   <entry>
     <title>树与二叉树</title>
-    <link href="https://blog.aksadfjh.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    <id>https://blog.aksadfjh.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
+    <link href="https://blog.geometry37.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://blog.geometry37.tk/p/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2021-02-01T03:16:37.000Z</published>
     <updated>2021-02-02T10:48:22.594Z</updated>
     
@@ -117,21 +117,21 @@
     
     
     
-    <category term="笔记" scheme="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="图论" scheme="https://blog.aksadfjh.tk/t/%E5%9B%BE%E8%AE%BA/"/>
+    <category term="图论" scheme="https://blog.geometry37.tk/t/%E5%9B%BE%E8%AE%BA/"/>
     
-    <category term="二叉树" scheme="https://blog.aksadfjh.tk/t/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <category term="树形结构" scheme="https://blog.geometry37.tk/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
     
-    <category term="树形结构" scheme="https://blog.aksadfjh.tk/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
+    <category term="二叉树" scheme="https://blog.geometry37.tk/t/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>[AT4763][ABC133B] Good-Distance</title>
-    <link href="https://blog.aksadfjh.tk/p/at4763/"/>
-    <id>https://blog.aksadfjh.tk/p/at4763/</id>
+    <link href="https://blog.geometry37.tk/p/at4763/"/>
+    <id>https://blog.geometry37.tk/p/at4763/</id>
     <published>2021-01-29T07:20:37.000Z</published>
     <updated>2021-01-31T14:18:25.143Z</updated>
     
@@ -145,23 +145,23 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
     
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/t/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/t/AtCoder/"/>
     
-    <category term="ABC" scheme="https://blog.aksadfjh.tk/t/ABC/"/>
+    <category term="ABC" scheme="https://blog.geometry37.tk/t/ABC/"/>
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
   <entry>
     <title>[AT4110][ABC094B] Toll Gates</title>
-    <link href="https://blog.aksadfjh.tk/p/at4110/"/>
-    <id>https://blog.aksadfjh.tk/p/at4110/</id>
+    <link href="https://blog.geometry37.tk/p/at4110/"/>
+    <id>https://blog.geometry37.tk/p/at4110/</id>
     <published>2021-01-28T08:05:51.000Z</published>
     <updated>2021-01-28T08:24:30.552Z</updated>
     
@@ -175,23 +175,23 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
     
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/t/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/t/AtCoder/"/>
     
-    <category term="ABC" scheme="https://blog.aksadfjh.tk/t/ABC/"/>
+    <category term="ABC" scheme="https://blog.geometry37.tk/t/ABC/"/>
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
   <entry>
     <title>2021洛谷冬日绘版记录</title>
-    <link href="https://blog.aksadfjh.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/"/>
-    <id>https://blog.aksadfjh.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://blog.geometry37.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.geometry37.tk/p/2021%E6%B4%9B%E8%B0%B7%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88%E8%AE%B0%E5%BD%95/</id>
     <published>2021-01-13T12:47:30.000Z</published>
     <updated>2021-01-30T07:42:53.033Z</updated>
     
@@ -205,57 +205,25 @@
     
     
     
-    <category term="2020" scheme="https://blog.aksadfjh.tk/c/2020/"/>
+    <category term="2020" scheme="https://blog.geometry37.tk/c/2020/"/>
     
-    <category term="游记" scheme="https://blog.aksadfjh.tk/c/2020/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="洛谷" scheme="https://blog.aksadfjh.tk/t/%E6%B4%9B%E8%B0%B7/"/>
-    
-    <category term="水" scheme="https://blog.aksadfjh.tk/t/%E6%B0%B4/"/>
-    
-    <category term="冬日绘版" scheme="https://blog.aksadfjh.tk/t/%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88/"/>
-    
-    <category term="python" scheme="https://blog.aksadfjh.tk/t/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[AT3621][ARC084B] Small Multiple</title>
-    <link href="https://blog.aksadfjh.tk/p/at3621/"/>
-    <id>https://blog.aksadfjh.tk/p/at3621/</id>
-    <published>2021-01-13T12:47:30.000Z</published>
-    <updated>2021-01-29T07:22:24.713Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="solution"><a class="markdownIt-Anchor" href="#solution">#</a> solution</h3><p>我们先考虑暴力，把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 的倍数枚举，每枚举一个取每位求和。</p><p>这肯定超时，关键是循环取每位爆炸，那么我们不妨想，一个数的各个位数和是如何求出的。</p><p>先看个位，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的位和为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 就在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的前提下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 以此类推，就能求出个位位和。</p><p>再看其他位，无非就是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 加上若干 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，思考 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>，我们可以用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">1 \times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 来表示，那各位和仍为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p><p>综上，我们可以整理出两种状态：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>，那么 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 是各位和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>，可 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span> 各位和却不便，故可以转换为 <strong>01 bfs</strong>，如图</p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png" alt=""></p><p>但是我们发现还有一个问题，那就是这种方法是会超 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="sans-serif">l</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">n</mi><mi mathvariant="sans-serif">g</mi><mtext> </mtext><mi mathvariant="sans-serif">l</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">n</mi><mi mathvariant="sans-serif">g</mi></mrow><annotation encoding="application/x-tex">\sf long~long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathsf">l</span><span class="mord mathsf">o</span><span class="mord mathsf">n</span><span class="mord mathsf" style="margin-right:0.01389em;">g</span><span class="mspace nobreak"> </span><span class="mord mathsf">l</span><span class="mord mathsf">o</span><span class="mord mathsf">n</span><span class="mord mathsf" style="margin-right:0.01389em;">g</span></span></span></span></span> 的，难道我们还要用高精吗？</p><p>当然不，我们发现我们欲求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 的倍数，那么我们在每次 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">%</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\% K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">%</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 就行了，因为这样余数不变，不影响结果。</p><p>讲完基本思路，讲一下如何实现。</p><p>我们知道 bfs 一般会用队列，那么在 01 bfs 中，我们会用到双向队列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">q</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">e</mi></mrow><annotation encoding="application/x-tex">\rm deque</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">d</span><span class="mord mathrm">e</span><span class="mord mathrm">q</span><span class="mord mathrm">u</span><span class="mord mathrm">e</span></span></span></span></span>。</p><p><code>#include &lt;queue&gt;</code>  与  <code>#include &lt;deque&gt;</code>  均包含 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">q</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">e</mi></mrow><annotation encoding="application/x-tex">\rm deque</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">d</span><span class="mord mathrm">e</span><span class="mord mathrm">q</span><span class="mord mathrm">u</span><span class="mord mathrm">e</span></span></span></span></span>，可以用任意一个库。</p><h3 id="code"><a class="markdownIt-Anchor" href="#code">#</a> Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> NR = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> k;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="keyword">bool</span> vis[NR];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line"><span class="keyword">int</span> num, w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">deque</span>&lt;node&gt; d;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">d.push_front(node&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">vis[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span> (!d.empty()) &#123;</span><br><span class="line"><span class="keyword">int</span> num = d.front().num, w = d.front().w;</span><br><span class="line">d.pop_front();</span><br><span class="line"><span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; w &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!vis[<span class="number">10</span> * num % k]) &#123;</span><br><span class="line">d.push_front(node&#123;<span class="number">10</span> * num % k, w&#125;);</span><br><span class="line">vis[<span class="number">10</span> * num % k] = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!vis[num + <span class="number">1</span>]) &#123;</span><br><span class="line">d.push_back(node&#123;num + <span class="number">1</span>, w + <span class="number">1</span>&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">bfs();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <category term="游记" scheme="https://blog.geometry37.tk/c/2020/%E6%B8%B8%E8%AE%B0/"/>
     
     
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
+    <category term="洛谷" scheme="https://blog.geometry37.tk/t/%E6%B4%9B%E8%B0%B7/"/>
     
+    <category term="水" scheme="https://blog.geometry37.tk/t/%E6%B0%B4/"/>
     
+    <category term="冬日绘版" scheme="https://blog.geometry37.tk/t/%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88/"/>
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
-    
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
-    
-    
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/t/AtCoder/"/>
-    
-    <category term="ARC" scheme="https://blog.aksadfjh.tk/t/ARC/"/>
-    
-    <category term="广度优先搜索,BFS" scheme="https://blog.aksadfjh.tk/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/"/>
-    
-    <category term="图论" scheme="https://blog.aksadfjh.tk/t/%E5%9B%BE%E8%AE%BA/"/>
+    <category term="python" scheme="https://blog.geometry37.tk/t/python/"/>
     
   </entry>
   
   <entry>
     <title>[AT3931][ABC089B] Hina Arare</title>
-    <link href="https://blog.aksadfjh.tk/p/at3931/"/>
-    <id>https://blog.aksadfjh.tk/p/at3931/</id>
+    <link href="https://blog.geometry37.tk/p/at3931/"/>
+    <id>https://blog.geometry37.tk/p/at3931/</id>
     <published>2021-01-13T12:47:30.000Z</published>
     <updated>2021-01-30T07:08:45.297Z</updated>
     
@@ -269,25 +237,57 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
     
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/t/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/t/AtCoder/"/>
     
-    <category term="ABC" scheme="https://blog.aksadfjh.tk/t/ABC/"/>
+    <category term="ABC" scheme="https://blog.geometry37.tk/t/ABC/"/>
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
-    <category term="字符串" scheme="https://blog.aksadfjh.tk/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <category term="字符串" scheme="https://blog.geometry37.tk/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AT3621][ARC084B] Small Multiple</title>
+    <link href="https://blog.geometry37.tk/p/at3621/"/>
+    <id>https://blog.geometry37.tk/p/at3621/</id>
+    <published>2021-01-13T12:47:30.000Z</published>
+    <updated>2021-01-29T07:22:24.713Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="solution"><a class="markdownIt-Anchor" href="#solution">#</a> solution</h3><p>我们先考虑暴力，把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 的倍数枚举，每枚举一个取每位求和。</p><p>这肯定超时，关键是循环取每位爆炸，那么我们不妨想，一个数的各个位数和是如何求出的。</p><p>先看个位，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的位和为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 就在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的前提下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 以此类推，就能求出个位位和。</p><p>再看其他位，无非就是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 加上若干 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，思考 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>，我们可以用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">1 \times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 来表示，那各位和仍为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p><p>综上，我们可以整理出两种状态：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span>，那么 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 是各位和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>，可 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span> 各位和却不便，故可以转换为 <strong>01 bfs</strong>，如图</p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/qhejrx3s.png" alt=""></p><p>但是我们发现还有一个问题，那就是这种方法是会超 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="sans-serif">l</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">n</mi><mi mathvariant="sans-serif">g</mi><mtext> </mtext><mi mathvariant="sans-serif">l</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">n</mi><mi mathvariant="sans-serif">g</mi></mrow><annotation encoding="application/x-tex">\sf long~long</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathsf">l</span><span class="mord mathsf">o</span><span class="mord mathsf">n</span><span class="mord mathsf" style="margin-right:0.01389em;">g</span><span class="mspace nobreak"> </span><span class="mord mathsf">l</span><span class="mord mathsf">o</span><span class="mord mathsf">n</span><span class="mord mathsf" style="margin-right:0.01389em;">g</span></span></span></span></span> 的，难道我们还要用高精吗？</p><p>当然不，我们发现我们欲求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 的倍数，那么我们在每次 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\times 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord">0</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">%</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\% K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">%</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 就行了，因为这样余数不变，不影响结果。</p><p>讲完基本思路，讲一下如何实现。</p><p>我们知道 bfs 一般会用队列，那么在 01 bfs 中，我们会用到双向队列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">q</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">e</mi></mrow><annotation encoding="application/x-tex">\rm deque</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">d</span><span class="mord mathrm">e</span><span class="mord mathrm">q</span><span class="mord mathrm">u</span><span class="mord mathrm">e</span></span></span></span></span>。</p><p><code>#include &lt;queue&gt;</code>  与  <code>#include &lt;deque&gt;</code>  均包含 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">q</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">e</mi></mrow><annotation encoding="application/x-tex">\rm deque</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">d</span><span class="mord mathrm">e</span><span class="mord mathrm">q</span><span class="mord mathrm">u</span><span class="mord mathrm">e</span></span></span></span></span>，可以用任意一个库。</p><h3 id="code"><a class="markdownIt-Anchor" href="#code">#</a> Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> NR = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> k;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="keyword">bool</span> vis[NR];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line"><span class="keyword">int</span> num, w;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">deque</span>&lt;node&gt; d;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">d.push_front(node&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">vis[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span> (!d.empty()) &#123;</span><br><span class="line"><span class="keyword">int</span> num = d.front().num, w = d.front().w;</span><br><span class="line">d.pop_front();</span><br><span class="line"><span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; w &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!vis[<span class="number">10</span> * num % k]) &#123;</span><br><span class="line">d.push_front(node&#123;<span class="number">10</span> * num % k, w&#125;);</span><br><span class="line">vis[<span class="number">10</span> * num % k] = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!vis[num + <span class="number">1</span>]) &#123;</span><br><span class="line">d.push_back(node&#123;num + <span class="number">1</span>, w + <span class="number">1</span>&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">bfs();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
+    
+    
+    <category term="图论" scheme="https://blog.geometry37.tk/t/%E5%9B%BE%E8%AE%BA/"/>
+    
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/t/AtCoder/"/>
+    
+    <category term="ARC" scheme="https://blog.geometry37.tk/t/ARC/"/>
+    
+    <category term="广度优先搜索,BFS" scheme="https://blog.geometry37.tk/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/"/>
     
   </entry>
   
   <entry>
     <title>[AT5037]Consecutive Integers</title>
-    <link href="https://blog.aksadfjh.tk/p/at5037/"/>
-    <id>https://blog.aksadfjh.tk/p/at5037/</id>
+    <link href="https://blog.geometry37.tk/p/at5037/"/>
+    <id>https://blog.geometry37.tk/p/at5037/</id>
     <published>2020-12-27T01:40:51.000Z</published>
     <updated>2021-01-31T14:19:46.422Z</updated>
     
@@ -301,19 +301,19 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="AtCoder" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
+    <category term="AtCoder" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/AtCoder/"/>
     
     
-    <category term="数论,数学" scheme="https://blog.aksadfjh.tk/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/"/>
+    <category term="数论,数学" scheme="https://blog.geometry37.tk/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>NOI 系列题解总集</title>
-    <link href="https://blog.aksadfjh.tk/p/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/"/>
-    <id>https://blog.aksadfjh.tk/p/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/</id>
+    <link href="https://blog.geometry37.tk/p/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/"/>
+    <id>https://blog.geometry37.tk/p/NOI%E7%B3%BB%E5%88%97%E9%A2%98%E8%A7%A3%E6%80%BB%E9%9B%86/</id>
     <published>2020-12-25T13:58:43.000Z</published>
     <updated>2021-01-13T12:59:44.353Z</updated>
     
@@ -327,23 +327,23 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="总集" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/"/>
+    <category term="总集" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/"/>
     
     
-    <category term="深度优先搜索,DFS" scheme="https://blog.aksadfjh.tk/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"/>
+    <category term="深度优先搜索,DFS" scheme="https://blog.geometry37.tk/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"/>
     
-    <category term="剪枝" scheme="https://blog.aksadfjh.tk/t/%E5%89%AA%E6%9E%9D/"/>
+    <category term="剪枝" scheme="https://blog.geometry37.tk/t/%E5%89%AA%E6%9E%9D/"/>
     
-    <category term="NOI" scheme="https://blog.aksadfjh.tk/t/NOI/"/>
+    <category term="NOI" scheme="https://blog.geometry37.tk/t/NOI/"/>
     
   </entry>
   
   <entry>
     <title>[SP867] CUBES - Perfect Cubes</title>
-    <link href="https://blog.aksadfjh.tk/p/sp867/"/>
-    <id>https://blog.aksadfjh.tk/p/sp867/</id>
+    <link href="https://blog.geometry37.tk/p/sp867/"/>
+    <id>https://blog.geometry37.tk/p/sp867/</id>
     <published>2020-12-25T13:57:32.000Z</published>
     <updated>2021-01-13T12:59:00.628Z</updated>
     
@@ -357,19 +357,19 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="SPOJ" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/SPOJ/"/>
+    <category term="SPOJ" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/SPOJ/"/>
     
     
-    <category term="枚举,暴力" scheme="https://blog.aksadfjh.tk/t/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/"/>
+    <category term="枚举,暴力" scheme="https://blog.geometry37.tk/t/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/"/>
     
   </entry>
   
   <entry>
     <title>[SP34013]SEUG - Seetha’s Unique Game</title>
-    <link href="https://blog.aksadfjh.tk/p/sp34013/"/>
-    <id>https://blog.aksadfjh.tk/p/sp34013/</id>
+    <link href="https://blog.geometry37.tk/p/sp34013/"/>
+    <id>https://blog.geometry37.tk/p/sp34013/</id>
     <published>2020-12-25T13:55:58.000Z</published>
     <updated>2021-01-13T12:59:03.184Z</updated>
     
@@ -383,21 +383,21 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="SPOJ" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/SPOJ/"/>
+    <category term="SPOJ" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/SPOJ/"/>
     
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
-    <category term="贪心" scheme="https://blog.aksadfjh.tk/t/%E8%B4%AA%E5%BF%83/"/>
+    <category term="贪心" scheme="https://blog.geometry37.tk/t/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
   <entry>
     <title>[UVA1149]装箱 Bin Packing</title>
-    <link href="https://blog.aksadfjh.tk/p/uva1149/"/>
-    <id>https://blog.aksadfjh.tk/p/uva1149/</id>
+    <link href="https://blog.geometry37.tk/p/uva1149/"/>
+    <id>https://blog.geometry37.tk/p/uva1149/</id>
     <published>2020-12-25T13:55:03.000Z</published>
     <updated>2021-01-13T12:59:12.544Z</updated>
     
@@ -411,21 +411,21 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="UVA" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/UVA/"/>
+    <category term="UVA" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/UVA/"/>
     
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
-    <category term="贪心" scheme="https://blog.aksadfjh.tk/t/%E8%B4%AA%E5%BF%83/"/>
+    <category term="贪心" scheme="https://blog.geometry37.tk/t/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
   <entry>
     <title>[CF1182B]Plus from Picture</title>
-    <link href="https://blog.aksadfjh.tk/p/cf1182b/"/>
-    <id>https://blog.aksadfjh.tk/p/cf1182b/</id>
+    <link href="https://blog.geometry37.tk/p/cf1182b/"/>
+    <id>https://blog.geometry37.tk/p/cf1182b/</id>
     <published>2020-12-25T13:53:40.000Z</published>
     <updated>2021-01-31T14:19:31.122Z</updated>
     
@@ -439,21 +439,21 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="CodeForces" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/CodeForces/"/>
+    <category term="CodeForces" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/CodeForces/"/>
     
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
-    <category term="搜索" scheme="https://blog.aksadfjh.tk/t/%E6%90%9C%E7%B4%A2/"/>
+    <category term="搜索" scheme="https://blog.geometry37.tk/t/%E6%90%9C%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>深搜——简单剪枝</title>
-    <link href="https://blog.aksadfjh.tk/p/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/"/>
-    <id>https://blog.aksadfjh.tk/p/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/</id>
+    <link href="https://blog.geometry37.tk/p/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/"/>
+    <id>https://blog.geometry37.tk/p/%E6%B7%B1%E6%90%9C-%E7%AE%80%E5%8D%95%E5%89%AA%E6%9E%9D/</id>
     <published>2020-12-25T13:52:31.000Z</published>
     <updated>2021-03-05T09:57:56.438Z</updated>
     
@@ -467,17 +467,17 @@
     
     
     
-    <category term="笔记" scheme="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="深度优先搜索,DFS" scheme="https://blog.aksadfjh.tk/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"/>
+    <category term="深度优先搜索,DFS" scheme="https://blog.geometry37.tk/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"/>
     
   </entry>
   
   <entry>
     <title>深搜——拿部分分</title>
-    <link href="https://blog.aksadfjh.tk/p/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/"/>
-    <id>https://blog.aksadfjh.tk/p/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/</id>
+    <link href="https://blog.geometry37.tk/p/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/"/>
+    <id>https://blog.geometry37.tk/p/%E6%B7%B1%E6%90%9C-%E6%8B%BF%E9%83%A8%E5%88%86%E5%88%86/</id>
     <published>2020-12-25T13:51:18.000Z</published>
     <updated>2021-01-13T12:59:37.537Z</updated>
     
@@ -491,17 +491,17 @@
     
     
     
-    <category term="笔记" scheme="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="深度优先搜索,DFS" scheme="https://blog.aksadfjh.tk/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"/>
+    <category term="深度优先搜索,DFS" scheme="https://blog.geometry37.tk/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"/>
     
   </entry>
   
   <entry>
     <title>[CF1373B]01 Game</title>
-    <link href="https://blog.aksadfjh.tk/p/cf1373b/"/>
-    <id>https://blog.aksadfjh.tk/p/cf1373b/</id>
+    <link href="https://blog.geometry37.tk/p/cf1373b/"/>
+    <id>https://blog.geometry37.tk/p/cf1373b/</id>
     <published>2020-12-25T13:50:25.000Z</published>
     <updated>2021-01-31T14:19:26.830Z</updated>
     
@@ -515,21 +515,21 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="CodeForces" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/CodeForces/"/>
+    <category term="CodeForces" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/CodeForces/"/>
     
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
-    <category term="字符串" scheme="https://blog.aksadfjh.tk/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <category term="字符串" scheme="https://blog.geometry37.tk/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
   <entry>
     <title>[UVA10116]Robot Motion</title>
-    <link href="https://blog.aksadfjh.tk/p/uva10116/"/>
-    <id>https://blog.aksadfjh.tk/p/uva10116/</id>
+    <link href="https://blog.geometry37.tk/p/uva10116/"/>
+    <id>https://blog.geometry37.tk/p/uva10116/</id>
     <published>2020-12-25T13:48:41.000Z</published>
     <updated>2021-01-14T13:24:36.966Z</updated>
     
@@ -543,19 +543,19 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="UVA" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/UVA/"/>
+    <category term="UVA" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/UVA/"/>
     
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
   <entry>
     <title>[CF363A]Soroban</title>
-    <link href="https://blog.aksadfjh.tk/p/cf363a/"/>
-    <id>https://blog.aksadfjh.tk/p/cf363a/</id>
+    <link href="https://blog.geometry37.tk/p/cf363a/"/>
+    <id>https://blog.geometry37.tk/p/cf363a/</id>
     <published>2020-12-25T13:47:16.000Z</published>
     <updated>2021-01-31T14:19:44.156Z</updated>
     
@@ -569,14 +569,14 @@
     
     
     
-    <category term="题解" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="CodeForces" scheme="https://blog.aksadfjh.tk/c/%E9%A2%98%E8%A7%A3/CodeForces/"/>
+    <category term="CodeForces" scheme="https://blog.geometry37.tk/c/%E9%A2%98%E8%A7%A3/CodeForces/"/>
     
     
-    <category term="模拟" scheme="https://blog.aksadfjh.tk/t/%E6%A8%A1%E6%8B%9F/"/>
+    <category term="模拟" scheme="https://blog.geometry37.tk/t/%E6%A8%A1%E6%8B%9F/"/>
     
-    <category term="字符串" scheme="https://blog.aksadfjh.tk/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <category term="字符串" scheme="https://blog.geometry37.tk/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   

@@ -4,6 +4,136 @@
 <html lang=zh>
 <head>
   <link href="main.css" rel="stylesheet">
+  <style>
+	
+	#cursor {
+	    position: fixed;
+	    width: 16px;
+	    height: 16px;
+	    background: #000;
+	    border-radius: 8px;
+	    opacity: 0.25;
+	    z-index: 10086;
+	    pointer-events: none;
+	    transition: 0.2s ease-in-out;
+	    transition-property: background, opacity, transform;
+	}
+	
+	#cursor.hidden {
+	    opacity: 0;
+	}
+	
+	#cursor.hover {
+	    opacity: 0.1;
+	    transform: scale(2.5);
+	}
+	
+	#cursor.active {
+	    opacity: 0.5;
+	    transform: scale(0.5);
+	}
+  </style>
+  <script>
+  alert("qaq");
+  
+  var CURSOR;
+  
+  Math.lerp = (a, b, n) => (1 - n) * a + n * b;
+  
+  const getStyle = (el, attr) => {
+  	try {
+  		return window.getComputedStyle ?
+  			window.getComputedStyle(el)[attr] :
+  			el.currentStyle[attr];
+  	} catch (e) {}
+  	return "";
+  };
+  
+  class Cursor {
+  	constructor() {
+  		this.pos = {
+  			curr: null,
+  			prev: null
+  		};
+  		this.pt = [];
+  		this.create();
+  		this.init();
+  		this.render();
+  	}
+  
+  	move(left, top) {
+  		this.cursor.style["left"] = `${left}px`;
+  		this.cursor.style["top"] = `${top}px`;
+  	}
+  
+  	create() {
+  		if (!this.cursor) {
+  			this.cursor = document.createElement("div");
+  			this.cursor.id = "cursor";
+  			this.cursor.classList.add("hidden");
+  			document.body.append(this.cursor);
+  		}
+  
+  		var el = document.getElementsByTagName('*');
+  		for (let i = 0; i < el.length; i++)
+  			if (getStyle(el[i], "cursor") == "pointer")
+  				this.pt.push(el[i].outerHTML);
+  
+  		document.body.appendChild((this.scr = document.createElement("style")));
+  		this.scr.innerHTML =
+  			`* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='.5'/></svg>") 4 4, auto}`;
+  	}
+  
+  	refresh() {
+  		this.scr.remove();
+  		this.cursor.classList.remove("hover");
+  		this.cursor.classList.remove("active");
+  		this.pos = {
+  			curr: null,
+  			prev: null
+  		};
+  		this.pt = [];
+  
+  		this.create();
+  		this.init();
+  		this.render();
+  	}
+  
+  	init() {
+  		document.onmouseover = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
+  		document.onmouseout = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
+  		document.onmousemove = e => {
+  			(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8);
+  			this.pos.curr = {
+  				x: e.clientX - 8,
+  				y: e.clientY - 8
+  			};
+  			this.cursor.classList.remove("hidden");
+  		};
+  		document.onmouseenter = e => this.cursor.classList.remove("hidden");
+  		document.onmouseleave = e => this.cursor.classList.add("hidden");
+  		document.onmousedown = e => this.cursor.classList.add("active");
+  		document.onmouseup = e => this.cursor.classList.remove("active");
+  	}
+  
+  	render() {
+  		if (this.pos.prev) {
+  			this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);
+  			this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);
+  			this.move(this.pos.prev.x, this.pos.prev.y);
+  		} else {
+  			this.pos.prev = this.pos.curr;
+  		}
+  		requestAnimationFrame(() => this.render());
+  	}
+  }
+  
+  (() => {
+  	CURSOR = new Cursor();
+  	// 需要重新获取列表时，使用 CURSOR.refresh()
+  })();
+  
+  </script>
   <link href="//cdn.staticfile.org/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
   <meta charset="utf-8">
   
@@ -21,18 +151,18 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>分类: 笔记 | Geometry37</title>
+  <title>分类: 笔记 | Aksadfjh</title>
   <meta name="description" content="Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aksadfjh">
-<meta property="og:url" content="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Aksadfjh">
 <meta property="og:description" content="Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Aksadfjh">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.aksadfjh.tk/c/%E7%AC%94%E8%AE%B0/index.html">
+  <link rel="canonical" href="https://blog.geometry37.tk/c/%E7%AC%94%E8%AE%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Aksadfjh" type="application/atom+xml">
   
@@ -56,7 +186,7 @@
       
       
       <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/geometry37" target="_blank">
+        <a id="avatar" href="https://github.com/Aksadfjh" target="_blank">
           <img class="img-circle img-rotate" src="https://www.gravatar.com/avatar/b2ec5a42a4ca1f90253ae637705a6f2b?s=128" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">Geometry37</h2>
@@ -164,11 +294,11 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/Aksadfjh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
-        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        <li><a href="https://twitter.com/Aksadfjh" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
         
@@ -191,7 +321,7 @@
     <div class="widget-body">
         <div id="motto">
             <div class="content">
-                人总有一天都会死的，但正因为生命是有限的，才能够欢喜和悲伤。
+                宁鸣而死，不默而生。
             </div>
         </div>
     </div>
@@ -203,7 +333,7 @@
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del><br>Email:Trotyl-tnt@yandex.com</p>
+                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del></p>
             </div>
         </div>
     </div>
@@ -246,9 +376,9 @@
           
           <li><a href="/c/游记/">游记</a></li>
           
-          <li><a href="/c/题解/">题解</a></li>
-          
           <li><a href="/c/笔记/">笔记</a></li>
+          
+          <li><a href="/c/题解/">题解</a></li>
           
           <li><a href="/c/2020/游记/">游记</a></li>
           
@@ -363,11 +493,11 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/geometry37" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/Aksadfjh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
-        <li><a href="https://twitter.com/Geometry_37" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        <li><a href="https://twitter.com/Aksadfjh" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
         
         <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
         
