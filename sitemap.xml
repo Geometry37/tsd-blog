@@ -291,20 +291,6 @@
 
   
   <url>
-    <loc>https://blog.geometry37.tk/t/CSp/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.geometry37.tk/t/NOIp/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.geometry37.tk/t/%E6%B4%9B%E8%B0%B7/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
@@ -327,6 +313,20 @@
   
   <url>
     <loc>https://blog.geometry37.tk/t/python/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/t/CSp/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/t/NOIp/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -375,7 +375,28 @@
   </url>
   
   <url>
+    <loc>https://blog.geometry37.tk/t/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.geometry37.tk/t/AtCoder/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/t/ARC/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.geometry37.tk/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -403,13 +424,6 @@
   </url>
   
   <url>
-    <loc>https://blog.geometry37.tk/t/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.geometry37.tk/t/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
@@ -425,20 +439,6 @@
   
   <url>
     <loc>https://blog.geometry37.tk/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.geometry37.tk/t/ARC/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.geometry37.tk/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -594,14 +594,14 @@
 
   
   <url>
-    <loc>https://blog.geometry37.tk/c/%E6%B8%B8%E8%AE%B0/</loc>
+    <loc>https://blog.geometry37.tk/c/2020/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.geometry37.tk/c/2020/</loc>
+    <loc>https://blog.geometry37.tk/c/%E6%B8%B8%E8%AE%B0/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -622,14 +622,14 @@
   </url>
   
   <url>
-    <loc>https://blog.geometry37.tk/c/%E6%B8%B8%E8%AE%B0/2020/</loc>
+    <loc>https://blog.geometry37.tk/c/2020/%E6%B8%B8%E8%AE%B0/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.geometry37.tk/c/2020/%E6%B8%B8%E8%AE%B0/</loc>
+    <loc>https://blog.geometry37.tk/c/%E6%B8%B8%E8%AE%B0/2020/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
