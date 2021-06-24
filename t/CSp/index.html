@@ -1,556 +1,149 @@
-<!DOCTYPE html>
-
-  <link href="main.css" rel="stylesheet">
-<html lang=zh>
-<head>
-  <link href="main.css" rel="stylesheet">
-  <style>
-	
-	#cursor {
-	    position: fixed;
-	    width: 16px;
-	    height: 16px;
-	    background: #000;
-	    border-radius: 8px;
-	    opacity: 0.25;
-	    z-index: 10086;
-	    pointer-events: none;
-	    transition: 0.2s ease-in-out;
-	    transition-property: background, opacity, transform;
-	}
-	
-	#cursor.hidden {
-	    opacity: 0;
-	}
-	
-	#cursor.hover {
-	    opacity: 0.1;
-	    transform: scale(2.5);
-	}
-	
-	#cursor.active {
-	    opacity: 0.5;
-	    transform: scale(0.5);
-	}
-  </style>
-  <script>
-  
-  var CURSOR;
-  
-  Math.lerp = (a, b, n) => (1 - n) * a + n * b;
-  
-  const getStyle = (el, attr) => {
-  	try {
-  		return window.getComputedStyle ?
-  			window.getComputedStyle(el)[attr] :
-  			el.currentStyle[attr];
-  	} catch (e) {}
-  	return "";
-  };
-  
-  class Cursor {
-  	constructor() {
-  		this.pos = {
-  			curr: null,
-  			prev: null
-  		};
-  		this.pt = [];
-  		this.create();
-  		this.init();
-  		this.render();
-  	}
-  
-  	move(left, top) {
-  		this.cursor.style["left"] = `${left}px`;
-  		this.cursor.style["top"] = `${top}px`;
-  	}
-  
-  	create() {
-  		if (!this.cursor) {
-  			this.cursor = document.createElement("div");
-  			this.cursor.id = "cursor";
-  			this.cursor.classList.add("hidden");
-  			document.body.append(this.cursor);
-  		}
-  
-  		var el = document.getElementsByTagName('*');
-  		for (let i = 0; i < el.length; i++)
-  			if (getStyle(el[i], "cursor") == "pointer")
-  				this.pt.push(el[i].outerHTML);
-  
-  		document.body.appendChild((this.scr = document.createElement("style")));
-  		this.scr.innerHTML =
-  			`* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' opacity='.5'/></svg>") 4 4, auto}`;
-  	}
-  
-  	refresh() {
-  		this.scr.remove();
-  		this.cursor.classList.remove("hover");
-  		this.cursor.classList.remove("active");
-  		this.pos = {
-  			curr: null,
-  			prev: null
-  		};
-  		this.pt = [];
-  
-  		this.create();
-  		this.init();
-  		this.render();
-  	}
-  
-  	init() {
-  		document.onmouseover = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
-  		document.onmouseout = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
-  		document.onmousemove = e => {
-  			(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8);
-  			this.pos.curr = {
-  				x: e.clientX - 8,
-  				y: e.clientY - 8
-  			};
-  			this.cursor.classList.remove("hidden");
-  		};
-  		document.onmouseenter = e => this.cursor.classList.remove("hidden");
-  		document.onmouseleave = e => this.cursor.classList.add("hidden");
-  		document.onmousedown = e => this.cursor.classList.add("active");
-  		document.onmouseup = e => this.cursor.classList.remove("active");
-  	}
-  
-  	render() {
-  		if (this.pos.prev) {
-  			this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);
-  			this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);
-  			this.move(this.pos.prev.x, this.pos.prev.y);
-  		} else {
-  			this.pos.prev = this.pos.curr;
-  		}
-  		requestAnimationFrame(() => this.render());
-  	}
-  }
-  
-  (() => {
-  	CURSOR = new Cursor();
-  	// 需要重新获取列表时，使用 CURSOR.refresh()
-  })();
-  
-  </script>
-  <link href="//cdn.staticfile.org/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <title>标签: CSp | Aksadfjh</title>
-  <meta name="description" content="Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aksadfjh">
-<meta property="og:url" content="https://blog.geometry37.tk/t/CSp/index.html">
-<meta property="og:site_name" content="Aksadfjh">
-<meta property="og:description" content="Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Aksadfjh">
-<meta name="twitter:card" content="summary">
-  <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.geometry37.tk/t/CSp/index.html">
-  
-    <link rel="alternate" href="/atom.xml" title="Aksadfjh" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon/2/favicon.ico" type="image/x-icon">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-  
-  
-  
-<meta name="generator" content="Hexo 5.2.0"></head>
-
-
-<body class="main-center theme-" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/Aksadfjh" target="_blank">
-          <img class="img-circle img-rotate" src="//i.loli.net/2021/03/14/AYgaNVqRP8uHkK7.png" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">Aksadfjh</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">OIer | moe girl | and more</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
-      </div>
-      
-      <div class="search" id="search-form-wrap">
-
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-    </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
-  </div>
-</div>
-
-
-</div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav menu-highlight">
-        
-        
-        <li class="menu-item menu-item-home">
-          <a href="/.">
-            
-            <span class="menu-title">首页</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            
-            <span class="menu-title">归档</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            
-            <span class="menu-title">分类</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            
-            <span class="menu-title">标签</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-repository">
-          <a target="_blank" rel="noopener" href="//wiki.geometry37.tk">
-            
-            <span class="menu-title">项目</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-links">
-          <a href="/links">
-            
-            <span class="menu-title">友链</span>
-          </a>
-        </li>
-        
-      </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/Aksadfjh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://twitter.com/Aksadfjh" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
-
-    </nav>
-  </div>
-</header>
-
-  
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      <div class="widget">
-    <h3 class="widget-title">格言</h3>
-    <div class="widget-body">
-        <div id="motto">
-            <div class="content">
-                宁鸣而死，不默而生。
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content">
-                <p>要是有哪篇文章写得不好可以联系我从写一份，要是有时间 <del>pigeon()->gugugu</del></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget-body tagcloud">
-      <a href="/t/ABC/" style="font-size: 13.67px;">ABC</a> <a href="/t/ARC/" style="font-size: 13px;">ARC</a> <a href="/t/AtCoder/" style="font-size: 13.83px;">AtCoder</a> <a href="/t/CSp/" style="font-size: 13px;">CSp</a> <a href="/t/Dijkstra/" style="font-size: 13px;">Dijkstra</a> <a href="/t/NOI/" style="font-size: 13px;">NOI</a> <a href="/t/NOIp/" style="font-size: 13px;">NOIp</a> <a href="/t/python/" style="font-size: 13px;">python</a> <a href="/t/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/" style="font-size: 13px;">二分搜索</a> <a href="/t/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 13px;">二分答案</a> <a href="/t/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 13px;">二叉树</a> <a href="/t/%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88/" style="font-size: 13px;">冬日绘版</a> <a href="/t/%E5%87%B8%E5%8C%85/" style="font-size: 13.5px;">凸包</a> <a href="/t/%E5%89%AA%E6%9E%9D/" style="font-size: 13px;">剪枝</a> <a href="/t/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%8A%A8%E8%A7%84-dp/" style="font-size: 13.33px;">动态规划,动规,dp</a> <a href="/t/%E5%90%88%E9%9B%86/" style="font-size: 13px;">合集</a> <a href="/t/%E5%9B%BE%E7%9A%84%E5%BB%BA%E7%AB%8B-%E5%BB%BA%E5%9B%BE/" style="font-size: 13px;">图的建立,建图</a> <a href="/t/%E5%9B%BE%E8%AE%BA/" style="font-size: 13.67px;">图论</a> <a href="/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.67px;">字符串</a> <a href="/t/%E5%AE%B9%E6%96%A5/" style="font-size: 13px;">容斥</a> <a href="/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/" style="font-size: 13.17px;">广度优先搜索,BFS</a> <a href="/t/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/t/%E6%90%9C%E7%B4%A2/" style="font-size: 13.17px;">搜索</a> <a href="/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/" style="font-size: 13.17px;">数论,数学</a> <a href="/t/%E6%9C%80%E5%A4%A7%E6%B5%81/" style="font-size: 13px;">最大流</a> <a href="/t/%E6%9C%80%E5%B0%8F%E5%89%B2/" style="font-size: 13px;">最小割</a> <a href="/t/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 13px;">最短路</a> <a href="/t/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/" style="font-size: 13.33px;">枚举,暴力</a> <a href="/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/" style="font-size: 13.33px;">树形结构</a> <a href="/t/%E6%A8%A1%E6%8B%9F/" style="font-size: 14px;">模拟</a> <a href="/t/%E6%B0%B4/" style="font-size: 13px;">水</a> <a href="/t/%E6%B4%9B%E8%B0%B7/" style="font-size: 13px;">洛谷</a> <a href="/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/" style="font-size: 13.5px;">深度优先搜索,DFS</a> <a href="/t/%E7%9C%81%E9%80%89/" style="font-size: 13px;">省选</a> <a href="/t/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/" style="font-size: 13px;">素数判断,质数,筛法</a> <a href="/t/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" style="font-size: 13px;">组合数学</a> <a href="/t/%E8%83%8C%E5%8C%85/" style="font-size: 13.33px;">背包</a> <a href="/t/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 13.67px;">计算几何</a> <a href="/t/%E8%B4%AA%E5%BF%83/" style="font-size: 13.33px;">贪心</a> <a href="/t/%E9%82%BB%E6%8E%A5%E8%A1%A8/" style="font-size: 13px;">邻接表</a> <a href="/t/%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0/" style="font-size: 13px;">随机函数</a>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/c/2020/">2020</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/2020/%E6%B8%B8%E8%AE%B0/">游记</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/c/%E6%B8%B8%E8%AE%B0/">游记</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/%E6%B8%B8%E8%AE%B0/2020/">2020</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/c/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/">题解</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/AtCoder/">AtCoder</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/CodeForces/">CodeForces</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/Luogu/">Luogu</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/SPOJ/">SPOJ</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/UVA/">UVA</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/">总集</a><span class="category-list-count">2</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-    
-  </div>
-</aside>
-
-  
-  <main class="main" role="main">
-  <article class="content article article-tags post-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">标签: CSp</h1>
-      <p class="text-muted hidden-xs">共 1 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/tags">All</a></li>
-          
-          <li><a href="/t/洛谷/">洛谷</a></li>
-          
-          <li><a href="/t/水/">水</a></li>
-          
-          <li><a href="/t/冬日绘版/">冬日绘版</a></li>
-          
-          <li><a href="/t/python/">python</a></li>
-          
-          <li><a href="/t/CSp/">CSp</a></li>
-          
-          <li><a href="/t/NOIp/">NOIp</a></li>
-          
-          <li><a href="/t/图论/">图论</a></li>
-          
-          <li><a href="/t/Dijkstra/">Dijkstra</a></li>
-          
-          <li><a href="/t/树形结构/">树形结构</a></li>
-          
-          <li><a href="/t/深度优先搜索-DFS/">深度优先搜索,DFS</a></li>
-          
-          <li><a href="/t/剪枝/">剪枝</a></li>
-          
-          <li><a href="/t/NOI/">NOI</a></li>
-          
-          <li><a href="/t/计算几何/">计算几何</a></li>
-          
-          <li><a href="/t/AtCoder/">AtCoder</a></li>
-          
-          <li><a href="/t/ABC/">ABC</a></li>
-          
-          <li><a href="/t/模拟/">模拟</a></li>
-          
-          <li><a href="/t/字符串/">字符串</a></li>
-          
-          <li><a href="/t/ARC/">ARC</a></li>
-          
-          <li><a href="/t/广度优先搜索-BFS/">广度优先搜索,BFS</a></li>
-          
-          <li><a href="/t/二分答案/">二分答案</a></li>
-          
-          <li><a href="/t/二分搜索/">二分搜索</a></li>
-          
-          <li><a href="/t/数论-数学/">数论,数学</a></li>
-          
-          <li><a href="/t/搜索/">搜索</a></li>
-          
-          <li><a href="/t/枚举-暴力/">枚举,暴力</a></li>
-          
-          <li><a href="/t/背包/">背包</a></li>
-          
-          <li><a href="/t/动态规划-动规-dp/">动态规划,动规,dp</a></li>
-          
-          <li><a href="/t/贪心/">贪心</a></li>
-          
-          <li><a href="/t/凸包/">凸包</a></li>
-          
-          <li><a href="/t/合集/">合集</a></li>
-          
-          <li><a href="/t/容斥/">容斥</a></li>
-          
-          <li><a href="/t/最大流/">最大流</a></li>
-          
-          <li><a href="/t/最小割/">最小割</a></li>
-          
-          <li><a href="/t/图的建立-建图/">图的建立,建图</a></li>
-          
-          <li><a href="/t/素数判断-质数-筛法/">素数判断,质数,筛法</a></li>
-          
-          <li><a href="/t/排序/">排序</a></li>
-          
-          <li><a href="/t/随机函数/">随机函数</a></li>
-          
-          <li><a href="/t/组合数学/">组合数学</a></li>
-          
-          <li><a href="/t/省选/">省选</a></li>
-          
-          <li><a href="/t/最短路/">最短路</a></li>
-          
-          <li><a href="/t/二叉树/">二叉树</a></li>
-          
-          <li><a href="/t/邻接表/">邻接表</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="row">
-        
-<div class="col-md-6">
-    
-<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="panel-body">
-     <div class="article-meta">
-       <time datetime="2020-11-08T06:39:39.000Z" itemprop="datePublished">2020-11-08</time>
-     </div>
-     <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/p/CSp2020/">CSp2020游记</a>
-     </h3>
-   </div>
-   
-   <div class="panel-footer">
-     
-      <a href="/t/CSp/" class="label label-default mb">CSp</a>
-     
-      <a href="/t/NOIp/" class="label label-default mb">NOIp</a>
-     
-     
-   </div>
-   
-</article>
-
-
-</div>
-
-      </div>
-    </div>
-  </article>
-   
-</main>
-
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/Aksadfjh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://twitter.com/Aksadfjh" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
-
-    <div class="copyright" id="copy">
-    	
-        &copy; 2018-2021 Aksadfjh
-        
-        <!-- <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
-        </div> -->
-    </div>
-	<div class="copyright" id="moebei">
-		<a href="https://icp.gov.moe" target="_blank">萌ICP备 </a><a href="https://icp.gov.moe/?keyword=20211126" target="_blank"> 20211126号</a>
-	</div>
-</footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-
-<script src="/js/plugin.min.js"></script>
-
-
-<script src="/js/application.js"></script>
-
-
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>标签: CSp - Aksadfjh</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Aksadfjh"><meta name="msapplication-TileImage" content="/img/avatar.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Aksadfjh"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子"><meta property="og:type" content="blog"><meta property="og:title" content="Aksadfjh"><meta property="og:url" content="https://blog.geometry37.tk/"><meta property="og:site_name" content="Aksadfjh"><meta property="og:description" content="Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://blog.geometry37.tk/img/og_image.png"><meta property="article:author" content="Aksadfjh"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.geometry37.tk"},"headline":"Aksadfjh","image":["https://blog.geometry37.tk/img/og_image.png"],"author":{"@type":"Person","name":"Aksadfjh"},"publisher":{"@type":"Organization","name":"Aksadfjh","logo":{"@type":"ImageObject","url":"https://blog.geometry37.tk/img/avatar.png"}},"description":"Aksadfjh blog, OI, 女装, 信息学, 二次元, 萌新妹子"}</script><link rel="icon" href="/img/avatar.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Aksadfjh" type="application/atom+xml">
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.png" alt="Aksadfjh" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">CSp</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-11-08T06:39:39.000Z" title="2020/11/8下午2:39:39">2020-11-08</time>发表</span><span class="level-item"><time dateTime="2021-01-13T12:59:40.753Z" title="2021/1/13下午8:59:40">2021-01-13</time>更新</span><span class="level-item"><a class="link-muted" href="/c/%E6%B8%B8%E8%AE%B0/">游记</a><span> / </span><a class="link-muted" href="/c/%E6%B8%B8%E8%AE%B0/2020/">2020</a></span><span class="level-item">11 分钟读完 (大约1613个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/p/CSp2020/">CSp2020游记</a></h1><div class="content"><h1 id="初赛"><a class="markdownIt-Anchor" href="#初赛">#</a> 初赛</h1>
+<h2 id="day-2"><a class="markdownIt-Anchor" href="#day-2">#</a> Day -2</h2>
+<p>做了个模拟（非洛谷），只有<strong>一丁点</strong>分，显然过不了</p>
+<p><s>（盗张 i am ak f 的图）</s></p>
+<p><img src="https://s1.ax1x.com/2020/10/11/0gU1nP.png" alt="0gU1nP.png"></p>
+<h2 id="day-0"><a class="markdownIt-Anchor" href="#day-0">#</a> Day 0</h2>
+<p>颓，颓，颓，又做了一套模拟，坚定了退役的信心。</p>
+<h2 id="day-1"><a class="markdownIt-Anchor" href="#day-1">#</a> Day 1</h2>
+<p>人好多啊，风好大啊，我好冷啊。</p>
+<p>走进去感觉心态挺好？</p>
+<h3 id="考试"><a class="markdownIt-Anchor" href="#考试">#</a> 考试</h3>
+<p>无可否认，题目质量很好，很有区分度，成功把我区分掉了。但是阅读程序 99 行想访问出题人，好像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="italic">2.5</mn><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\it 2.5pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathit">2</span><span class="mord mathit">.</span><span class="mord mathit">5</span><span class="mord mathit">p</span><span class="mord mathit">t</span><span class="mord mathit">s</span></span></span></span></span> 没了……</p>
+<p>总之，考的不是很好，但应该还是可以过？（我都不信……）</p>
+<h3 id="面基"><a class="markdownIt-Anchor" href="#面基">#</a> 面基</h3>
+<p>显然考试不重要，面基才重要，从 3 楼下来到了 102 结果没什么人，看见了书虫，结果我没认出来他他认出来我了<img src="https://cdn.luogu.com.cn/upload/pic/62250.png" alt="/fad"> 一定是我太 <s>可爱</s> 菜了，一眼就能认出来。感觉书虫好可爱啊<img src="https://cdn.luogu.com.cn/upload/pic/62224.png" alt="/qq"></p>
+<p><s>rui_er 人呢，ClCN 人呢，tarjin 人呢（</s></p>
+<h2 id="结束了"><a class="markdownIt-Anchor" href="#结束了">#</a> 结束了。</h2>
+<p>回来本来还想着可能烤得挺好，一堆答案，一切都结束了，该晋级的晋级了，该 AK 的 AK 了。我只能退役了……</p>
+<p>但毕竟还有时间，希望能继续努力，实现自己的梦想吧。</p>
+<h2 id="day-3"><a class="markdownIt-Anchor" href="#day-3">#</a> Day -(-3)</h2>
+<p>出成绩了，擦线过了（</p>
+<hr>
+<h1 id="复赛"><a class="markdownIt-Anchor" href="#复赛">#</a> 复赛</h1>
+<h2 id="day-5"><a class="markdownIt-Anchor" href="#day-5">#</a> Day -5</h2>
+<p>模拟赛垫底。</p>
+<p>100+100+30+10</p>
+<p>我直接退役好吧……</p>
+<h2 id="day-4"><a class="markdownIt-Anchor" href="#day-4">#</a> Day -4</h2>
+<p>简单复习了复习图论。</p>
+<h2 id="day-3-2"><a class="markdownIt-Anchor" href="#day-3-2">#</a> Day -3</h2>
+<p>期中考试祭，也算是进入初中后第一次大考。</p>
+<p>Day1：语文，地理，数学<br>
+ Day2：英语，生物</p>
+<p>感觉地理数学都爆炸了 /youl</p>
+<p>竟然感觉语文还行？？？（</p>
+<h2 id="day-1-2"><a class="markdownIt-Anchor" href="#day-1-2">#</a> Day 1</h2>
+<h3 id="上午"><a class="markdownIt-Anchor" href="#上午">#</a> 上午</h3>
+<p>上午 pj。</p>
+<p>7:00 就到了考场，在车上吃了点东西。</p>
+<p>8:00 进去了</p>
+<p>找到了教室，做好了，竟然坐在墙角。</p>
+<p>做我前面的人来了，走近来的时候突然叫了一声：“是 TNT 吗？”</p>
+<p>我吓了一跳，没见过，不认识，他是怎么认识我的，就没管。</p>
+<p>8:20 把解压码发下来，输错了 5 次，不愧是我……</p>
+<p>8:35</p>
+<p>监考员才说可以答题了……</p>
+<p>开了看 T1，不是一眼题了，爷清洁。</p>
+<p>两眼题好评，过了大样例就没管。</p>
+<p>看了眼 T2，两眼题好评，一开始 sb 直接打暴力，没过大样例。</p>
+<p>稍微改了改过了大样例也就没管了。</p>
+<p>看 T3，这啥啊，以为是个 ds，不会，就都输出个 1 骗点分，看 T4。</p>
+<p>这不就是个 dp 吗，可惜 dp 没学好，也懒得推方程，写了个贪心骗点分回来看 T3。</p>
+<p>想了想是否能暴力，打了个暴力，连 Sample1 都没过，也快结束了，就把输出 1 的交了上去。</p>
+<p>估分：100+100+20<sub>30+20=240</sub>250</p>
+<p>12:35 监考员收完答题纸把我们放了出来，我立刻去问了问我前面的那位，才知道是洛谷的 @超级玛丽王子，吓死我了（</p>
+<p>回来洛谷测了一下，T1 挂了，T2 挂了，T3 挂了，T4 挂了</p>
+<p>T1 莫名成了 60，T2 85。</p>
+<p>草 nm 这个 T3 我就是傻逼好吧……</p>
+<p>我分明每个程序都又运行了一下没爆啊？</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ohjlo525.png" alt=""></p>
+<p>本来 30，CE 了，我退役罢……</p>
+<h3 id="中午"><a class="markdownIt-Anchor" href="#中午">#</a> 中午</h3>
+<p>中午去吃了个海底捞，真行。</p>
+<p>又跟同学讨论了一下题，一致认为，毒瘤。</p>
+<h3 id="下午"><a class="markdownIt-Anchor" href="#下午">#</a> 下午</h3>
+<p>吃的有点撑，进考场时有点难受，风又大，感觉我要凉。</p>
+<p>做到了座位，和 pj 一样的教室，没想到 @超级玛丽王子 又来走近我。</p>
+<p>我：？？？<br>
+他：我 pj 做你前头，tg 做你后头（</p>
+<p>还挺有缘（</p>
+<p>开 T1，sb 题，想拜访出题人祖母的女儿，出题人你萌死了，萌死了。</p>
+<p>敲了个 20 分扔了没管看 T2。</p>
+<p>竟然没怎么读懂题，花了 20 分钟读题，写了个暴力看 T3</p>
+<p>天哪，不会做……（赛后得知：dp + 拓扑）</p>
+<p>输了个样例</p>
+<p>T4 感觉可以做做试试。</p>
+<p>就瞎写了写。</p>
+<p>估分：20+10<sub>30+0+10=40</sub>60</p>
+<p>出来后，看很晚了，也根本没人愿意来找我面基，就走了。</p>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h2>
+<p>自己还是基础太薄弱了，学再多的东西又有什么用呢？pj T1 都能挂。</p>
+<blockquote>
+<p>失败了一次，就要从跌倒的地方再爬起。</p>
+</blockquote>
+<p>既然已经知道自己的能力根本就不行了的话，努力吧。</p>
+<p>我们 CSp2021 再见！</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记">#</a> 后记</h1>
+<p>有可能我永远不可能拿到自己心中的蓝勾了，</p>
+<p>从五年级就接触 OI，学了半年糊里糊涂去参加了 NOIp2018 pj，初赛那个十几分回来，当时觉得并没有什么，机会还多。</p>
+<p>2019 年是 NOIp 却没了，取而代之的是 CSp，一切准备妥当时，突然有一个情况发生了：</p>
+<p>CSp 与另一个比赛冲突了，</p>
+<p>那个比赛是一个全国的人工智能大赛，我和另一个搭档代表 BJ 队去 TJ 参赛。</p>
+<p>当时内心十分纠结，整天心态不好，去询问了教练，教练建议去参加那个比赛，可能我即使参加了 CSp 也没有能力拿奖吧。</p>
+<p>可惜，心态问题，那个比赛没搞好连一等奖都没拿到，二等奖第一名。</p>
+<p>又得知 pj 初赛机考水的要死，复赛 T1 一眼题，过了 T1 就二等。</p>
+<p>心态立即就爆炸了，懊悔当初没去参加 CSp。</p>
+<p>就又等了一年。</p>
+<p>CSp2020 了，擦线过了初赛，离复赛只有三天时，才发现自己什么也不会，无比迷茫，不知自己到底会前往何方。</p>
+<p>今年的比赛，暴露了我的真实水平。</p>
+<p>期中考也没考好，英语下了 90。</p>
+<p>明年，明年，明年。</p>
+<p>恐怕，我连明天都已经没有了罢……</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.png" alt="Aksadfjh"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Aksadfjh</p><p class="is-size-6 is-block">Aksadfjh&#039;s Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Lovely Country, Meow Planet</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">12</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">43</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/aksadfjh" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/aksadfjh"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Luogu" href="https://www.luogu.com.cn/user/128369"><i class="fa fa-code"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/aksadfjh"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://www.luogu.com.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Luogu</span></span><span class="level-right"><span class="level-item tag">www.luogu.com.cn</span></span></a></li><li><a class="level is-mobile" href="https://pbb.akioi.ml" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Trivial Chat</span></span><span class="level-right"><span class="level-item tag">pbb.akioi.ml</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-23T10:08:12.000Z">2021-04-23</time></p><p class="title"><a href="/p/%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF/">多源最短路</a></p><p class="categories"><a href="/c/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-09T09:50:00.000Z">2021-04-09</time></p><p class="title"><a href="/p/%E5%88%86%E5%B1%82%E5%9B%BE/">分层图</a></p><p class="categories"><a href="/c/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-12T11:25:42.000Z">2021-03-12</time></p><p class="title"><a href="/p/Dijkstra/">Dijkstra</a></p><p class="categories"><a href="/c/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-05T10:02:00.000Z">2021-03-05</time></p><p class="title"><a href="/p/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</a></p><p class="categories"><a href="/c/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-02-02T05:43:33.000Z">2021-02-02</time></p><p class="title"><a href="/p/%E9%82%BB%E6%8E%A5%E8%A1%A8/">邻接表</a></p><p class="categories"><a href="/c/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/t/ABC/"><span class="tag">ABC</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/t/ARC/"><span class="tag">ARC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/AtCoder/"><span class="tag">AtCoder</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/t/CSp/"><span class="tag">CSp</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/Dijkstra/"><span class="tag">Dijkstra</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/Floyd/"><span class="tag">Floyd</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/NOI/"><span class="tag">NOI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/NOIp/"><span class="tag">NOIp</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/SPFA/"><span class="tag">SPFA</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/python/"><span class="tag">python</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"><span class="tag">二分搜索</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/"><span class="tag">二分答案</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E4%BA%8C%E5%8F%89%E6%A0%91/"><span class="tag">二叉树</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%86%AC%E6%97%A5%E7%BB%98%E7%89%88/"><span class="tag">冬日绘版</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%87%B8%E5%8C%85/"><span class="tag">凸包</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%89%AA%E6%9E%9D/"><span class="tag">剪枝</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%8A%A8%E8%A7%84-dp/"><span class="tag">动态规划,动规,dp</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%90%88%E9%9B%86/"><span class="tag">合集</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%9B%BE%E7%9A%84%E5%BB%BA%E7%AB%8B-%E5%BB%BA%E5%9B%BE/"><span class="tag">图的建立,建图</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%9B%BE%E8%AE%BA/"><span class="tag">图论</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="tag">字符串</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%AE%B9%E6%96%A5/"><span class="tag">容斥</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS/"><span class="tag">广度优先搜索,BFS</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%8E%92%E5%BA%8F/"><span class="tag">排序</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%90%9C%E7%B4%A2/"><span class="tag">搜索</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%95%B0%E8%AE%BA-%E6%95%B0%E5%AD%A6/"><span class="tag">数论,数学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%9C%80%E5%A4%A7%E6%B5%81/"><span class="tag">最大流</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%9C%80%E5%B0%8F%E5%89%B2/"><span class="tag">最小割</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%9C%80%E7%9F%AD%E8%B7%AF/"><span class="tag">最短路</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%9E%9A%E4%B8%BE-%E6%9A%B4%E5%8A%9B/"><span class="tag">枚举,暴力</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"><span class="tag">树形结构</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%A8%A1%E6%8B%9F/"><span class="tag">模拟</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%B0%B4/"><span class="tag">水</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%B4%9B%E8%B0%B7/"><span class="tag">洛谷</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-DFS/"><span class="tag">深度优先搜索,DFS</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E7%9C%81%E9%80%89/"><span class="tag">省选</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD-%E8%B4%A8%E6%95%B0-%E7%AD%9B%E6%B3%95/"><span class="tag">素数判断,质数,筛法</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"><span class="tag">组合数学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E8%83%8C%E5%8C%85/"><span class="tag">背包</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"><span class="tag">计算几何</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E8%B4%AA%E5%BF%83/"><span class="tag">贪心</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E9%82%BB%E6%8E%A5%E8%A1%A8/"><span class="tag">邻接表</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/t/%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0/"><span class="tag">随机函数</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/c/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/c/2020/%E6%B8%B8%E8%AE%B0/"><span class="level-start"><span class="level-item">游记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/c/%E6%B8%B8%E8%AE%B0/"><span class="level-start"><span class="level-item">游记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/c/%E6%B8%B8%E8%AE%B0/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/c/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/"><span class="level-start"><span class="level-item">题解</span></span><span class="level-end"><span class="level-item tag">22</span></span></a><ul><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/AtCoder/"><span class="level-start"><span class="level-item">AtCoder</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/CodeForces/"><span class="level-start"><span class="level-item">CodeForces</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/Luogu/"><span class="level-start"><span class="level-item">Luogu</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/SPOJ/"><span class="level-start"><span class="level-item">SPOJ</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/UVA/"><span class="level-start"><span class="level-item">UVA</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/c/%E9%A2%98%E8%A7%A3/%E6%80%BB%E9%9B%86/"><span class="level-start"><span class="level-item">总集</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">十一月 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.png" alt="Aksadfjh" height="28"></a><p class="is-size-7"><span>&copy; 2021 Aksadfjh</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
         },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
